@@ -4,14 +4,14 @@ import { ArrowRight, PlayCircle } from 'lucide-react';
 export function HeroSection() {
   return (
     <section className="relative w-full py-24 lg:py-40 overflow-hidden">
-       <div className="absolute inset-0 z-0 animated-gradient animate-gradient-move opacity-40 blur-3xl"></div>
-       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0)_100%)]"></div>
+      <div className="absolute inset-0 z-0 animated-gradient animate-gradient-move opacity-40 blur-3xl"></div>
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0)_100%)]"></div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400 animate-glow [text-shadow:0_0_20px_theme(colors.primary.DEFAULT)]">
           Deja de perder el tiempo en tareas absurdas.
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-glow [text-shadow:0_0_15px_theme(colors.primary.DEFAULT)]">
           GoiLab ayuda a pymes a optimizar sus procesos y herramientas. Menos caos, más foco. Sin complicaciones, sin paja, sin tonterías.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
