@@ -4,7 +4,7 @@ import { ArrowRight, PlayCircle } from 'lucide-react';
 export function HeroSection() {
   return (
     <section className="relative w-full py-24 lg:py-40 overflow-hidden">
-       <div className="absolute inset-0 z-0 animated-gradient animate-gradient-move opacity-30 blur-3xl"></div>
+       <div className="absolute inset-0 z-0 animated-gradient animate-gradient-move opacity-40 blur-3xl"></div>
        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0)_100%)]"></div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
