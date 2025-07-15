@@ -5,40 +5,40 @@ import { Badge } from '@/components/ui/badge';
 
 const plans = [
   {
-    name: 'Esencial',
-    price: '490€',
-    description: 'Perfecto para resolver un problema concreto y ver resultados rápidos.',
+    name: 'Microempresa',
+    price: '840€',
+    description: 'Negocio local con necesidades básicas.',
     features: [
-      'Análisis de 1 proceso clave',
-      'Implementación de 1 herramienta',
-      '2h de formación para el equipo',
-      'Soporte por email durante 1 mes',
+      'Análisis de procesos clave',
+      'Implementación de herramientas esenciales',
+      'Formación inicial',
+      'Soporte por email',
     ],
     isPopular: false,
   },
   {
-    name: 'Profesional',
-    price: '990€',
-    description: 'La solución integral para transformar la operativa de tu negocio.',
+    name: 'PYME operativa',
+    price: '1.700€',
+    description: 'Empresa con varios procesos manuales que desea digitalizar.',
     features: [
-      'Análisis de hasta 3 procesos',
-      'Implementación de suite de herramientas',
-      'Workshop de 4h para el equipo',
-      'Soporte prioritario durante 3 meses',
-      'Dashboard de seguimiento de KPIs',
+      'Análisis de múltiples flujos de trabajo',
+      'Suite de herramientas conectadas',
+      'Workshop avanzado para el equipo',
+      'Soporte prioritario',
+      'Dashboard de seguimiento',
     ],
     isPopular: true,
   },
   {
-    name: 'A medida',
-    price: 'Personalizado',
-    description: 'Una solución única para desafíos complejos y equipos grandes.',
+    name: 'Empresa avanzada',
+    price: '3.600€',
+    description: 'Operación compleja o con IA / integraciones a medida.',
     features: [
-      'Análisis integral de la empresa',
-      'Desarrollo de soluciones a medida',
-      'Formación continua y personalizada',
-      'Acuerdo de Nivel de Servicio (SLA)',
-      'Integraciones con tus sistemas actuales',
+      'Análisis integral y estratégico',
+      'Desarrollo de soluciones personalizadas',
+      'Integración con sistemas existentes (ERP, CRM)',
+      'Formación continua y soporte dedicado',
+      'Implementación de soluciones con IA',
     ],
     isPopular: false,
   },
@@ -51,21 +51,21 @@ export function PricingSection() {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Planes diseñados para tu crecimiento</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
-            Una inversión inteligente en la eficiencia de tu negocio. Elige el plan que te impulse hacia adelante.
+            Una inversión inteligente en la eficiencia de tu negocio. Elige el punto de partida que mejor se adapte a ti.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {plans.map((plan) => (
             <Card key={plan.name} className={`flex flex-col h-full bg-card border border-border/80 transition-all ${plan.isPopular ? 'border-primary ring-2 ring-primary' : 'hover:border-primary/50'}`}>
-              {plan.isPopular && <Badge className="absolute -top-3 right-4 bg-primary text-primary-foreground">Más popular</Badge>}
+              {plan.isPopular && <Badge className="absolute -top-3 right-4 bg-primary text-primary-foreground">Recomendado</Badge>}
               <CardHeader>
                 <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
                 <CardDescription>{plan.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
                 <div className="mb-6">
-                  <span className="text-4xl font-extrabold">{plan.price}</span>
-                  {plan.name !== 'A medida' && <span className="text-muted-foreground"> / pago único</span>}
+                  <span className="text-sm text-muted-foreground">Desde</span>
+                  <span className="text-4xl font-extrabold ml-2">{plan.price}</span>
                 </div>
                 <ul className="space-y-4">
                   {plan.features.map((feature, index) => (
@@ -78,7 +78,7 @@ export function PricingSection() {
               </CardContent>
               <CardFooter>
                 <Button className="w-full text-lg font-semibold" size="lg" variant={plan.isPopular ? 'default' : 'secondary'}>
-                  {plan.name === 'A medida' ? 'Solicitar presupuesto' : 'Empezar ahora'}
+                  Solicitar presupuesto
                 </Button>
               </CardFooter>
             </Card>
