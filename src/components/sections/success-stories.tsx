@@ -48,10 +48,10 @@ export function SuccessStoriesSection() {
   );
 
   return (
-    <section id="casos-de-exito" className="w-full py-16 lg:py-24 bg-secondary">
+    <section id="casos-de-exito" className="w-full py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">Resultados, no promesas</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Resultados, no promesas</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
             Mira cómo hemos ayudado a empresas como la tuya a trabajar de forma más inteligente.
           </p>
@@ -60,35 +60,26 @@ export function SuccessStoriesSection() {
           {categories.map((category) => (
             <Button
               key={category}
-              variant={filter === category ? 'default' : 'outline'}
+              variant={filter === category ? 'default' : 'secondary'}
               onClick={() => setFilter(category)}
+              className="rounded-full"
             >
               {category}
             </Button>
           ))}
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="group bg-background border-2 border-dashed flex flex-col items-center justify-center text-center p-8 hover:border-primary hover:bg-primary/5 transition-all">
-                <PlusCircle className="w-12 h-12 text-muted-foreground group-hover:text-primary mb-4 transition-colors"/>
-                <CardTitle className="text-2xl">Tu empresa aquí</CardTitle>
-                <p className="text-muted-foreground mt-2 mb-4">Conviértete en nuestro próximo caso de éxito.</p>
-                <Button asChild>
-                    <a href="#contacto">
-                        Quiero ser el próximo <ArrowRight className="ml-2 w-4 h-4"/>
-                    </a>
-                </Button>
-            </Card>
           {filteredStories.map((story) => (
              <Dialog key={story.id}>
               <DialogTrigger asChild>
-                <Card className="overflow-hidden cursor-pointer group flex flex-col h-full shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 bg-background">
+                <Card className="overflow-hidden cursor-pointer group flex flex-col h-full bg-card border border-border/80 hover:border-primary/50 transition-all duration-300">
                   <CardHeader className="p-0">
                     <div className="relative h-48 w-full">
                        <Image src={story.imageUrl} alt={story.title} layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" data-ai-hint={story.dataAiHint} />
                     </div>
                   </CardHeader>
                   <CardContent className="p-6 flex-grow">
-                    <Badge variant="outline" className="mb-2">{story.category}</Badge>
+                    <Badge variant="secondary" className="mb-2">{story.category}</Badge>
                     <h3 className="text-xl font-bold">{story.title}</h3>
                     <p className="text-muted-foreground mt-2">{story.summary}</p>
                   </CardContent>
@@ -99,11 +90,11 @@ export function SuccessStoriesSection() {
                   </CardFooter>
                 </Card>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[625px]">
+              <DialogContent className="sm:max-w-[625px] bg-card">
                 <DialogHeader>
-                  <Badge variant="outline" className="mb-2 w-fit">{story.category}</Badge>
+                  <Badge variant="secondary" className="mb-2 w-fit">{story.category}</Badge>
                   <DialogTitle className="text-2xl">{story.title}</DialogTitle>
-                  <DialogDescription>
+                  <DialogDescription className="text-base text-muted-foreground">
                     {story.details}
                   </DialogDescription>
                 </DialogHeader>
@@ -113,6 +104,16 @@ export function SuccessStoriesSection() {
               </DialogContent>
             </Dialog>
           ))}
+            <Card className="group bg-card border-2 border-dashed border-border/50 flex flex-col items-center justify-center text-center p-8 hover:border-primary hover:bg-primary/5 transition-all">
+                <PlusCircle className="w-12 h-12 text-muted-foreground group-hover:text-primary mb-4 transition-colors"/>
+                <CardTitle className="text-2xl">Tu empresa aquí</CardTitle>
+                <p className="text-muted-foreground mt-2 mb-4">Conviértete en nuestro próximo caso de éxito.</p>
+                <Button asChild>
+                    <a href="#contacto">
+                        Quiero ser el próximo <ArrowRight className="ml-2 w-4 h-4"/>
+                    </a>
+                </Button>
+            </Card>
         </div>
       </div>
     </section>

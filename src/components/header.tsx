@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Heart } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { cn } from '@/lib/utils';
@@ -17,25 +17,28 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-        <a href="#" className="font-bold text-lg text-primary">
+        <a href="#" className="font-bold text-xl text-foreground">
           GoiLab
         </a>
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="transition-colors hover:text-primary"
+              className="transition-colors hover:text-foreground"
             >
               {item.label}
             </a>
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-2">
-           <Button asChild>
-            <a href="#contacto">Contactar</a>
+           <Button variant="outline" asChild>
+            <a href="#contacto">
+              <Heart className="w-4 h-4 mr-2"/>
+              Contactar
+            </a>
           </Button>
         </div>
         <div className="md:hidden">
@@ -46,10 +49,10 @@ export function Header() {
                 <span className="sr-only">Abrir menú</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[240px]">
+            <SheetContent side="right" className="w-[240px] bg-background">
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
-                   <a href="#" className="font-bold text-lg text-primary" onClick={() => setIsMobileMenuOpen(false)}>
+                   <a href="#" className="font-bold text-lg text-foreground" onClick={() => setIsMobileMenuOpen(false)}>
                     GoiLab
                   </a>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
@@ -62,7 +65,7 @@ export function Header() {
                     <a
                       key={item.label}
                       href={item.href}
-                      className="transition-colors hover:text-primary"
+                      className="transition-colors hover:text-foreground text-muted-foreground"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.label}

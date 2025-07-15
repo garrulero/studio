@@ -19,18 +19,18 @@ const whatWeDontDo = [
 
 export function AboutUsSection() {
   return (
-    <section id="sobre-nosotros" className="w-full py-16 lg:py-24 bg-secondary">
+    <section id="sobre-nosotros" className="w-full py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">Así somos en GoiLab</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Así somos en GoiLab</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
             Creemos en la honestidad radical y en el trabajo bien hecho. Sin rodeos.
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
-          <Card className="bg-background">
+          <Card className="bg-card border border-border/80">
             <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl text-green-700">
+              <CardTitle className="flex items-center gap-3 text-2xl text-green-400">
                 <CheckCircle2 className="w-8 h-8" />
                 Lo que SÍ hacemos
               </CardTitle>
@@ -46,9 +46,9 @@ export function AboutUsSection() {
               </ul>
             </CardContent>
           </Card>
-          <Card className="bg-background">
+          <Card className="bg-card border border-border/80">
             <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl text-red-700">
+              <CardTitle className="flex items-center gap-3 text-2xl text-red-500">
                 <XCircle className="w-8 h-8" />
                 Lo que NO hacemos
               </CardTitle>
