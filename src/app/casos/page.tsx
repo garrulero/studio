@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -84,7 +85,7 @@ export default function CasosPage() {
           </div>
           <div id="galeria-casos" className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCases.map((story) => (
-              <Card key={story.titulo} className="bg-card border-border/20 flex flex-col p-6 rounded-lg transition-all shadow-lg shadow-primary/10 hover:shadow-primary/20">
+              <Card key={story.titulo} className="bg-card border-border flex flex-col p-6 rounded-lg transition-all hover:border-primary/80">
                 <CardContent className="p-0 flex flex-col flex-grow">
                   <Badge variant="secondary" className="mb-4 self-start">{story.area}</Badge>
                   <h3 className="text-xl font-bold mb-2">{story.titulo}</h3>
