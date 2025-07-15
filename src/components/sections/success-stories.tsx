@@ -51,9 +51,9 @@ export function SuccessStoriesSection() {
     <section id="casos-de-exito" className="w-full py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Resultados, no promesas</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Resultados reales, no solo promesas</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
-            Mira cómo hemos ayudado a empresas como la tuya a trabajar de forma más inteligente.
+            Descubre cómo hemos ayudado a empresas como la tuya a trabajar de una forma más inteligente y eficiente.
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-2 mb-10">
@@ -85,7 +85,7 @@ export function SuccessStoriesSection() {
                   </CardContent>
                    <CardFooter>
                      <span className="text-sm font-semibold text-primary group-hover:underline">
-                        Ver detalles <ArrowRight className="inline-block ml-1 w-4 h-4"/>
+                        Leer historia completa <ArrowRight className="inline-block ml-1 w-4 h-4"/>
                     </span>
                   </CardFooter>
                 </Card>
@@ -106,11 +106,11 @@ export function SuccessStoriesSection() {
           ))}
             <Card className="group bg-card border-2 border-dashed border-border/50 flex flex-col items-center justify-center text-center p-8 hover:border-primary hover:bg-primary/5 transition-all">
                 <PlusCircle className="w-12 h-12 text-muted-foreground group-hover:text-primary mb-4 transition-colors"/>
-                <CardTitle className="text-2xl">Tu empresa aquí</CardTitle>
-                <p className="text-muted-foreground mt-2 mb-4">Conviértete en nuestro próximo caso de éxito.</p>
+                <CardTitle className="text-2xl">Tu empresa puede ser la siguiente</CardTitle>
+                <p className="text-muted-foreground mt-2 mb-4">Convirtamos tus desafíos en nuestro próximo caso de éxito.</p>
                 <Button asChild>
                     <a href="#contacto">
-                        Quiero ser el próximo <ArrowRight className="ml-2 w-4 h-4"/>
+                        Empezar la conversación <ArrowRight className="ml-2 w-4 h-4"/>
                     </a>
                 </Button>
             </Card>

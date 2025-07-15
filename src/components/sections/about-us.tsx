@@ -2,19 +2,19 @@ import { CheckCircle2, XCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const whatWeDo = [
-  'Escuchamos para entender tu negocio a fondo.',
-  'Proponemos soluciones sencillas y efectivas.',
-  'Implementamos herramientas que realmente usarás.',
-  'Te formamos para que seas 100% autónomo.',
-  'Nos enfocamos en resultados medibles y rápidos.',
+  'Nos sumergimos en tu negocio para entender tus verdaderos retos.',
+  'Diseñamos soluciones simples, efectivas y a tu medida.',
+  'Implementamos solo las herramientas que tu equipo adoptará con facilidad.',
+  'Te capacitamos para que tengas total autonomía y control.',
+  'Nos obsesionamos con entregar resultados rápidos y medibles.',
 ];
 
 const whatWeDontDo = [
-  'Venderte humo con jerga tecnológica incomprensible.',
-  'Crear procesos complejos que nadie entiende.',
-  'Atarte a nosotros con contratos de permanencia.',
-  'Desaparecer una vez hemos cobrado.',
-  'Ofrecer soluciones genéricas que no se adaptan a ti.',
+  'Utilizar jerga técnica para parecer más inteligentes.',
+  'Proponer sistemas innecesariamente complejos.',
+  'Atarte con contratos de permanencia o costes ocultos.',
+  'Desaparecer después de la implementación.',
+  'Ofrecer la misma solución a problemas diferentes.',
 ];
 
 export function AboutUsSection() {
@@ -22,9 +22,9 @@ export function AboutUsSection() {
     <section id="sobre-nosotros" className="w-full py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Así somos en GoiLab</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Nuestra promesa: Claridad y Resultados</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
-            Creemos en la honestidad radical y en el trabajo bien hecho. Sin rodeos.
+            Creemos en una colaboración honesta y un trabajo que habla por sí mismo.
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
@@ -32,7 +32,7 @@ export function AboutUsSection() {
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-2xl text-green-400">
                 <CheckCircle2 className="w-8 h-8" />
-                Lo que SÍ hacemos
+                Nuestro Compromiso
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -50,7 +50,7 @@ export function AboutUsSection() {
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-2xl text-red-500">
                 <XCircle className="w-8 h-8" />
-                Lo que NO hacemos
+                Lo que Evitamos
               </CardTitle>
             </CardHeader>
             <CardContent>

@@ -5,40 +5,40 @@ import { Badge } from '@/components/ui/badge';
 
 const plans = [
   {
-    name: 'Básico',
+    name: 'Esencial',
     price: '490€',
-    description: 'Para poner en orden una área específica de tu negocio.',
+    description: 'Perfecto para resolver un problema concreto y ver resultados rápidos.',
     features: [
       'Análisis de 1 proceso clave',
       'Implementación de 1 herramienta',
       '2h de formación para el equipo',
-      'Soporte por email 1 mes',
+      'Soporte por email durante 1 mes',
     ],
     isPopular: false,
   },
   {
-    name: 'Pro',
+    name: 'Profesional',
     price: '990€',
-    description: 'La solución completa para la mayoría de pymes.',
+    description: 'La solución integral para transformar la operativa de tu negocio.',
     features: [
       'Análisis de hasta 3 procesos',
       'Implementación de suite de herramientas',
       'Workshop de 4h para el equipo',
-      'Soporte prioritario 3 meses',
-      'Dashboard de seguimiento',
+      'Soporte prioritario durante 3 meses',
+      'Dashboard de seguimiento de KPIs',
     ],
     isPopular: true,
   },
   {
-    name: 'Empresa',
-    price: 'A medida',
-    description: 'Para necesidades complejas y equipos grandes.',
+    name: 'A medida',
+    price: 'Personalizado',
+    description: 'Una solución única para desafíos complejos y equipos grandes.',
     features: [
       'Análisis integral de la empresa',
       'Desarrollo de soluciones a medida',
       'Formación continua y personalizada',
-      'Soporte dedicado y SLA',
-      'Integraciones con sistemas existentes',
+      'Acuerdo de Nivel de Servicio (SLA)',
+      'Integraciones con tus sistemas actuales',
     ],
     isPopular: false,
   },
@@ -49,9 +49,9 @@ export function PricingSection() {
     <section id="tarifas" className="w-full py-16 lg:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Tarifas claras y sin sorpresas</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Planes diseñados para tu crecimiento</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
-            Invierte en eficiencia. Elige el plan que se adapta a ti y empieza a recuperar tu tiempo.
+            Una inversión inteligente en la eficiencia de tu negocio. Elige el plan que te impulse hacia adelante.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
@@ -65,7 +65,7 @@ export function PricingSection() {
               <CardContent className="flex-grow">
                 <div className="mb-6">
                   <span className="text-4xl font-extrabold">{plan.price}</span>
-                  {plan.name !== 'Empresa' && <span className="text-muted-foreground"> / pago único</span>}
+                  {plan.name !== 'A medida' && <span className="text-muted-foreground"> / pago único</span>}
                 </div>
                 <ul className="space-y-4">
                   {plan.features.map((feature, index) => (
@@ -78,7 +78,7 @@ export function PricingSection() {
               </CardContent>
               <CardFooter>
                 <Button className="w-full text-lg font-semibold" size="lg" variant={plan.isPopular ? 'default' : 'secondary'}>
-                  {plan.name === 'Empresa' ? 'Contactar' : 'Empezar ahora'}
+                  {plan.name === 'A medida' ? 'Solicitar presupuesto' : 'Empezar ahora'}
                 </Button>
               </CardFooter>
             </Card>
@@ -87,8 +87,8 @@ export function PricingSection() {
         <div className="mt-12 text-center">
             <Card className="max-w-2xl mx-auto bg-card border border-border/80">
                 <CardContent className="p-6">
-                    <p className="font-semibold">¿ROI? Visible desde el primer mes.</p>
-                    <p className="text-muted-foreground text-sm">Nuestros clientes suelen ahorrar una media de 10 horas por empleado a la semana. <br/> ¡Haz las cuentas!</p>
+                    <p className="font-semibold">¿El retorno de la inversión? Lo notarás desde el primer mes.</p>
+                    <p className="text-muted-foreground text-sm">Nuestros clientes ahorran una media de 10 horas semanales por empleado. <br/> ¡Imagina lo que podrías hacer con ese tiempo!</p>
                 </CardContent>
             </Card>
         </div>

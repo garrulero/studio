@@ -9,8 +9,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'GoiLab - Optimizamos tu forma de trabajar',
-  description: 'GoiLab ayuda a pequeñas empresas a poner orden en su forma de trabajar. Sin complicaciones, sin paja, sin tonterías.',
+  title: 'GoiLab - Transforma tu forma de trabajar',
+  description: 'Ayudamos a pymes como la tuya a optimizar procesos y herramientas para que puedas enfocarte en crecer. Menos caos, más claridad.',
 };
 
 export default function RootLayout({

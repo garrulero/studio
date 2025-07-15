@@ -7,9 +7,9 @@ export function ContactSection() {
     <section id="contacto" className="w-full py-16 lg:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">¿Hablamos?</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">¿Listo para el siguiente paso?</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
-            Estamos listos para escuchar tus retos y encontrar juntos una solución. Sin compromiso.
+            Hablemos sobre tus desafíos y exploremos juntos cómo podemos ayudarte. Sin compromiso.
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
@@ -48,8 +48,8 @@ export function ContactSection() {
                 </div>
               </div>
               <div className="bg-secondary p-8 rounded-b-lg md:rounded-r-lg md:rounded-bl-none flex flex-col justify-center items-center text-center">
-                  <h3 className="text-2xl font-bold mb-4">¿Prefieres agendar una llamada?</h3>
-                  <p className="text-muted-foreground mb-6">Elige el momento que mejor te venga y te llamamos para una consultoría gratuita de 15 minutos.</p>
+                  <h3 className="text-2xl font-bold mb-4">Agenda una consultoría gratuita</h3>
+                  <p className="text-muted-foreground mb-6">Reserva 15 minutos en nuestro calendario. Escucharemos tus necesidades y te daremos una primera valoración honesta.</p>
                   <Button size="lg" asChild className="font-semibold">
                     <a href="#" target="_blank" rel="noopener noreferrer">
                       Agendar ahora <ArrowRight className="ml-2 w-5 h-5" />

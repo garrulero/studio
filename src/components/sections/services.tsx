@@ -5,17 +5,17 @@ const services = [
   {
     icon: Workflow,
     title: 'Optimización de Procesos',
-    description: 'Analizamos cómo trabajas y eliminamos los cuellos de botella para que todo fluya sin fricciones. Menos caos, más productividad.',
+    description: 'Analizamos tus flujos de trabajo para eliminar cuellos de botella y hacer que tu equipo sea más ágil y productivo.',
   },
   {
     icon: Rocket,
-    title: 'Implementación de Herramientas',
-    description: 'Seleccionamos e integramos las herramientas digitales justas y necesarias para tu equipo. Ni más, ni menos. Solo lo que funciona.',
+    title: 'Implementación Inteligente',
+    description: 'Seleccionamos e integramos las herramientas digitales perfectas para ti. Ni más, ni menos. Solo las que generan impacto.',
   },
   {
     icon: LifeBuoy,
-    title: 'Formación y Soporte',
-    description: 'No te dejamos solo. Formamos a tu equipo para que domine las nuevas herramientas y te damos soporte para resolver cualquier duda.',
+    title: 'Formación y Soporte Continuo',
+    description: 'Empoderamos a tu equipo para que domine las nuevas herramientas y te acompañamos para asegurar el éxito a largo plazo.',
   },
 ];
 
@@ -24,9 +24,9 @@ export function ServicesSection() {
     <section id="servicios" className="w-full py-16 lg:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">¿Cómo te ayudamos?</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Soluciones para llevar tu negocio al siguiente nivel</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
-            Nos centramos en tres pilares para transformar tu forma de trabajar.
+            Nos enfocamos en tres áreas clave para transformar tu manera de trabajar.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
