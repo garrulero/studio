@@ -105,8 +105,8 @@ export function PricingSection() {
         <div className="mt-12 text-center">
             <Card className="max-w-2xl mx-auto bg-card border border-border/80">
                 <CardContent className="p-6">
-                    <p className="font-semibold">¿El retorno de la inversión? Lo notarás desde el primer mes.</p>
-                    <p className="text-muted-foreground text-sm">Nuestros clientes ahorran una media de 10 horas semanales por empleado. <br/> ¡Imagina lo que podrías hacer con ese tiempo!</p>
+                    <p className="font-semibold">Una inversión centrada en resultados tangibles.</p>
+                    <p className="text-muted-foreground text-sm">Nuestro objetivo es que recuperes tiempo valioso y optimices tus recursos. El valor real está en la claridad y eficiencia que ganas.</p>
                 </CardContent>
             </Card>
         </div>
