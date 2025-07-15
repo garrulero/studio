@@ -5,21 +5,21 @@ import { Badge } from '@/components/ui/badge';
 
 const plans = [
   {
-    name: 'Microempresa',
+    name: 'Optimización Esencial',
     price: '840€',
-    description: 'Negocio local con necesidades básicas.',
+    description: 'Ideal para resolver un problema específico y obtener resultados rápidos.',
     features: [
-      'Análisis de procesos clave',
-      'Implementación de herramientas esenciales',
-      'Formación inicial',
+      'Análisis de un proceso clave',
+      'Implementación de una herramienta focalizada',
+      'Formación inicial para el equipo',
       'Soporte por email',
     ],
     isPopular: false,
   },
   {
-    name: 'PYME operativa',
+    name: 'Transformación Digital',
     price: '1.700€',
-    description: 'Empresa con varios procesos manuales que desea digitalizar.',
+    description: 'Para digitalizar y conectar varios procesos manuales de tu operativa.',
     features: [
       'Análisis de múltiples flujos de trabajo',
       'Suite de herramientas conectadas',
@@ -30,9 +30,9 @@ const plans = [
     isPopular: true,
   },
   {
-    name: 'Empresa avanzada',
+    name: 'Solución a Medida con IA',
     price: '3.600€',
-    description: 'Operación compleja o con IA / integraciones a medida.',
+    description: 'Para proyectos complejos que requieren integraciones o soluciones con IA.',
     features: [
       'Análisis integral y estratégico',
       'Desarrollo de soluciones personalizadas',
