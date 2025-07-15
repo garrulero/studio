@@ -22,7 +22,7 @@ export function AboutUsSection() {
     <section id="sobre-nosotros" className="w-full py-16 lg:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline">Así somos en GoiLab</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Así somos en GoiLab</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
             Creemos en la honestidad radical y en el trabajo bien hecho. Sin rodeos.
           </p>
@@ -30,7 +30,7 @@ export function AboutUsSection() {
         <div className="grid md:grid-cols-2 gap-8">
           <Card className="bg-background">
             <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl text-green-600">
+              <CardTitle className="flex items-center gap-3 text-2xl text-green-700">
                 <CheckCircle2 className="w-8 h-8" />
                 Lo que SÍ hacemos
               </CardTitle>
@@ -48,7 +48,7 @@ export function AboutUsSection() {
           </Card>
           <Card className="bg-background">
             <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl text-red-600">
+              <CardTitle className="flex items-center gap-3 text-2xl text-red-700">
                 <XCircle className="w-8 h-8" />
                 Lo que NO hacemos
               </CardTitle>

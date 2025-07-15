@@ -14,7 +14,7 @@ export function HeroSection() {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               ¿Sientes que pierdes tiempo en tareas absurdas?
             </h1>
             <h2 className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0">
@@ -33,7 +33,7 @@ export function HeroSection() {
             {painPoints.map((point, index) => (
               <Card key={index} className="bg-secondary border-l-4 border-primary shadow-sm">
                 <CardContent className="p-6 flex items-start gap-4">
-                  <Quote className="w-8 h-8 text-primary shrink-0 transform -scale-x-100" />
+                  <Quote className="w-8 h-8 text-primary shrink-0 transform -scale-x-100 fill-current" />
                   <p className="font-medium text-foreground/90 italic">"{point}"</p>
                 </CardContent>
               </Card>

@@ -46,17 +46,17 @@ const plans = [
 
 export function PricingSection() {
   return (
-    <section id="tarifas" className="w-full py-16 lg:py-24">
+    <section id="tarifas" className="w-full py-16 lg:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline">Tarifas claras y sin sorpresas</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Tarifas claras y sin sorpresas</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
             Invierte en eficiencia. Elige el plan que se adapta a ti y empieza a recuperar tu tiempo.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {plans.map((plan) => (
-            <Card key={plan.name} className={`flex flex-col h-full ${plan.isPopular ? 'border-primary ring-2 ring-primary bg-secondary' : 'bg-secondary'}`}>
+            <Card key={plan.name} className={`flex flex-col h-full ${plan.isPopular ? 'border-primary ring-2 ring-primary bg-background' : 'bg-background'}`}>
               {plan.isPopular && <Badge className="absolute -top-3 right-4">Más popular</Badge>}
               <CardHeader>
                 <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
@@ -70,7 +70,7 @@ export function PricingSection() {
                 <ul className="space-y-4">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-green-500" />
+                      <Check className="w-5 h-5 text-green-600" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -85,7 +85,7 @@ export function PricingSection() {
           ))}
         </div>
         <div className="mt-12 text-center">
-            <Card className="max-w-2xl mx-auto bg-secondary">
+            <Card className="max-w-2xl mx-auto bg-background/50">
                 <CardContent className="p-6">
                     <p className="font-semibold">¿ROI? Visible desde el primer mes.</p>
                     <p className="text-muted-foreground text-sm">Nuestros clientes suelen ahorrar una media de 10 horas por empleado a la semana. <br/> ¡Haz las cuentas!</p>

@@ -48,10 +48,10 @@ export function SuccessStoriesSection() {
   );
 
   return (
-    <section id="casos-de-exito" className="w-full py-16 lg:py-24">
+    <section id="casos-de-exito" className="w-full py-16 lg:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline">Resultados, no promesas</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Resultados, no promesas</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
             Mira cómo hemos ayudado a empresas como la tuya a trabajar de forma más inteligente.
           </p>
@@ -68,7 +68,7 @@ export function SuccessStoriesSection() {
           ))}
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="group bg-secondary border-2 border-dashed flex flex-col items-center justify-center text-center p-8 hover:border-primary hover:bg-primary/5 transition-all">
+            <Card className="group bg-background border-2 border-dashed flex flex-col items-center justify-center text-center p-8 hover:border-primary hover:bg-primary/5 transition-all">
                 <PlusCircle className="w-12 h-12 text-muted-foreground group-hover:text-primary mb-4 transition-colors"/>
                 <CardTitle className="text-2xl">Tu empresa aquí</CardTitle>
                 <p className="text-muted-foreground mt-2 mb-4">Conviértete en nuestro próximo caso de éxito.</p>
@@ -81,15 +81,15 @@ export function SuccessStoriesSection() {
           {filteredStories.map((story) => (
              <Dialog key={story.id}>
               <DialogTrigger asChild>
-                <Card className="overflow-hidden cursor-pointer group flex flex-col h-full shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                <Card className="overflow-hidden cursor-pointer group flex flex-col h-full shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 bg-background">
                   <CardHeader className="p-0">
                     <div className="relative h-48 w-full">
                        <Image src={story.imageUrl} alt={story.title} layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" data-ai-hint={story.dataAiHint} />
                     </div>
                   </CardHeader>
                   <CardContent className="p-6 flex-grow">
-                    <Badge variant="secondary" className="mb-2">{story.category}</Badge>
-                    <h3 className="text-xl font-bold font-headline">{story.title}</h3>
+                    <Badge variant="outline" className="mb-2">{story.category}</Badge>
+                    <h3 className="text-xl font-bold">{story.title}</h3>
                     <p className="text-muted-foreground mt-2">{story.summary}</p>
                   </CardContent>
                    <CardFooter>
@@ -101,7 +101,7 @@ export function SuccessStoriesSection() {
               </DialogTrigger>
               <DialogContent className="sm:max-w-[625px]">
                 <DialogHeader>
-                  <Badge variant="secondary" className="mb-2 w-fit">{story.category}</Badge>
+                  <Badge variant="outline" className="mb-2 w-fit">{story.category}</Badge>
                   <DialogTitle className="text-2xl">{story.title}</DialogTitle>
                   <DialogDescription>
                     {story.details}

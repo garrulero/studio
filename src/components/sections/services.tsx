@@ -21,17 +21,17 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="servicios" className="w-full py-16 lg:py-24 bg-secondary">
+    <section id="servicios" className="w-full py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline">¿Cómo te ayudamos?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">¿Cómo te ayudamos?</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
             Nos centramos en tres pilares para transformar tu forma de trabajar.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="text-center bg-background shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+            <Card key={index} className="text-center bg-secondary shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
               <CardHeader className="items-center">
                 <div className="bg-primary/10 p-4 rounded-full mb-4">
                   <service.icon className="w-10 h-10 text-primary" />
