@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { Check, ShieldCheck } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 const plans = [
@@ -42,6 +42,24 @@ const plans = [
     ],
     isPopular: false,
   },
+];
+
+const supportTiers = [
+    {
+        name: "Básico",
+        price: "90€",
+        description: "Proyectos de optimización esencial.",
+    },
+    {
+        name: "Pro",
+        price: "120€",
+        description: "Proyectos de transformación digital.",
+    },
+    {
+        name: "Avanzado",
+        price: "180€",
+        description: "Proyectos con IA o integraciones complejas.",
+    }
 ];
 
 export function PricingSection() {
@@ -92,6 +110,35 @@ export function PricingSection() {
                 </CardContent>
             </Card>
         </div>
+        
+        <div className="mt-20 text-center">
+            <div className="max-w-4xl mx-auto">
+                <h3 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center justify-center gap-3">
+                    <ShieldCheck className="w-8 h-8 text-primary" />
+                    Soporte y Mantenimiento Mensual
+                </h3>
+                <p className="text-muted-foreground mt-4 max-w-3xl mx-auto">
+                    Para garantizar que tu solución funciona siempre a pleno rendimiento, cada proyecto incluye un plan de soporte mensual obligatorio. Este plan se asigna automáticamente según la complejidad del proyecto, no es seleccionable.
+                </p>
+                <div className="grid sm:grid-cols-3 gap-6 mt-10">
+                    {supportTiers.map(tier => (
+                         <Card key={tier.name} className="bg-card border-border/80">
+                            <CardHeader>
+                                <CardTitle className="text-xl">{tier.name}</CardTitle>
+                                <CardDescription>{tier.description}</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-3xl font-bold">{tier.price}<span className="text-sm font-normal text-muted-foreground">/mes</span></p>
+                            </CardContent>
+                         </Card>
+                    ))}
+                </div>
+                <p className="text-xs text-muted-foreground mt-6">
+                    La cancelación del soporte implica la pérdida de acceso al sistema tras 30 días (se entregará una copia de seguridad completa de tus datos si la solicitas).
+                </p>
+            </div>
+        </div>
+
       </div>
     </section>
   );
