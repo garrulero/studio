@@ -30,15 +30,15 @@ const plans = [
     isPopular: true,
   },
   {
-    name: 'Solución a Medida con IA',
+    name: 'Solución a Medida',
     price: '3.600€',
-    description: 'Para proyectos complejos que requieren integraciones o soluciones con IA.',
+    description: 'Para proyectos complejos que requieren integraciones o soluciones a medida.',
     features: [
       'Análisis integral y estratégico',
       'Desarrollo de soluciones personalizadas',
       'Integración con sistemas existentes (ERP, CRM)',
       'Formación continua y soporte dedicado',
-      'Implementación de soluciones con IA',
+      'Soluciones avanzadas y automatizaciones',
     ],
     isPopular: false,
   },
@@ -58,7 +58,7 @@ const supportTiers = [
     {
         name: "Avanzado",
         price: "180€",
-        description: "Proyectos con IA o integraciones complejas.",
+        description: "Proyectos con integraciones complejas.",
     }
 ];
 
