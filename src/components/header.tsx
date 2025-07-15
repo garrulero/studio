@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { Menu, X, Heart } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const navItems = [
-  { href: '#servicios', label: 'Servicios' },
-  { href: '#casos-de-exito', label: 'Casos de Éxito' },
-  { href: '#tarifas', label: 'Tarifas' },
-  { href: '#sobre-nosotros', label: 'Sobre Nosotros' },
+  { href: '/#servicios', label: 'Servicios' },
+  { href: '/casos', label: 'Casos' },
+  { href: '/#tarifas', label: 'Tarifas' },
+  { href: '/#sobre-nosotros', label: 'Sobre Nosotros' },
 ];
 
 export function Header() {
@@ -19,26 +19,26 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-        <a href="#" className="font-bold text-xl text-foreground">
+        <Link href="/" className="font-bold text-xl text-foreground">
           GoiLab
-        </a>
+        </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
               className="transition-colors hover:text-foreground"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-2">
-           <Button variant="outline" asChild>
-            <a href="#contacto">
-              <Heart className="w-4 h-4 mr-2"/>
+          <Button asChild className="bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white">
+            <Link href="/#contacto">
+              <Heart className="w-4 h-4 mr-2" />
               Contactar
-            </a>
+            </Link>
           </Button>
         </div>
         <div className="md:hidden">
@@ -52,9 +52,9 @@ export function Header() {
             <SheetContent side="right" className="w-[240px] bg-background">
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
-                   <a href="#" className="font-bold text-lg text-foreground" onClick={() => setIsMobileMenuOpen(false)}>
+                   <Link href="/" className="font-bold text-lg text-foreground" onClick={() => setIsMobileMenuOpen(false)}>
                     GoiLab
-                  </a>
+                  </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                     <X className="h-6 w-6" />
                     <span className="sr-only">Cerrar menú</span>
@@ -62,19 +62,19 @@ export function Header() {
                 </div>
                 <nav className="flex flex-col gap-4 p-4 text-lg">
                   {navItems.map((item) => (
-                    <a
+                    <Link
                       key={item.label}
                       href={item.href}
                       className="transition-colors hover:text-foreground text-muted-foreground"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   ))}
                 </nav>
                 <div className="mt-auto p-4 border-t">
-                  <Button asChild className="w-full">
-                    <a href="#contacto" onClick={() => setIsMobileMenuOpen(false)}>Contactar</a>
+                  <Button asChild className="w-full bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white">
+                    <Link href="/#contacto" onClick={() => setIsMobileMenuOpen(false)}>Contactar</Link>
                   </Button>
                 </div>
               </div>

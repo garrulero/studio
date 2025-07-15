@@ -1,10 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export function HeroSection() {
   return (
     <section className="relative w-full py-24 lg:py-40 overflow-hidden">
-      <div className="absolute inset-0 z-0 animated-gradient animate-gradient-move opacity-70 blur-3xl"></div>
+      <div className="absolute inset-0 z-0 animated-gradient opacity-70 blur-3xl"></div>
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0)_100%)]"></div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
@@ -15,16 +16,16 @@ export function HeroSection() {
           Optimizamos los procesos y herramientas de tu pyme para que dejes atrás el caos y te dediques a lo que de verdad importa.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="bg-gradient-to-br from-primary via-purple-500 to-fuchsia-500 text-primary-foreground font-semibold text-lg shadow-lg hover:shadow-primary/40 transition-shadow duration-300">
-            <a href="#tarifas">
+           <Button size="lg" asChild className="bg-gradient-to-br from-primary via-purple-500 to-fuchsia-500 text-primary-foreground font-semibold text-lg shadow-lg hover:shadow-primary/40 transition-shadow duration-300">
+            <Link href="/#tarifas">
               Descubre cómo <ArrowRight className="inline-block ml-2 w-5 h-5" />
-            </a>
+            </Link>
           </Button>
           <Button size="lg" variant="secondary" asChild className="text-lg font-semibold bg-secondary/80 hover:bg-secondary">
-            <a href="#casos-de-exito">
+            <Link href="/casos">
               <PlayCircle className="mr-2 w-5 h-5"/>
-              Ver casos de éxito
-            </a>
+              Ver casos
+            </Link>
           </Button>
         </div>
       </div>

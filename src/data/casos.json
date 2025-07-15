@@ -1,0 +1,65 @@
+[
+  {
+    "titulo": "Gestoría local: papeles por todas partes",
+    "resumen": "Clientes enviaban documentos por todos los canales posibles, generando un caos que hacía perder tiempo y provocaba errores.",
+    "area": "Documentación",
+    "problemas": ["#todo-en-whatsapp", "#archivos-perdidos", "#papeles", "#desorden"],
+    "antes": "Cada cliente entregaba documentos como quería: WhatsApp, papel, email… Era imposible seguir un orden.",
+    "despues": "Se implantó un checklist claro y una única vía de recepción de documentos con recordatorios automáticos.",
+    "resultado": "Ahora todo entra ordenado, se ahorra tiempo cada día y la imagen que percibe el cliente es mucho más profesional."
+  },
+  {
+    "titulo": "Taller mecánico: pedidos descontrolados",
+    "resumen": "Llamaban uno a uno a proveedores cada vez que necesitaban piezas, sin un criterio claro ni control sobre los precios.",
+    "area": "Control de tareas",
+    "problemas": ["#pedidos-en-papel", "#tiempo-perdido", "#duplicar-tareas"],
+    "antes": "Buscaban precios y disponibilidad llamando manualmente a varios proveedores cada vez que entraba un coche.",
+    "despues": "Crearon una tabla compartida con precios y contactos actualizados, accesible desde el móvil para todo el equipo.",
+    "resultado": "Ahorro de horas semanales en llamadas, mejores decisiones de compra y un historial de pedidos accesible."
+  },
+  {
+    "titulo": "Clínica dental: citas que se olvidan",
+    "resumen": "La comunicación con los pacientes era manual, resultando en citas olvidadas y huecos en la agenda.",
+    "area": "Atención al cliente",
+    "problemas": ["#no-show", "#agenda-vacia", "#llamadas-manuales"],
+    "antes": "Recordaban las citas por teléfono un día antes, un proceso tedioso y poco efectivo.",
+    "despues": "Se configuró un sistema de recordatorios automáticos por WhatsApp 48h y 24h antes de la cita.",
+    "resultado": "Reducción del 70% en citas no asistidas y una agenda mucho más optimizada."
+  },
+  {
+    "titulo": "Equipo de diseño: feedback por 5 sitios",
+    "resumen": "Las correcciones de los diseños llegaban por email, Slack, WhatsApp... Un caos para hacer el seguimiento.",
+    "area": "Comunicación interna",
+    "problemas": ["#feedback-desordenado", "#versiones-antiguas", "#retrabajo"],
+    "antes": "Cada miembro del equipo de diseño recibía feedback por canales diferentes, provocando confusiones y usando versiones antiguas.",
+    "despues": "Se centralizó toda la comunicación sobre proyectos en una única herramienta, con comentarios directamente sobre las imágenes.",
+    "resultado": "El proceso de revisión es ahora un 50% más rápido y se han eliminado los errores por usar versiones incorrectas."
+  },
+  {
+    "titulo": "Consultor independiente: ¿en qué gasté las horas?",
+    "resumen": "No llevaba un control del tiempo dedicado a cada cliente, dificultando la facturación y la planificación.",
+    "area": "Gestión del tiempo",
+    "problemas": ["#horas-no-facturadas", "#sin-control", "#planificacion-imposible"],
+    "antes": "Calculaba las horas 'a ojo' al final de mes, con el riesgo de olvidar tareas y regalar tiempo.",
+    "despues": "Implementó una app de seguimiento de tiempo sencilla que se integra con su sistema de facturación.",
+    "resultado": "Factura un 15% más de horas que antes se perdían y puede planificar su carga de trabajo de forma realista."
+  },
+    {
+    "titulo": "Startup tecnológica: seguimiento de proyectos a ciegas",
+    "resumen": "El equipo no tenía una visión clara del estado de las tareas, generando reuniones constantes para alinearse.",
+    "area": "Seguimiento",
+    "problemas": ["#reuniones-excesivas", "#falta-de-visibilidad", "#plazos-incumplidos"],
+    "antes": "Las actualizaciones de estado se daban verbalmente en reuniones diarias que consumían mucho tiempo.",
+    "despues": "Se adoptó un tablero Kanban digital donde cada tarea es visible y su estado se actualiza en tiempo real.",
+    "resultado": "Reuniones más cortas y productivas, mayor autonomía del equipo y una visión clara del progreso para la dirección."
+  },
+  {
+    "titulo": "Pequeña constructora: desorganización en obra",
+    "resumen": "Los planos, permisos y comunicaciones con el equipo de obra estaban dispersos, causando retrasos y sobrecostes.",
+    "area": "Organización",
+    "problemas": ["#documentos-desactualizados", "#mala-comunicacion", "#retrasos-obra"],
+    "antes": "Se usaban grupos de WhatsApp para todo, mezclando fotos de obra con conversaciones informales y perdiendo información clave.",
+    "despues": "Se creó una carpeta compartida en la nube, accesible desde el móvil, con toda la documentación organizada por proyecto.",
+    "resultado": "Todo el equipo accede siempre a la última versión de los planos y la comunicación está ordenada, evitando errores costosos."
+  }
+]
