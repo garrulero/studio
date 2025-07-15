@@ -9,6 +9,8 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import casesData from '@/data/casos.json';
+import { Separator } from '@/components/ui/separator';
+import { ArrowRight } from 'lucide-react';
 
 const areas = [
   'Todos',
@@ -34,21 +36,29 @@ interface Case {
 export default function CasosPage() {
   const [filter, setFilter] = useState('Todos');
   const [selectedCase, setSelectedCase] = useState<Case | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
 
   const filteredCases = casesData.filter(
     (story) => filter === 'Todos' || story.area === filter
   );
 
-  const handleOpenModal = (caseItem: Case) => {
+  const handleOpenContactModal = (caseItem: Case) => {
     setSelectedCase(caseItem);
-    setIsModalOpen(true);
+    setIsContactModalOpen(true);
+  };
+  
+  const handleOpenDetailsModal = (caseItem: Case) => {
+    setSelectedCase(caseItem);
+    setIsDetailsModalOpen(true);
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const handleCloseModals = () => {
+    setIsContactModalOpen(false);
+    setIsDetailsModalOpen(false);
     setSelectedCase(null);
   };
+
 
   return (
     <>
@@ -84,9 +94,14 @@ export default function CasosPage() {
                       <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
                     ))}
                   </div>
-                  <Button onClick={() => handleOpenModal(story)} className="w-full mt-auto bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white">
-                    ¿Quieres esta solución?
-                  </Button>
+                  <div className="flex flex-col sm:flex-row gap-2 mt-auto">
+                    <Button onClick={() => handleOpenDetailsModal(story)} variant="secondary" className="w-full">
+                      Ver detalles
+                    </Button>
+                    <Button onClick={() => handleOpenContactModal(story)} className="w-full bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white">
+                      ¿Quieres esta solución?
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -95,44 +110,76 @@ export default function CasosPage() {
       </section>
       
       {selectedCase && (
-        <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-            <DialogContent className="sm:max-w-[425px] bg-card border-border/20">
+        <>
+          <Dialog open={isDetailsModalOpen} onOpenChange={(isOpen) => !isOpen && handleCloseModals()}>
+            <DialogContent className="sm:max-w-xl bg-card border-border/20 text-foreground">
                 <DialogHeader>
-                    <DialogTitle>Contacto</DialogTitle>
-                    <DialogDescription>
-                        Nos alegra que te sientas identificado. Déjanos tus datos y nos pondremos en contacto.
-                    </DialogDescription>
+                    <DialogTitle className="text-2xl font-bold">{selectedCase.titulo}</DialogTitle>
                 </DialogHeader>
-                <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="name" className="text-right">
-                            Nombre
-                        </Label>
-                        <Input id="name" className="col-span-3" />
-                    </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="email" className="text-right">
-                            Email
-                        </Label>
-                        <Input id="email" type="email" className="col-span-3" />
-                    </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="message" className="text-right">
-                            Mensaje
-                        </Label>
-                        <Textarea
-                            id="message"
-                            className="col-span-3 min-h-[100px]"
-                            defaultValue={`Hola, he visto el caso '${selectedCase.titulo}' y me he sentido muy identificado. ¿Podemos hablar para ver si tenéis una solución parecida para mí?`}
-                        />
-                    </div>
+                <div className="grid gap-6 py-4">
+                  <div>
+                    <h4 className="font-semibold text-lg mb-2 text-primary">El problema</h4>
+                    <p className="text-muted-foreground">{selectedCase.antes}</p>
+                  </div>
+                  <Separator />
+                  <div>
+                    <h4 className="font-semibold text-lg mb-2 text-primary">La solución</h4>
+                    <p className="text-muted-foreground">{selectedCase.despues}</p>
+                  </div>
+                   <Separator />
+                  <div>
+                    <h4 className="font-semibold text-lg mb-2 text-primary">El resultado</h4>
+                    <p className="text-muted-foreground">{selectedCase.resultado}</p>
+                  </div>
                 </div>
                  <div className="flex justify-end gap-2">
-                    <Button type="button" variant="secondary" onClick={handleCloseModal}>Cerrar</Button>
-                    <Button type="submit" className="bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white">Enviar</Button>
+                    <Button type="button" variant="secondary" onClick={handleCloseModals}>Cerrar</Button>
+                     <Button onClick={() => { handleCloseModals(); handleOpenContactModal(selectedCase); }} className="bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white">
+                      Me interesa <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
                  </div>
             </DialogContent>
-        </Dialog>
+          </Dialog>
+
+          <Dialog open={isContactModalOpen} onOpenChange={(isOpen) => !isOpen && handleCloseModals()}>
+              <DialogContent className="sm:max-w-[425px] bg-card border-border/20">
+                  <DialogHeader>
+                      <DialogTitle>Contacto</DialogTitle>
+                      <DialogDescription>
+                          Nos alegra que te sientas identificado. Déjanos tus datos y nos pondremos en contacto.
+                      </DialogDescription>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                      <div className="grid grid-cols-4 items-center gap-4">
+                          <Label htmlFor="name" className="text-right">
+                              Nombre
+                          </Label>
+                          <Input id="name" className="col-span-3" />
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                          <Label htmlFor="email" className="text-right">
+                              Email
+                          </Label>
+                          <Input id="email" type="email" className="col-span-3" />
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                          <Label htmlFor="message" className="text-right">
+                              Mensaje
+                          </Label>
+                          <Textarea
+                              id="message"
+                              className="col-span-3 min-h-[100px]"
+                              defaultValue={`Hola, he visto el caso '${selectedCase.titulo}' y me he sentido muy identificado. ¿Podemos hablar para ver si tenéis una solución parecida para mí?`}
+                          />
+                      </div>
+                  </div>
+                   <div className="flex justify-end gap-2">
+                      <Button type="button" variant="secondary" onClick={handleCloseModals}>Cerrar</Button>
+                      <Button type="submit" className="bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white">Enviar</Button>
+                   </div>
+              </DialogContent>
+          </Dialog>
+        </>
       )}
     </>
   );
