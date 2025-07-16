@@ -104,10 +104,10 @@ export default {
         },
         'sky-ascent-animation': {
           from: {
-            backgroundPosition: '0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px',
+            backgroundPosition: '0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px',
           },
           to: {
-            backgroundPosition: '0px 600px, 0px 600px, 0px 600px, 0px 600px, 0px 600px, 0px 0px',
+            backgroundPosition: '0px 1200px, 0px 1200px, 0px 1200px, 0px 1200px, 0px 0px',
           },
         },
       },
@@ -116,7 +116,7 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'gradient-move': 'gradient-move 4s ease infinite',
         'glow': 'glow 2.5s ease-in-out infinite',
-        'sky-ascent': 'sky-ascent-animation 8s linear infinite',
+        'sky-ascent': 'sky-ascent-animation 4s linear infinite',
       },
     },
   },

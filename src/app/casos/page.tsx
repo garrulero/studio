@@ -11,7 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import casesData from '@/data/casos.json';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, BarChart, CheckCircle, TrendingDown, TrendingUp, XCircle } from 'lucide-react';
+import { ArrowRight, BarChart, CheckCircle, TrendingUp, XCircle } from 'lucide-react';
 import { Bar, BarChart as RechartsBarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 
 const areas = [
@@ -47,7 +47,6 @@ export default function CasosPage() {
   const [filter, setFilter] = useState('Todos');
   const [selectedCase, setSelectedCase] = useState<Case | null>(null);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
 
   const filteredCases = casesData.filter(
     (story) => filter === 'Todos' || story.area === filter
@@ -55,18 +54,15 @@ export default function CasosPage() {
 
   const handleOpenContactModal = (caseItem: Case) => {
     setSelectedCase(caseItem);
-    setIsDetailsModalOpen(false);
     setIsContactModalOpen(true);
   };
   
   const handleOpenDetailsModal = (caseItem: Case) => {
     setSelectedCase(caseItem);
-    setIsDetailsModalOpen(true);
   };
 
   const handleCloseModals = () => {
     setIsContactModalOpen(false);
-    setIsDetailsModalOpen(false);
     setSelectedCase(null);
   };
 
@@ -128,10 +124,10 @@ export default function CasosPage() {
       
       {selectedCase && (
         <>
-          <Dialog open={isDetailsModalOpen} onOpenChange={setIsDetailsModalOpen}>
+          <Dialog open={!!selectedCase && !isContactModalOpen} onOpenChange={(isOpen) => !isOpen && handleCloseModals()}>
             <DialogContent className="sm:max-w-4xl bg-card text-foreground p-0 overflow-hidden">
                 <div className="absolute inset-0 animate-sky-ascent bg-[length:600px_600px] z-0"></div>
-                <div className="relative z-10 bg-card/80 backdrop-blur-sm h-full overflow-y-auto">
+                <div className="relative z-10 bg-card/80 backdrop-blur-sm h-full overflow-y-auto max-h-[90vh]">
                   <DialogHeader className="p-6 pb-0">
                       <DialogTitle className="text-2xl font-bold">{selectedCase.titulo}</DialogTitle>
                       <Badge variant="secondary" className="self-start mt-1">{selectedCase.area}</Badge>
@@ -182,7 +178,7 @@ export default function CasosPage() {
                      <p className="text-sm text-muted-foreground flex-1 min-w-[200px]">
                         <span className="font-semibold text-foreground">Resultado:</span> {selectedCase.resultado}
                      </p>
-                     <Button onClick={() => handleOpenContactModal(selectedCase)}>
+                     <Button onClick={() => { handleOpenContactModal(selectedCase); }}>
                         Aplicar a mi caso <ArrowRight className="ml-2 w-4 h-4" />
                      </Button>
                    </div>
