@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check, Loader2, ShieldCheck, Sparkles, AlertCircle } from 'lucide-react';
+import { Check, Loader2, ShieldCheck, Sparkles, AlertCircle, Lightbulb, FileText, Puzzle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -146,10 +146,48 @@ export function PricingSection() {
     <>
       <section id="tarifas" className="w-full py-16 lg:py-24 bg-secondary">
         <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">¿Cómo trabajamos en GoiLab?</h2>
+            <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
+              Antes de hablar de precios o herramientas, empezamos por escucharte.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 max-w-6xl mx-auto">
+            <div className="flex items-start gap-4">
+              <div className="bg-primary/10 p-3 rounded-lg flex-shrink-0">
+                  <Lightbulb className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-1">1. Diagnóstico sin compromiso</h3>
+                <p className="text-sm text-muted-foreground">Analizamos tu situación actual con una encuesta guiada. Detectamos cuellos de botella, oportunidades y prioridades.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+                <div className="bg-primary/10 p-3 rounded-lg flex-shrink-0">
+                    <FileText className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                    <h3 className="text-lg font-semibold mb-1">2. Presupuesto personalizado</h3>
+                    <p className="text-sm text-muted-foreground">No usamos plantillas. Te preparamos una propuesta adaptada a tu realidad, tu ritmo y tus objetivos.</p>
+                </div>
+            </div>
+            <div className="flex items-start gap-4 md:col-span-2 lg:col-span-1">
+                <div className="bg-primary/10 p-3 rounded-lg flex-shrink-0">
+                    <Puzzle className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                    <h3 className="text-lg font-semibold mb-1">3. Soluciones modulares, paso a paso</h3>
+                    <p className="text-sm text-muted-foreground">No hace falta hacerlo todo de golpe. Nuestro enfoque es progresivo y adaptado al punto en el que estás.</p>
+                </div>
+            </div>
+          </div>
+
+
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Planes diseñados para tu crecimiento</h2>
             <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
-              Una inversión inteligente en la eficiencia de tu negocio. Elige el punto de partida que mejor se adapte a ti.
+              A continuación te mostramos algunos ejemplos de punto de partida, pero recuerda: cada camino es único y ajustado a tu caso.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
