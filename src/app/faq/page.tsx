@@ -41,7 +41,7 @@ const faqSections = {
     {
       question: '¿Tenéis packs o precios cerrados?',
       answer:
-        'Sí, puedes ver nuestros planes base en la sección de Tarifas. Y si tu caso es especial, podemos hacerte una propuesta a medida.',
+        'Sí, puedes ver nuestros planes base en la sección de Servicios. Y si tu caso es especial, podemos hacerte una propuesta a medida.',
     },
   ],
   'Dudas comunes': [
@@ -61,6 +61,11 @@ const faqSections = {
       answer:
         'Muy probablemente sí. Y si no, no pasa nada: nuestra metodología se adapta. Lo importante no es tu sector, sino cómo trabajas y qué quieres mejorar.',
     },
+    {
+      question: '¿Qué pasa si empiezo por algo pequeño?',
+      answer:
+        '¡Perfecto! Nuestro modelo es modular precisamente para eso. Empezamos por lo esencial, resolvemos un problema concreto y, cuando estés listo, ampliamos más adelante a tu ritmo.',
+    }
   ],
 };
 
@@ -79,7 +84,7 @@ export default function FaqPage() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-1 gap-12">
+          <div className="space-y-12">
             {Object.entries(faqSections).map(([category, faqs]) => (
               <div key={category}>
                 <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">

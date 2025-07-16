@@ -20,6 +20,25 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/tarifas',
+        destination: '/servicios#tarifas',
+        permanent: true,
+      },
+       {
+        source: '/#tarifas',
+        destination: '/servicios#tarifas',
+        permanent: true,
+      },
+       {
+        source: '/#servicios',
+        destination: '/servicios',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;

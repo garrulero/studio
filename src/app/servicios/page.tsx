@@ -7,13 +7,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check, Loader2, ShieldCheck, Sparkles, AlertCircle, Lightbulb, FileText, Puzzle } from 'lucide-react';
+import { Check, Loader2, ShieldCheck, Sparkles, AlertCircle, Lightbulb, FileText, Puzzle, ArrowRight, PlayCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import Link from 'next/link';
 
 const plans = [
   {
@@ -92,7 +93,7 @@ async function sendWebhook(data: z.infer<typeof formSchema>) {
   }
 }
 
-export function PricingSection() {
+export default function ServiciosPage() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
@@ -144,7 +145,31 @@ export function PricingSection() {
 
   return (
     <>
-      <section id="tarifas" className="w-full py-16 lg:py-24 bg-secondary">
+    <section className="relative w-full py-20 lg:py-32 bg-secondary">
+      <div className="container mx-auto px-4 text-center">
+        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground">
+          Recupera el control y enfócate en crecer.
+        </h1>
+        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          Optimizamos los procesos y herramientas de tu pyme para que dejes atrás el caos y te dediques a lo que de verdad importa.
+        </p>
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+           <Button size="lg" asChild>
+            <Link href="#tarifas">
+              Ver planes <ArrowRight className="inline-block ml-2 w-5 h-5" />
+            </Link>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+            <Link href="/casos">
+              <PlayCircle className="mr-2 w-5 h-5"/>
+              Ver casos de ejemplo
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-trabajamos" className="w-full py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">¿Cómo trabajamos en GoiLab?</h2>
@@ -182,12 +207,54 @@ export function PricingSection() {
                 </div>
             </div>
           </div>
+        </div>
+    </section>
 
+    <section id="enfoque-progresivo" className="w-full py-16 lg:py-24 bg-secondary/50">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                Empezamos por lo esencial y crecemos por fases, a tu ritmo
+            </h2>
+            <p className="text-lg text-muted-foreground mt-6">
+                No necesitas una transformación total desde el día uno. Construimos tu solución como un puzzle, pieza a pieza, obteniendo resultados desde el primer paso.
+            </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
+            <Card className="bg-card">
+                <CardHeader>
+                    <CardTitle>¿Mucho desorden?</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground">Empezamos por lo esencial: organizar un área clave para que sientas el alivio rápidamente.</p>
+                </CardContent>
+            </Card>
+            <Card className="bg-card">
+                <CardHeader>
+                    <CardTitle>¿Varios procesos manuales?</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground">Digitalizamos lo más urgente y vamos sumando nuevas automatizaciones poco a poco.</p>
+                </CardContent>
+            </Card>
+            <Card className="bg-card">
+                <CardHeader>
+                    <CardTitle>¿Quieres automatizar con IA?</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground">Preparamos primero una base de datos sólida y luego escalamos con inteligencia artificial.</p>
+                </CardContent>
+            </Card>
+        </div>
+      </div>
+    </section>
 
+      <section id="tarifas" className="w-full py-16 lg:py-24 bg-background">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Planes diseñados para tu crecimiento</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Planes orientativos</h2>
             <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
-              A continuación te mostramos algunos ejemplos de punto de partida, pero recuerda: cada camino es único y ajustado a tu caso.
+             A continuación te mostramos algunos ejemplos de punto de partida, pero recuerda: cada camino es único y ajustado a tu caso.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
@@ -217,7 +284,7 @@ export function PricingSection() {
                     <div className="flex items-start gap-2 text-xs text-muted-foreground">
                        <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
                        <p>
-                        Tarifa orientativa. Todas las opciones están sujetas a presupuesto final tras diagnóstico.
+                        Tarifa orientativa. El presupuesto se ajusta tras el diagnóstico según alcance y complejidad.
                        </p>
                     </div>
                   </div>
@@ -263,6 +330,22 @@ export function PricingSection() {
                   </p>
               </div>
           </div>
+        </div>
+      </section>
+
+      <section className="w-full py-16 lg:py-24 bg-primary/10">
+        <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">¿Listo para empezar?</h2>
+            <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
+                Solicita tu diagnóstico gratuito y sin compromiso. Analizaremos tu caso y te propondremos un plan de acción claro.
+            </p>
+            <div className="mt-8">
+                <Button size="lg" asChild>
+                    <Link href="/agendar">
+                        Solicita tu diagnóstico gratuito <ArrowRight className="ml-2 w-5 h-5"/>
+                    </Link>
+                </Button>
+            </div>
         </div>
       </section>
 

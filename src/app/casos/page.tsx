@@ -13,10 +13,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import casesData from '@/data/casos.json';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, BarChart, ClipboardCheck, Clock, FileText, FolderArchive, LayoutGrid, LineChart, Loader2, Phone, Send, TrendingDown, TrendingUp, X } from 'lucide-react';
+import { ArrowRight, BarChart, ClipboardCheck, Clock, FileText, FolderArchive, LayoutGrid, Lightbulb, LineChart, Loader2, Phone, Send, TrendingDown, TrendingUp, X } from 'lucide-react';
 import { Bar, BarChart as RechartsBarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
+import Link from 'next/link';
 
 const areas = [
   { name: 'Todos', icon: LayoutGrid },
@@ -195,6 +196,23 @@ export default function CasosPage() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="w-full py-16 lg:py-24 bg-background">
+        <div className="container mx-auto px-4 text-center">
+            <Card className="max-w-3xl mx-auto bg-card p-8 shadow-lg">
+                <Lightbulb className="w-12 h-12 text-primary mx-auto mb-4"/>
+                <h2 className="text-3xl font-bold mb-4">¿Te suena alguno de estos problemas?</h2>
+                <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                    La mayoría de los negocios sufren los mismos cuellos de botella. Rellena nuestro diagnóstico y te contaremos sin compromiso cómo lo resolveríamos en tu caso particular.
+                </p>
+                <Button size="lg" asChild>
+                    <Link href="/agendar">
+                        Hacer diagnóstico gratuito <ArrowRight className="ml-2 w-5 h-5"/>
+                    </Link>
+                </Button>
+            </Card>
         </div>
       </section>
       

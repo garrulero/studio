@@ -9,9 +9,8 @@ import Link from 'next/link';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
-  { href: '/#servicios', label: 'Servicios' },
+  { href: '/servicios', label: 'Servicios' },
   { href: '/casos', label: 'Casos' },
-  { href: '/#tarifas', label: 'Tarifas' },
   { href: '/faq', label: 'FAQ' },
   { href: '/#sobre-nosotros', label: 'Sobre Nosotros' },
 ];
