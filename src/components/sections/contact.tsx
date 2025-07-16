@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Mail, Phone, Clock, ArrowRight } from 'lucide-react';
+import { Mail, ArrowRight } from 'lucide-react';
 
 export function ContactSection() {
   return (
@@ -24,25 +24,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <a href="mailto:hola@goilab.es" className="text-muted-foreground hover:text-primary">hola@goilab.es</a>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="bg-primary/10 p-3 rounded-lg">
-                      <Phone className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">Teléfono</h4>
-                      <a href="tel:+34600000000" className="text-muted-foreground hover:text-primary">+34 600 000 000</a>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                     <div className="bg-primary/10 p-3 rounded-lg">
-                       <Clock className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">Horario</h4>
-                      <p className="text-muted-foreground">Lunes a Viernes: 9:00 - 18:00</p>
+                      <a href="mailto:kaixo@goilab.com" className="text-muted-foreground hover:text-primary">kaixo@goilab.com</a>
                     </div>
                   </div>
                 </div>
