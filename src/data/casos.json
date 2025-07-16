@@ -22,7 +22,7 @@
     "solucion": "Digitalizamos el pedido con alertas y control de stock.",
     "etiquetas": ["#tiempo-perdido", "#duplicar-tareas", "#sin-sistema"],
     "area": "Control de tareas",
-    "antes": "Buscaban precios y disponibilidad llamando manualmente a varios proveedores cada vez que entraba un coche.",
+    "antes": "La búsqueda de precios y disponibilidad se realizaba llamando manualmente a varios proveedores cada vez que entraba un coche.",
     "despues": "Crearon una base de datos de proveedores compartida, accesible desde el móvil, para comparar y pedir con un clic.",
     "resultado": "Ahorro de horas semanales en llamadas, mejores decisiones de compra y un historial de pedidos accesible para todo el equipo.",
      "metricas": [
@@ -33,11 +33,11 @@
   {
     "titulo": "Citas que se olvidan",
     "problema_descripcion": "La gestión de citas y recordatorios era un proceso manual.",
-    "consecuencias": "No-shows frecuentes y huecos en la agenda.",
+    "consecuencias": "Citas perdidas frecuentes y huecos en la agenda.",
     "solucion": "Automatizamos recordatorios y agenda online.",
-    "etiquetas": ["#agenda-vacía", "#no-show", "#llamadas-manuales"],
+    "etiquetas": ["#agenda-vacía", "#citas-perdidas", "#llamadas-manuales"],
     "area": "Atención al cliente",
-    "antes": "Recordaban las citas por teléfono un día antes, un proceso tedioso y con una alta tasa de citas no asistidas.",
+    "antes": "Se recordaban las citas por teléfono un día antes, un proceso tedioso y con una alta tasa de citas no asistidas.",
     "despues": "Se configuró un sistema de recordatorios y confirmación automática por WhatsApp 48h y 24h antes de la cita.",
     "resultado": "Reducción drástica en citas no asistidas, una agenda mucho más optimizada y personal liberado de tareas repetitivas.",
      "metricas": [
@@ -67,7 +67,7 @@
     "solucion": "Sistema de time-tracking con informes automáticos.",
     "etiquetas": ["#sin-control", "#horas-no-facturadas", "#desorden"],
     "area": "Gestión del tiempo",
-    "antes": "Calculaba las horas 'a ojo' al final de mes, con el riesgo de olvidar tareas y regalar tiempo a los clientes.",
+    "antes": "El cálculo de las horas era 'a ojo' al final de mes, con el riesgo de olvidar tareas y regalar tiempo a los clientes.",
     "despues": "Implementó una app de seguimiento de tiempo sencilla que se integra con su sistema de facturación.",
     "resultado": "Ahora factura un 15% más de horas que antes se perdían y puede planificar su carga de trabajo de forma mucho más realista.",
     "metricas": [
