@@ -1,7 +1,7 @@
 
 [
   {
-    "titulo": "Gestoría local – \"Papeles por todas partes\"",
+    "titulo": "Papeles por todas partes",
     "problema_descripcion": "Documentos llegaban por todos los canales: email, WhatsApp, papel.",
     "consecuencias": "Pérdidas de tiempo, errores y mucho estrés.",
     "solucion": "Unificamos todos los envíos en un sistema simple y ordenado.",
@@ -16,7 +16,7 @@
     ]
   },
   {
-    "titulo": "Taller mecánico – \"Pedidos descontrolados\"",
+    "titulo": "Pedidos descontrolados",
     "problema_descripcion": "Hacían pedidos a mano sin registro ni lógica.",
     "consecuencias": "Tareas duplicadas, precios incoherentes y llamadas constantes.",
     "solucion": "Digitalizamos el pedido con alertas y control de stock.",
@@ -31,7 +31,7 @@
     ]
   },
   {
-    "titulo": "Clínica dental – \"Citas que se olvidan\"",
+    "titulo": "Citas que se olvidan",
     "problema_descripcion": "Las citas se gestionaban manualmente.",
     "consecuencias": "No-shows frecuentes y huecos en la agenda.",
     "solucion": "Automatizamos recordatorios y agenda online.",
@@ -46,7 +46,7 @@
     ]
   },
   {
-    "titulo": "Equipo de diseño – \"Feedback por cinco sitios\"",
+    "titulo": "Feedback por cinco sitios",
     "problema_descripcion": "El feedback llegaba por WhatsApp, email, Slack y más.",
     "consecuencias": "Versiones mezcladas, retrasos y frustración.",
     "solucion": "Canal único con estados y control de versiones.",
@@ -61,7 +61,7 @@
     ]
   },
   {
-    "titulo": "Consultor independiente – \"¿En qué gasté el día?\"",
+    "titulo": "¿En qué gasté el día?",
     "problema_descripcion": "No llevaba control de sus horas.",
     "consecuencias": "Horas sin facturar, mala planificación.",
     "solucion": "Sistema de time-tracking con informes automáticos.",
@@ -76,7 +76,7 @@
     ]
   },
   {
-    "titulo": "Startup – \"Seguimiento a ciegas\"",
+    "titulo": "Seguimiento a ciegas",
     "problema_descripcion": "No sabían el estado real de los proyectos.",
     "consecuencias": "Reuniones constantes y plazos incumplidos.",
     "solucion": "Paneles visuales con tareas y responsables claros.",
@@ -91,7 +91,7 @@
     ]
   },
   {
-    "titulo": "Constructora – \"Desorganización en obra\"",
+    "titulo": "Desorganización en obra",
     "problema_descripcion": "Planos, permisos y mensajes repartidos por todas partes.",
     "consecuencias": "Obras retrasadas y errores en ejecución.",
     "solucion": "Todo centralizado y accesible desde móvil en obra.",
@@ -106,5 +106,6 @@
     ]
   }
 ]
+    
 
     
