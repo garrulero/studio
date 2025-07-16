@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -35,7 +36,7 @@ export function Header() {
         </nav>
         <div className="hidden md:flex items-center gap-2">
           <Button asChild>
-            <Link href="/#contacto">
+            <Link href="/agendar">
               Agendar Cita
             </Link>
           </Button>
@@ -73,7 +74,7 @@ export function Header() {
                 </nav>
                 <div className="mt-auto p-4 border-t">
                   <Button asChild className="w-full">
-                    <Link href="/#contacto" onClick={() => setIsMobileMenuOpen(false)}>Agendar Cita</Link>
+                    <Link href="/agendar" onClick={() => setIsMobileMenuOpen(false)}>Agendar Cita</Link>
                   </Button>
                 </div>
               </div>

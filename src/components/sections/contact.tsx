@@ -1,6 +1,8 @@
+
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Mail, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export function ContactSection() {
   return (
@@ -33,9 +35,9 @@ export function ContactSection() {
                   <h3 className="text-2xl font-bold mb-4">Agenda una consultoría gratuita</h3>
                   <p className="text-muted-foreground mb-6">Reserva 15 minutos en nuestro calendario. Escucharemos tus necesidades y te daremos una primera valoración honesta.</p>
                   <Button size="lg" asChild className="font-semibold">
-                    <a href="#" target="_blank" rel="noopener noreferrer">
+                    <Link href="/agendar">
                       Agendar ahora <ArrowRight className="ml-2 w-5 h-5" />
-                    </a>
+                    </Link>
                   </Button>
               </div>
             </div>
