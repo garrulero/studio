@@ -11,7 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import casesData from '@/data/casos.json';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, BarChart, CheckCircle, TrendingDown, TrendingUp, XCircle } from 'lucide-react';
+import { ArrowRight, BarChart, CheckCircle, TrendingUp, XCircle } from 'lucide-react';
 import { Bar, BarChart as RechartsBarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 
 const areas = [
@@ -129,61 +129,64 @@ export default function CasosPage() {
       {selectedCase && (
         <>
           <Dialog open={isDetailsModalOpen} onOpenChange={(isOpen) => !isOpen && handleCloseModals()}>
-            <DialogContent className="sm:max-w-4xl bg-card text-foreground p-0">
-                <DialogHeader className="p-6 pb-0">
-                    <DialogTitle className="text-2xl font-bold">{selectedCase.titulo}</DialogTitle>
-                     <Badge variant="secondary" className="self-start mt-1">{selectedCase.area}</Badge>
-                </DialogHeader>
-                <div className="grid md:grid-cols-2 gap-6 p-6">
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-red-600"><XCircle className="w-5 h-5" /> El problema</h4>
-                      <p className="text-muted-foreground">{selectedCase.antes}</p>
-                    </div>
-                    <Separator />
-                    <div>
-                      <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-green-600"><CheckCircle className="w-5 h-5 animate-glow" /> La solución</h4>
-                      <p className="text-muted-foreground">{selectedCase.despues}</p>
-                    </div>
-                  </div>
-                  <Card className="bg-background/70 border">
-                    <CardContent className="p-4">
-                      <h4 className="font-semibold text-lg mb-2 flex items-center gap-2"><BarChart className="w-5 h-5 text-primary" />Métricas de Impacto</h4>
-                      <div className="h-48">
-                         <ResponsiveContainer width="100%" height="100%">
-                            <RechartsBarChart data={chartData} margin={{ top: 5, right: 0, left: 0, bottom: 20 }}>
-                                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
-                                <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false}/>
-                                <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}`}/>
-                                <Tooltip
-                                  contentStyle={{ background: "hsl(var(--background))", border: "1px solid hsl(var(--border))", borderRadius: "var(--radius)" }}
-                                  labelStyle={{ color: "hsl(var(--foreground))" }}
-                                  formatter={(value, name, props) => [`${value} ${props.payload.unit}`, name]}
-                                />
-                                <Legend
-                                  wrapperStyle={{ fontSize: '0.8rem', paddingTop: '20px' }}
-                                  iconType="circle"
-                                  iconSize={10}
-                                />
-                                <Bar dataKey="Antes de GoiLab" fill="hsl(var(--muted))" radius={[4, 4, 0, 0]} />
-                                <Bar dataKey="Después de GoiLab" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} isAnimationActive={true} animationDuration={800} />
-                            </RechartsBarChart>
-                        </ResponsiveContainer>
+            <DialogContent className="sm:max-w-4xl bg-card text-foreground p-0 overflow-hidden relative">
+                <div className="absolute inset-0 animate-sky-ascent bg-[length:600px_600px]"></div>
+                <div className="relative z-10 bg-card/80 backdrop-blur-sm">
+                  <DialogHeader className="p-6 pb-0">
+                      <DialogTitle className="text-2xl font-bold">{selectedCase.titulo}</DialogTitle>
+                      <Badge variant="secondary" className="self-start mt-1">{selectedCase.area}</Badge>
+                  </DialogHeader>
+                  <div className="grid md:grid-cols-2 gap-6 p-6">
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-red-600"><XCircle className="w-5 h-5" /> El problema</h4>
+                        <p className="text-muted-foreground">{selectedCase.antes}</p>
                       </div>
-                      <p className="text-sm text-muted-foreground mt-4 text-center">
-                        La gráfica muestra la mejora en las métricas clave del negocio. Se puede observar una reducción significativa del tiempo y los costes, y un aumento de la eficiencia.
-                      </p>
-                    </CardContent>
-                  </Card>
+                      <Separator />
+                      <div>
+                        <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-green-600"><CheckCircle className="w-5 h-5 animate-glow" /> La solución</h4>
+                        <p className="text-muted-foreground">{selectedCase.despues}</p>
+                      </div>
+                    </div>
+                    <Card className="bg-background/70 border">
+                      <CardContent className="p-4">
+                        <h4 className="font-semibold text-lg mb-2 flex items-center gap-2"><BarChart className="w-5 h-5 text-primary" />Métricas de Impacto</h4>
+                        <div className="h-48">
+                           <ResponsiveContainer width="100%" height="100%">
+                              <RechartsBarChart data={chartData} margin={{ top: 5, right: 0, left: 0, bottom: 20 }}>
+                                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
+                                  <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false}/>
+                                  <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}`}/>
+                                  <Tooltip
+                                    contentStyle={{ background: "hsl(var(--background))", border: "1px solid hsl(var(--border))", borderRadius: "var(--radius)" }}
+                                    labelStyle={{ color: "hsl(var(--foreground))" }}
+                                    formatter={(value, name, props) => [`${value} ${props.payload.unit}`, name]}
+                                  />
+                                  <Legend
+                                    wrapperStyle={{ fontSize: '0.8rem', paddingTop: '20px' }}
+                                    iconType="circle"
+                                    iconSize={10}
+                                  />
+                                  <Bar dataKey="Antes de GoiLab" fill="hsl(var(--muted))" radius={[4, 4, 0, 0]} />
+                                  <Bar dataKey="Después de GoiLab" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} isAnimationActive={true} animationDuration={800} />
+                              </RechartsBarChart>
+                          </ResponsiveContainer>
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-4 text-center">
+                          La gráfica muestra la mejora en las métricas clave del negocio. Se puede observar una reducción significativa del tiempo y los costes, y un aumento de la eficiencia.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                   <div className="px-6 py-4 bg-secondary/50 border-t flex flex-wrap justify-between items-center gap-4">
+                     <p className="text-sm text-muted-foreground flex-1 min-w-[200px]">
+                        <span className="font-semibold text-foreground">Resultado:</span> {selectedCase.resultado}
+                     </p>
+                     <Button onClick={() => handleOpenContactModal(selectedCase)}>
+                        Aplicar a mi caso <ArrowRight className="ml-2 w-4 h-4" />
+                     </Button>
+                   </div>
                 </div>
-                 <div className="px-6 py-4 bg-secondary/50 border-t flex flex-wrap justify-between items-center gap-4">
-                   <p className="text-sm text-muted-foreground flex-1 min-w-[200px]">
-                      <span className="font-semibold text-foreground">Resultado:</span> {selectedCase.resultado}
-                   </p>
-                   <Button onClick={() => handleOpenContactModal(selectedCase)}>
-                      Aplicar a mi caso <ArrowRight className="ml-2 w-4 h-4" />
-                   </Button>
-                 </div>
             </DialogContent>
           </Dialog>
 
@@ -230,5 +233,3 @@ export default function CasosPage() {
     </>
   );
 }
-
-    

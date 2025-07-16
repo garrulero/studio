@@ -102,16 +102,23 @@ export default {
           '0%, 100%': { opacity: '0.8' },
           '50%': { opacity: '1' },
         },
+        'sky-ascent-animation': {
+          from: {
+            backgroundPosition: '0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px',
+          },
+          to: {
+            backgroundPosition: '0px 600px, 0px 600px, 0px 600px, 0px 600px, 0px 600px, 0px 0px',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'gradient-move': 'gradient-move 4s ease infinite',
         'glow': 'glow 2.5s ease-in-out infinite',
+        'sky-ascent': 'sky-ascent-animation 30s linear infinite',
       },
     },
   },
   plugins: [require('tailwindcss-animate')],
 } satisfies Config;
-
-    
