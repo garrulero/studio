@@ -190,10 +190,10 @@ export function PricingSection() {
             ))}
           </div>
           <div className="mt-12 text-center">
-              <Card className="max-w-2xl mx-auto bg-card/70 border-dashed">
+              <Card className="max-w-2xl mx-auto bg-card/70 border-dashed border-primary/50">
                   <CardContent className="p-6">
-                      <p className="font-semibold text-foreground">Una inversión centrada en resultados tangibles.</p>
-                      <p className="text-muted-foreground text-sm">Nuestro objetivo es que recuperes tiempo valioso y optimices tus recursos. El valor real está en la claridad y eficiencia que ganas.</p>
+                      <p className="font-semibold text-foreground">Todas las opciones están sujetas a presupuesto tras diagnóstico.</p>
+                      <p className="text-muted-foreground text-sm">Las tarifas mostradas son solo orientativas.</p>
                   </CardContent>
               </Card>
           </div>
