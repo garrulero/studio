@@ -128,7 +128,7 @@ export default function CasosPage() {
       
       {selectedCase && (
         <>
-          <Dialog open={isDetailsModalOpen} onOpenChange={(isOpen) => !isOpen && handleCloseModals()}>
+          <Dialog open={isDetailsModalOpen} onOpenChange={setIsDetailsModalOpen}>
             <DialogContent className="sm:max-w-4xl bg-card text-foreground p-0 overflow-hidden relative">
                 <div className="absolute inset-0 animate-sky-ascent bg-[length:600px_600px]"></div>
                 <div className="relative z-10 bg-card/80 backdrop-blur-sm">
@@ -190,7 +190,7 @@ export default function CasosPage() {
             </DialogContent>
           </Dialog>
 
-          <Dialog open={isContactModalOpen} onOpenChange={(isOpen) => !isOpen && handleCloseModals()}>
+          <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
               <DialogContent className="sm:max-w-[425px] bg-card">
                   <DialogHeader>
                       <DialogTitle>Hablemos de tu caso</DialogTitle>
