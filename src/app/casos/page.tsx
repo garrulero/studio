@@ -11,7 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import casesData from '@/data/casos.json';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, BarChart, CheckCircle, TrendingUp, XCircle } from 'lucide-react';
+import { ArrowRight, BarChart, CheckCircle, TrendingDown, TrendingUp, XCircle } from 'lucide-react';
 import { Bar, BarChart as RechartsBarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 
 const areas = [
@@ -129,9 +129,9 @@ export default function CasosPage() {
       {selectedCase && (
         <>
           <Dialog open={isDetailsModalOpen} onOpenChange={setIsDetailsModalOpen}>
-            <DialogContent className="sm:max-w-4xl bg-card text-foreground p-0 overflow-hidden relative">
-                <div className="absolute inset-0 animate-sky-ascent bg-[length:600px_600px]"></div>
-                <div className="relative z-10 bg-card/80 backdrop-blur-sm">
+            <DialogContent className="sm:max-w-4xl bg-card text-foreground p-0 overflow-hidden">
+                <div className="absolute inset-0 animate-sky-ascent bg-[length:600px_600px] z-0"></div>
+                <div className="relative z-10 bg-card/80 backdrop-blur-sm h-full overflow-y-auto">
                   <DialogHeader className="p-6 pb-0">
                       <DialogTitle className="text-2xl font-bold">{selectedCase.titulo}</DialogTitle>
                       <Badge variant="secondary" className="self-start mt-1">{selectedCase.area}</Badge>
