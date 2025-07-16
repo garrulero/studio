@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { Label } from '@/components/ui/label';
@@ -11,7 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import casesData from '@/data/casos.json';
 import { Separator } from '@/components/ui/separator';
 import { ArrowRight, BarChart, CheckCircle, TrendingDown, TrendingUp, XCircle } from 'lucide-react';
-import { Bar, BarChart as RechartsBarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
+import { Bar, BarChart as RechartsBarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 
 const areas = [
   'Todos',
@@ -71,14 +71,14 @@ export default function CasosPage() {
 
   const chartData = selectedCase?.metricas.map(m => ({
     name: m.nombre,
-    Antes: m.antes,
-    Después: m.despues,
+    'Antes de GoiLab': m.antes,
+    'Después de GoiLab': m.despues,
     unit: m.unidad
   }));
 
   return (
     <>
-      <section id="casos-de-exito" className="w-full py-16 lg:py-24 bg-background">
+      <section id="casos-de-exito" className="w-full py-16 lg:py-24 bg-secondary/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Casos que podrían ser el tuyo</h1>
@@ -98,9 +98,9 @@ export default function CasosPage() {
               </Button>
             ))}
           </div>
-          <div id="galeria-casos" className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div id="galeria-casos" className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredCases.map((story) => (
-              <Card key={story.titulo} className="bg-card shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+              <Card key={story.titulo} className="bg-card shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col border border-border/50">
                 <CardContent className="p-6 flex flex-col flex-grow">
                   <Badge variant="secondary" className="mb-4 self-start">{story.area}</Badge>
                   <h3 className="text-xl font-bold mb-2">{story.titulo}</h3>
@@ -145,56 +145,37 @@ export default function CasosPage() {
                       <p className="text-muted-foreground">{selectedCase.despues}</p>
                     </div>
                   </div>
-                  <Card className="bg-secondary/50">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2"><BarChart className="w-5 h-5" />Métricas de Impacto</CardTitle>
-                      <CardDescription>Comparativa antes y después.</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="h-40">
+                  <Card className="bg-background/70 border">
+                    <CardContent className="p-4">
+                      <h4 className="font-semibold text-lg mb-2 flex items-center gap-2"><BarChart className="w-5 h-5 text-primary" />Métricas de Impacto</h4>
+                      <div className="h-48">
                          <ResponsiveContainer width="100%" height="100%">
-                            <RechartsBarChart data={chartData}>
+                            <RechartsBarChart data={chartData} margin={{ top: 5, right: 0, left: 0, bottom: 20 }}>
+                                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
                                 <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false}/>
                                 <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}`}/>
                                 <Tooltip
                                   contentStyle={{ background: "hsl(var(--background))", border: "1px solid hsl(var(--border))", borderRadius: "var(--radius)" }}
                                   labelStyle={{ color: "hsl(var(--foreground))" }}
-                                  itemStyle={{ color: "hsl(var(--primary))" }}
                                   formatter={(value, name, props) => [`${value} ${props.payload.unit}`, name]}
                                 />
-                                <Bar dataKey="Antes" fill="#ef4444" radius={[4, 4, 0, 0]} />
-                                <Bar dataKey="Después" fill="#22c55e" radius={[4, 4, 0, 0]} />
+                                <Legend
+                                  wrapperStyle={{ fontSize: '0.8rem', paddingTop: '20px' }}
+                                  iconType="circle"
+                                  iconSize={10}
+                                />
+                                <Bar dataKey="Antes de GoiLab" fill="hsl(var(--muted))" radius={[4, 4, 0, 0]} />
+                                <Bar dataKey="Después de GoiLab" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
                             </RechartsBarChart>
                         </ResponsiveContainer>
                       </div>
-                      <div className="grid grid-cols-2 gap-4 mt-4 text-center">
-                        {selectedCase.metricas.map(metric => {
-                            const improvement = ((metric.despues - metric.antes) / metric.antes) * 100;
-                            const isPositive = metric.despues > metric.antes;
-                            const isReductionGood = (metric.nombre.toLowerCase().includes('tiempo') || metric.nombre.toLowerCase().includes('errores') || metric.nombre.toLowerCase().includes('coste') || metric.nombre.toLowerCase().includes('perdidas'));
-                            
-                            let trendIcon;
-                            if (isReductionGood) {
-                                trendIcon = <TrendingDown className={`w-5 h-5 ${improvement < 0 ? 'text-green-500' : 'text-red-500'}`} />
-                            } else {
-                                trendIcon = <TrendingUp className={`w-5 h-5 ${improvement > 0 ? 'text-green-500' : 'text-red-500'}`} />
-                            }
-
-                            return (
-                                <div key={metric.nombre}>
-                                    <p className="text-sm text-muted-foreground">{metric.nombre}</p>
-                                    <p className="text-2xl font-bold flex items-center justify-center gap-1">
-                                        {trendIcon}
-                                        {Math.abs(improvement).toFixed(0)}%
-                                    </p>
-                                </div>
-                            )
-                        })}
-                      </div>
+                      <p className="text-sm text-muted-foreground mt-4 text-center">
+                        La gráfica muestra la mejora en las métricas clave del negocio. Se puede observar una reducción significativa del tiempo y los costes, y un aumento de la eficiencia.
+                      </p>
                     </CardContent>
                   </Card>
                 </div>
-                 <div className="px-6 py-4 bg-secondary/30 border-t flex flex-wrap justify-between items-center gap-4">
+                 <div className="px-6 py-4 bg-secondary/50 border-t flex flex-wrap justify-between items-center gap-4">
                    <p className="text-sm text-muted-foreground flex-1 min-w-[200px]">
                       <span className="font-semibold text-foreground">Resultado:</span> {selectedCase.resultado}
                    </p>
@@ -233,7 +214,7 @@ export default function CasosPage() {
                           <Textarea
                               id="message"
                               className="col-span-3 min-h-[100px]"
-                              defaultValue={`Hola, he visto el caso '${selectedCase.titulo}' y me he sentido muy identificado. ¿Podemos hablar para ver si tenéis una solución parecida para mí?`}
+                              defaultValue={`Hola, he visto el caso '${selectedCase?.titulo}' y me he sentido muy identificado. ¿Podemos hablar para ver si tenéis una solución parecida para mí?`}
                           />
                       </div>
                   </div>
