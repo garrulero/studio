@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check, Loader2, ShieldCheck, Sparkles, X } from 'lucide-react';
+import { Check, Loader2, ShieldCheck, Sparkles, AlertCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -18,7 +18,7 @@ import { useToast } from '@/hooks/use-toast';
 const plans = [
   {
     name: 'Optimización Esencial',
-    price: '840€',
+    price: 'Desde 840€',
     description: 'Para resolver un problema específico y obtener resultados rápidos.',
     features: [
       'Análisis de un proceso clave',
@@ -30,7 +30,7 @@ const plans = [
   },
   {
     name: 'Transformación Digital',
-    price: '1.700€',
+    price: 'Desde 1.700€',
     description: 'Para digitalizar y conectar varios procesos manuales de tu operativa.',
     features: [
       'Análisis de múltiples flujos de trabajo',
@@ -163,11 +163,11 @@ export function PricingSection() {
                   </CardTitle>
                   <CardDescription>{plan.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="flex-grow">
+                <CardContent className="flex-grow flex flex-col">
                   <div className="mb-6">
                     <span className="text-4xl font-extrabold">{plan.price}</span>
                   </div>
-                  <ul className="space-y-4">
+                  <ul className="space-y-4 mb-6">
                     {plan.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <Check className="w-5 h-5 mt-1 text-primary shrink-0" />
@@ -175,6 +175,14 @@ export function PricingSection() {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-auto pt-4 border-t border-dashed">
+                    <div className="flex items-start gap-2 text-xs text-muted-foreground">
+                       <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                       <p>
+                        Tarifa orientativa. Todas las opciones están sujetas a presupuesto final tras diagnóstico.
+                       </p>
+                    </div>
+                  </div>
                 </CardContent>
                 <CardFooter>
                   <Button 
@@ -188,14 +196,6 @@ export function PricingSection() {
                 </CardFooter>
               </Card>
             ))}
-          </div>
-          <div className="mt-12 text-center">
-              <Card className="max-w-2xl mx-auto bg-card/70 border-dashed border-primary/50">
-                  <CardContent className="p-6">
-                      <p className="font-semibold text-foreground">Todas las opciones están sujetas a presupuesto tras diagnóstico.</p>
-                      <p className="text-muted-foreground text-sm">Las tarifas mostradas son solo orientativas.</p>
-                  </CardContent>
-              </Card>
           </div>
           
           <div className="mt-20 text-center">
