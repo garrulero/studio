@@ -26,7 +26,6 @@ const formSchema = z.object({
 });
 
 async function sendWebhook(data: z.infer<typeof formSchema>) {
-  // IMPORTANTE: Reemplaza esta URL por la URL de tu webhook de n8n
   const webhookUrl = 'https://n8n.garrulero.xyz/webhook-test/contacto-goilab';
 
   const response = await fetch(webhookUrl, {
@@ -41,7 +40,8 @@ async function sendWebhook(data: z.infer<typeof formSchema>) {
     throw new Error('Error al enviar el formulario.');
   }
 
-  return response.json();
+  // No necesitamos procesar la respuesta, solo saber si fue exitosa.
+  return;
 }
 
 
