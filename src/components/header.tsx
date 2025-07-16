@@ -12,7 +12,7 @@ const navItems = [
   { href: '/servicios', label: 'Servicios' },
   { href: '/casos', label: 'Casos' },
   { href: '/faq', label: 'FAQ' },
-  { href: '/#sobre-nosotros', label: 'Sobre Nosotros' },
+  { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
 ];
 
 export function Header() {
