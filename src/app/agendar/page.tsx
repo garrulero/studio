@@ -9,7 +9,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Loader2 } from 'lucide-react';
+import { useState, useTransition } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -18,10 +20,22 @@ const formSchema = z.object({
   email: z.string().email({
     message: 'Por favor, introduce una dirección de email válida.',
   }),
-  message: z.string(),
+  message: z.string().min(10, {
+    message: 'El mensaje debe tener al menos 10 caracteres.'
+  }),
 });
 
+async function sendEmail(data: z.infer<typeof formSchema>) {
+    const subject = encodeURIComponent(`Nuevo contacto de ${data.name} desde la web`);
+    const body = encodeURIComponent(`Nombre: ${data.name}\nEmail: ${data.email}\n\nMensaje:\n${data.message}`);
+    window.location.href = `mailto:kaixo@goilab.com?subject=${subject}&body=${body}`;
+}
+
+
 export default function AgendarPage() {
+  const [isPending, startTransition] = useTransition();
+  const { toast } = useToast();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -32,8 +46,22 @@ export default function AgendarPage() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    // Aquí se podría implementar la lógica de envío del formulario
+    startTransition(async () => {
+      try {
+        await sendEmail(values);
+        toast({
+          title: "¡Redirigiendo a tu email!",
+          description: "Se abrirá tu aplicación de correo para que puedas enviar el mensaje.",
+        });
+        form.reset();
+      } catch (error) {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "No se pudo abrir tu cliente de email. Inténtalo de nuevo.",
+        });
+      }
+    });
   }
 
   return (
@@ -56,7 +84,7 @@ export default function AgendarPage() {
                     <FormItem>
                       <FormLabel>Nombre completo</FormLabel>
                       <FormControl>
-                        <Input placeholder="Tu nombre y apellidos" {...field} />
+                        <Input placeholder="Tu nombre y apellidos" {...field} disabled={isPending} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -69,7 +97,7 @@ export default function AgendarPage() {
                     <FormItem>
                       <FormLabel>Email de contacto</FormLabel>
                       <FormControl>
-                        <Input placeholder="tu.email@ejemplo.com" {...field} />
+                        <Input placeholder="tu.email@ejemplo.com" {...field} disabled={isPending} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -82,15 +110,23 @@ export default function AgendarPage() {
                     <FormItem>
                       <FormLabel>¿En qué podemos ayudarte?</FormLabel>
                       <FormControl>
-                        <Textarea className="min-h-[120px]" {...field} />
+                        <Textarea className="min-h-[120px]" {...field} disabled={isPending} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
                 <div className="flex justify-end">
-                    <Button type="submit" size="lg">
-                        Enviar y agendar <ArrowRight className="ml-2 w-5 h-5" />
+                    <Button type="submit" size="lg" disabled={isPending}>
+                        {isPending ? (
+                            <>
+                                <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Enviando...
+                            </>
+                        ) : (
+                            <>
+                                Enviar y agendar <ArrowRight className="ml-2 w-5 h-5" />
+                            </>
+                        )}
                     </Button>
                 </div>
               </form>
