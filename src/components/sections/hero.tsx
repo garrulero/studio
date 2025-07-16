@@ -21,7 +21,7 @@ export function HeroSection() {
           <Button size="lg" variant="outline" asChild>
             <Link href="/casos">
               <PlayCircle className="mr-2 w-5 h-5"/>
-              Ver casos de éxito
+              Ver casos de ejemplo
             </Link>
           </Button>
         </div>
