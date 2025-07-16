@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -101,7 +101,7 @@ export default function CasosPage() {
           </div>
           <div id="galeria-casos" className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCases.map((story) => (
-              <Card key={story.titulo} className="bg-card border-border/60 flex flex-col p-6 rounded-lg transition-all hover:border-primary/80">
+              <Card key={story.titulo} className="bg-card border border-border/60 flex flex-col p-6 rounded-lg transition-all hover:border-primary/80">
                 <CardContent className="p-0 flex flex-col flex-grow">
                   <Badge variant="secondary" className="mb-4 self-start">{story.area}</Badge>
                   <h3 className="text-xl font-bold mb-2">{story.titulo}</h3>
