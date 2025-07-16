@@ -27,7 +27,7 @@ const formSchema = z.object({
 
 async function sendWebhook(data: z.infer<typeof formSchema>) {
   // IMPORTANTE: Reemplaza esta URL por la URL de tu webhook de n8n
-  const webhookUrl = 'https://n8n.example.com/webhook/your-webhook-id';
+  const webhookUrl = 'https://n8n.garrulero.xyz/webhook-test/contacto-goilab';
 
   const response = await fetch(webhookUrl, {
     method: 'POST',
