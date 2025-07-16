@@ -14,21 +14,23 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import casesData from '@/data/casos.json';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, BarChart, Loader2, TrendingDown, TrendingUp, X } from 'lucide-react';
+import { ArrowRight, BarChart, ClipboardCheck, Clock, FileText, FolderArchive, LayoutGrid, LineChart, Loader2, Phone, Send, TrendingDown, TrendingUp, X } from 'lucide-react';
 import { Bar, BarChart as RechartsBarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
+import { cn } from '@/lib/utils';
 
 const areas = [
-  'Todos',
-  'Atención al cliente',
-  'Organización',
-  'Comunicación interna',
-  'Gestión del tiempo',
-  'Documentación',
-  'Control de tareas',
-  'Seguimiento',
+  { name: 'Todos', icon: LayoutGrid },
+  { name: 'Organización', icon: FolderArchive },
+  { name: 'Atención al cliente', icon: Phone },
+  { name: 'Comunicación interna', icon: Send },
+  { name: 'Gestión del tiempo', icon: Clock },
+  { name: 'Documentación', icon: FileText },
+  { name: 'Control de tareas', icon: ClipboardCheck },
+  { name: 'Seguimiento', icon: LineChart },
 ];
+
 
 interface CaseMetric {
   nombre: string;
@@ -39,9 +41,13 @@ interface CaseMetric {
 
 interface Case {
   titulo: string;
-  resumen: string;
+  sector: string;
+  problema_coloquial: string;
+  problema_descripcion: string;
+  consecuencias: string;
+  solucion: string;
   area: string;
-  problemas: string[];
+  etiquetas: string[];
   antes: string;
   despues: string;
   resultado: string;
@@ -137,20 +143,22 @@ export default function CasosPage() {
       <section id="casos-de-exito" className="w-full py-16 lg:py-24 bg-secondary/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Casos que podrían ser el tuyo</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Casos reales, soluciones aplicables</h1>
             <p className="text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
-              Filtra por área para encontrar soluciones a problemas como los tuyos.
+              No son grandes empresas. Son negocios que, como el tuyo, tenían un problema.
+              Esto es lo que haríamos si fueras tú.
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-2 mb-10">
             {areas.map((area) => (
               <Button
-                key={area}
-                variant={filter === area ? 'default' : 'outline'}
-                onClick={() => setFilter(area)}
+                key={area.name}
+                variant={filter === area.name ? 'default' : 'outline'}
+                onClick={() => setFilter(area.name)}
                 className="rounded-full"
               >
-                {area}
+                <area.icon className="w-4 h-4 mr-2" />
+                {area.name}
               </Button>
             ))}
           </div>
@@ -158,20 +166,18 @@ export default function CasosPage() {
             {filteredCases.map((story) => (
               <Card key={story.titulo} className="bg-card shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col border border-border/50">
                 <CardContent className="p-6 flex flex-col flex-grow">
-                  <Badge variant="secondary" className="mb-4 self-start">{story.area}</Badge>
-                  <h3 className="text-xl font-bold mb-2">{story.titulo}</h3>
-                  <p className="text-muted-foreground mb-4 flex-grow">{story.resumen}</p>
+                   <h3 className="text-xl font-bold mb-2">{story.titulo}</h3>
+                  <p className="text-muted-foreground mb-1"><span className="font-semibold text-card-foreground">El problema:</span> {story.problema_descripcion}</p>
+                  <p className="text-muted-foreground mb-4"><span className="font-semibold text-card-foreground">El caos:</span> {story.consecuencias}</p>
+                  <p className="text-muted-foreground mb-4 flex-grow"><span className="font-semibold text-card-foreground">La solución:</span> {story.solucion}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {story.problemas.map(tag => (
-                      <Badge key={tag} variant="outline" className="text-xs font-normal bg-background">{tag}</Badge>
+                    {story.etiquetas.map(tag => (
+                      <Badge key={tag} variant="outline" className="text-xs font-normal bg-background text-muted-foreground">{tag}</Badge>
                     ))}
                   </div>
                   <div className="flex flex-col sm:flex-row gap-2 mt-auto">
-                    <Button onClick={() => handleOpenDetailsModal(story)} variant="outline" className="w-full">
-                      Ver detalles
-                    </Button>
-                    <Button onClick={() => handleOpenContactModal(story)} className="w-full">
-                      ¿Te identificas?
+                    <Button onClick={() => handleOpenDetailsModal(story)} className="w-full">
+                      Ver cómo lo solucionaríamos
                     </Button>
                   </div>
                 </CardContent>
@@ -321,3 +327,5 @@ export default function CasosPage() {
     </>
   );
 }
+
+    

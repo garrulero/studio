@@ -1,10 +1,12 @@
 
 [
   {
-    "titulo": "Gestoría local: papeles por todas partes",
-    "resumen": "Clientes enviaban documentos por todos los canales posibles, generando un caos que hacía perder tiempo y provocaba errores.",
+    "titulo": "Gestoría local – \"Papeles por todas partes\"",
+    "problema_descripcion": "Documentos llegaban por todos los canales: email, WhatsApp, papel.",
+    "consecuencias": "Pérdidas de tiempo, errores y mucho estrés.",
+    "solucion": "Unificamos todos los envíos en un sistema simple y ordenado.",
+    "etiquetas": ["#archivos-perdidos", "#todo-en-whatsapp", "#desorden"],
     "area": "Documentación",
-    "problemas": ["#todo-en-whatsapp", "#archivos-perdidos", "#papeles", "#desorden"],
     "antes": "Cada cliente entregaba documentos como quería: WhatsApp, papel, email… Se perdían horas buscando información y corrigiendo errores.",
     "despues": "Se implantó un portal de cliente centralizado con un checklist claro para subir documentos y recordatorios automáticos.",
     "resultado": "El 100% de la documentación ahora se recibe de forma ordenada y a tiempo, mejorando la imagen profesional y la eficiencia.",
@@ -14,10 +16,12 @@
     ]
   },
   {
-    "titulo": "Taller mecánico: pedidos descontrolados",
-    "resumen": "Llamaban uno a uno a proveedores cada vez que necesitaban piezas, sin un criterio claro ni control sobre los precios.",
+    "titulo": "Taller mecánico – \"Pedidos descontrolados\"",
+    "problema_descripcion": "Hacían pedidos a mano sin registro ni lógica.",
+    "consecuencias": "Tareas duplicadas, precios incoherentes y llamadas constantes.",
+    "solucion": "Digitalizamos el pedido con alertas y control de stock.",
+    "etiquetas": ["#tiempo-perdido", "#duplicar-tareas", "#sin-sistema"],
     "area": "Control de tareas",
-    "problemas": ["#pedidos-en-papel", "#tiempo-perdido", "#duplicar-tareas"],
     "antes": "Buscaban precios y disponibilidad llamando manualmente a varios proveedores cada vez que entraba un coche.",
     "despues": "Crearon una base de datos de proveedores compartida, accesible desde el móvil, para comparar y pedir con un clic.",
     "resultado": "Ahorro de horas semanales en llamadas, mejores decisiones de compra y un historial de pedidos accesible para todo el equipo.",
@@ -27,10 +31,12 @@
     ]
   },
   {
-    "titulo": "Clínica dental: citas que se olvidan",
-    "resumen": "La comunicación con los pacientes era manual, resultando en citas olvidadas y huecos en la agenda.",
+    "titulo": "Clínica dental – \"Citas que se olvidan\"",
+    "problema_descripcion": "Las citas se gestionaban manualmente.",
+    "consecuencias": "No-shows frecuentes y huecos en la agenda.",
+    "solucion": "Automatizamos recordatorios y agenda online.",
+    "etiquetas": ["#agenda-vacía", "#no-show", "#llamadas-manuales"],
     "area": "Atención al cliente",
-    "problemas": ["#no-show", "#agenda-vacia", "#llamadas-manuales"],
     "antes": "Recordaban las citas por teléfono un día antes, un proceso tedioso y con una alta tasa de citas no asistidas.",
     "despues": "Se configuró un sistema de recordatorios y confirmación automática por WhatsApp 48h y 24h antes de la cita.",
     "resultado": "Reducción drástica en citas no asistidas, una agenda mucho más optimizada y personal liberado de tareas repetitivas.",
@@ -40,10 +46,12 @@
     ]
   },
   {
-    "titulo": "Equipo de diseño: feedback por 5 sitios",
-    "resumen": "Las correcciones de los diseños llegaban por email, Slack, WhatsApp... Un caos para hacer el seguimiento.",
+    "titulo": "Equipo de diseño – \"Feedback por cinco sitios\"",
+    "problema_descripcion": "El feedback llegaba por WhatsApp, email, Slack y más.",
+    "consecuencias": "Versiones mezcladas, retrasos y frustración.",
+    "solucion": "Canal único con estados y control de versiones.",
+    "etiquetas": ["#retrabajo", "#feedback-desordenado", "#versiones-antiguas"],
     "area": "Comunicación interna",
-    "problemas": ["#feedback-desordenado", "#versiones-antiguas", "#retrabajo"],
     "antes": "Cada miembro del equipo recibía feedback por canales diferentes, provocando confusiones y usando versiones antiguas.",
     "despues": "Se centralizó toda la comunicación en una herramienta de revisión visual, con comentarios directamente sobre los diseños.",
     "resultado": "El proceso de revisión es ahora un 50% más rápido y se han eliminado los errores por usar versiones incorrectas.",
@@ -53,10 +61,12 @@
     ]
   },
   {
-    "titulo": "Consultor independiente: ¿en qué gasté las horas?",
-    "resumen": "No llevaba un control del tiempo dedicado a cada cliente, dificultando la facturación y la planificación.",
+    "titulo": "Consultor independiente – \"¿En qué gasté el día?\"",
+    "problema_descripcion": "No llevaba control de sus horas.",
+    "consecuencias": "Horas sin facturar, mala planificación.",
+    "solucion": "Sistema de time-tracking con informes automáticos.",
+    "etiquetas": ["#sin-control", "#horas-no-facturadas", "#desorden"],
     "area": "Gestión del tiempo",
-    "problemas": ["#horas-no-facturadas", "#sin-control", "#planificacion"],
     "antes": "Calculaba las horas 'a ojo' al final de mes, con el riesgo de olvidar tareas y regalar tiempo a los clientes.",
     "despues": "Implementó una app de seguimiento de tiempo sencilla que se integra con su sistema de facturación.",
     "resultado": "Ahora factura un 15% más de horas que antes se perdían y puede planificar su carga de trabajo de forma mucho más realista.",
@@ -66,10 +76,12 @@
     ]
   },
   {
-    "titulo": "Startup: seguimiento de proyectos a ciegas",
-    "resumen": "El equipo no tenía una visión clara del estado de las tareas, generando reuniones constantes para alinearse.",
+    "titulo": "Startup – \"Seguimiento a ciegas\"",
+    "problema_descripcion": "No sabían el estado real de los proyectos.",
+    "consecuencias": "Reuniones constantes y plazos incumplidos.",
+    "solucion": "Paneles visuales con tareas y responsables claros.",
+    "etiquetas": ["#falta-visibilidad", "#reuniones-excesivas", "#plazos-incumplidos"],
     "area": "Seguimiento",
-    "problemas": ["#reuniones-excesivas", "#falta-visibilidad", "#plazos-incumplidos"],
     "antes": "Las actualizaciones de estado se daban verbalmente en reuniones diarias que consumían demasiado tiempo.",
     "despues": "Se adoptó un tablero Kanban digital donde cada tarea es visible y su estado se actualiza en tiempo real para todos.",
     "resultado": "Reuniones más cortas y productivas, mayor autonomía del equipo y una visión clara del progreso para la dirección.",
@@ -79,10 +91,12 @@
     ]
   },
   {
-    "titulo": "Constructora: desorganización en obra",
-    "resumen": "Los planos, permisos y comunicaciones con el equipo de obra estaban dispersos, causando retrasos y sobrecostes.",
+    "titulo": "Constructora – \"Desorganización en obra\"",
+    "problema_descripcion": "Planos, permisos y mensajes repartidos por todas partes.",
+    "consecuencias": "Obras retrasadas y errores en ejecución.",
+    "solucion": "Todo centralizado y accesible desde móvil en obra.",
+    "etiquetas": ["#documentos-desactualizados", "#mala-comunicación", "#retrasos"],
     "area": "Organización",
-    "problemas": ["#documentos-desactualizados", "#mala-comunicacion", "#retrasos"],
     "antes": "Se usaban grupos de WhatsApp para todo, mezclando fotos de obra con conversaciones informales y perdiendo información clave.",
     "despues": "Se creó una carpeta compartida en la nube, accesible desde el móvil, con toda la documentación organizada por proyecto y versión.",
     "resultado": "Todo el equipo accede siempre a la última versión de los planos y la comunicación está ordenada, evitando errores costosos.",
@@ -92,3 +106,5 @@
     ]
   }
 ]
+
+    
