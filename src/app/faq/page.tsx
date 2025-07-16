@@ -1,3 +1,4 @@
+
 import {
   Accordion,
   AccordionContent,
@@ -6,7 +7,7 @@ import {
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, MessageCircleQuestion } from 'lucide-react';
+import { ArrowRight, MessageCircleQuestion, HelpCircle } from 'lucide-react';
 
 const faqSections = {
   Servicios: [
@@ -88,18 +89,21 @@ export default function FaqPage() {
                 <Accordion
                   type="single"
                   collapsible
-                  className="w-full space-y-2"
+                  className="w-full space-y-3"
                 >
                   {faqs.map((faq, index) => (
                     <AccordionItem
                       key={index}
                       value={`item-${index}`}
-                      className="bg-secondary/50 rounded-lg px-4 border-b-0"
+                      className="bg-secondary/30 rounded-lg border-l-4 border-primary/50 transition-all duration-300 hover:border-primary"
                     >
-                      <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                        {faq.question}
+                      <AccordionTrigger className="text-left font-semibold px-4 py-4 hover:no-underline hover:bg-secondary/50 rounded-r-lg transition-all duration-300 hover:translate-x-2 group">
+                        <div className="flex items-center gap-3">
+                          <HelpCircle className="w-5 h-5 text-primary/80 group-hover:text-primary transition-colors duration-300 shrink-0" />
+                          <span>{faq.question}</span>
+                        </div>
                       </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground pt-2">
+                      <AccordionContent className="text-muted-foreground pt-0 pb-4 px-6">
                         {faq.answer}
                       </AccordionContent>
                     </AccordionItem>
