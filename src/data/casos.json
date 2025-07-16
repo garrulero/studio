@@ -46,13 +46,13 @@
     ]
   },
   {
-    "titulo": "Feedback por cinco sitios",
-    "problema_descripcion": "El feedback de los proyectos se recibía por múltiples canales a la vez.",
+    "titulo": "Revisiones por todas partes",
+    "problema_descripcion": "Las revisiones de los proyectos se recibían por múltiples canales a la vez.",
     "consecuencias": "Versiones mezcladas, retrasos y frustración.",
     "solucion": "Canal único con estados y control de versiones.",
-    "etiquetas": ["#retrabajo", "#feedback-desordenado", "#versiones-antiguas"],
+    "etiquetas": ["#retrabajo", "#revisiones-desordenadas", "#versiones-antiguas"],
     "area": "Comunicación interna",
-    "antes": "Cada miembro del equipo recibía feedback por canales diferentes, provocando confusiones y usando versiones antiguas.",
+    "antes": "Cada miembro del equipo recibía las revisiones por canales diferentes, provocando confusiones y usando versiones antiguas.",
     "despues": "Se centralizó toda la comunicación en una herramienta de revisión visual, con comentarios directamente sobre los diseños.",
     "resultado": "El proceso de revisión es ahora un 50% más rápido y se han eliminado los errores por usar versiones incorrectas.",
      "metricas": [
@@ -64,7 +64,7 @@
     "titulo": "¿En qué gasté el día?",
     "problema_descripcion": "Faltaba un sistema para registrar las horas dedicadas a cada proyecto.",
     "consecuencias": "Horas sin facturar y una mala planificación de la carga de trabajo.",
-    "solucion": "Sistema de time-tracking con informes automáticos.",
+    "solucion": "Sistema de registro de horas con informes automáticos.",
     "etiquetas": ["#sin-control", "#horas-no-facturadas", "#desorden"],
     "area": "Gestión del tiempo",
     "antes": "El cálculo de las horas era 'a ojo' al final de mes, con el riesgo de olvidar tareas y regalar tiempo a los clientes.",
@@ -109,3 +109,4 @@
     
 
     
+
