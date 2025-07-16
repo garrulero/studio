@@ -28,9 +28,9 @@ export function AboutUsSection() {
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
-          <Card className="bg-card border border-border/80">
+          <Card className="bg-card border-green-500/30">
             <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl text-green-400">
+              <CardTitle className="flex items-center gap-3 text-2xl text-green-600">
                 <CheckCircle2 className="w-8 h-8" />
                 Nuestro Compromiso
               </CardTitle>
@@ -40,15 +40,15 @@ export function AboutUsSection() {
                 {whatWeDo.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 mt-1 text-primary shrink-0" />
-                    <span>{item}</span>
+                    <span className="text-foreground/90">{item}</span>
                   </li>
                 ))}
               </ul>
             </CardContent>
           </Card>
-          <Card className="bg-card border border-border/80">
+          <Card className="bg-card border-red-500/20">
             <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl text-red-500">
+              <CardTitle className="flex items-center gap-3 text-2xl text-red-600">
                 <XCircle className="w-8 h-8" />
                 Lo que Evitamos
               </CardTitle>
@@ -58,7 +58,7 @@ export function AboutUsSection() {
                 {whatWeDontDo.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <XCircle className="w-5 h-5 mt-1 text-muted-foreground shrink-0" />
-                    <span>{item}</span>
+                    <span className="text-foreground/90">{item}</span>
                   </li>
                 ))}
               </ul>

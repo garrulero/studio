@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X, Heart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import Link from 'next/link';
@@ -17,12 +17,12 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         <Link href="/" className="font-bold text-xl text-foreground">
           GoiLab
         </Link>
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
           {navItems.map((item) => (
             <Link
               key={item.label}
@@ -34,10 +34,9 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-2">
-          <Button asChild className="bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white">
+          <Button asChild>
             <Link href="/#contacto">
-              <Heart className="w-4 h-4 mr-2" />
-              Contactar
+              Agendar Cita
             </Link>
           </Button>
         </div>
@@ -60,7 +59,7 @@ export function Header() {
                     <span className="sr-only">Cerrar menú</span>
                   </Button>
                 </div>
-                <nav className="flex flex-col gap-4 p-4 text-lg">
+                <nav className="flex flex-col gap-4 p-4 text-base">
                   {navItems.map((item) => (
                     <Link
                       key={item.label}
@@ -73,8 +72,8 @@ export function Header() {
                   ))}
                 </nav>
                 <div className="mt-auto p-4 border-t">
-                  <Button asChild className="w-full bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white">
-                    <Link href="/#contacto" onClick={() => setIsMobileMenuOpen(false)}>Contactar</Link>
+                  <Button asChild className="w-full">
+                    <Link href="/#contacto" onClick={() => setIsMobileMenuOpen(false)}>Agendar Cita</Link>
                   </Button>
                 </div>
               </div>

@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -82,18 +81,18 @@ export default function CasosPage() {
       <section id="casos-de-exito" className="w-full py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight animate-glow [text-shadow:0_0_20px_white]">Casos que podrían ser el tuyo</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Casos que podrían ser el tuyo</h1>
             <p className="text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
-              ¿Qué quieres mejorar?
+              Filtra por área para encontrar soluciones a problemas como los tuyos.
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-2 mb-10">
             {areas.map((area) => (
               <Button
                 key={area}
-                variant={filter === area ? 'default' : 'secondary'}
+                variant={filter === area ? 'default' : 'outline'}
                 onClick={() => setFilter(area)}
-                className={`rounded-full transition-all ${filter === area ? 'bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white' : ''}`}
+                className="rounded-full"
               >
                 {area}
               </Button>
@@ -101,22 +100,22 @@ export default function CasosPage() {
           </div>
           <div id="galeria-casos" className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCases.map((story) => (
-              <Card key={story.titulo} className="bg-card border border-border/60 flex flex-col p-6 rounded-lg transition-all hover:border-primary/80">
-                <CardContent className="p-0 flex flex-col flex-grow">
+              <Card key={story.titulo} className="bg-card shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+                <CardContent className="p-6 flex flex-col flex-grow">
                   <Badge variant="secondary" className="mb-4 self-start">{story.area}</Badge>
                   <h3 className="text-xl font-bold mb-2">{story.titulo}</h3>
                   <p className="text-muted-foreground mb-4 flex-grow">{story.resumen}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {story.problemas.map(tag => (
-                      <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
+                      <Badge key={tag} variant="outline" className="text-xs font-normal bg-background">{tag}</Badge>
                     ))}
                   </div>
                   <div className="flex flex-col sm:flex-row gap-2 mt-auto">
-                    <Button onClick={() => handleOpenDetailsModal(story)} variant="secondary" className="w-full">
+                    <Button onClick={() => handleOpenDetailsModal(story)} variant="outline" className="w-full">
                       Ver detalles
                     </Button>
-                    <Button onClick={() => handleOpenContactModal(story)} className="w-full bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white">
-                      ¿Quieres esta solución?
+                    <Button onClick={() => handleOpenContactModal(story)} className="w-full">
+                      ¿Te identificas?
                     </Button>
                   </div>
                 </CardContent>
@@ -129,23 +128,24 @@ export default function CasosPage() {
       {selectedCase && (
         <>
           <Dialog open={isDetailsModalOpen} onOpenChange={(isOpen) => !isOpen && handleCloseModals()}>
-            <DialogContent className="sm:max-w-4xl bg-card border-border/20 text-foreground p-0">
+            <DialogContent className="sm:max-w-4xl bg-card text-foreground p-0">
                 <DialogHeader className="p-6 pb-0">
                     <DialogTitle className="text-2xl font-bold">{selectedCase.titulo}</DialogTitle>
+                     <Badge variant="secondary" className="self-start mt-1">{selectedCase.area}</Badge>
                 </DialogHeader>
                 <div className="grid md:grid-cols-2 gap-6 p-6">
                   <div className="space-y-6">
                     <div>
-                      <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-red-400"><XCircle className="w-5 h-5" /> El problema</h4>
+                      <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-red-600"><XCircle className="w-5 h-5" /> El problema</h4>
                       <p className="text-muted-foreground">{selectedCase.antes}</p>
                     </div>
                     <Separator />
                     <div>
-                      <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-green-400"><CheckCircle className="w-5 h-5" /> La solución</h4>
+                      <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-green-600"><CheckCircle className="w-5 h-5" /> La solución</h4>
                       <p className="text-muted-foreground">{selectedCase.despues}</p>
                     </div>
                   </div>
-                  <Card className="bg-secondary/50 border-border/50">
+                  <Card className="bg-secondary/50">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2"><BarChart className="w-5 h-5" />Métricas de Impacto</CardTitle>
                       <CardDescription>Comparativa antes y después.</CardDescription>
@@ -154,10 +154,10 @@ export default function CasosPage() {
                       <div className="h-40">
                          <ResponsiveContainer width="100%" height="100%">
                             <RechartsBarChart data={chartData}>
-                                <XAxis dataKey="name" stroke="#888888" fontSize={12} tickLine={false} axisLine={false}/>
-                                <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}`}/>
+                                <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false}/>
+                                <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}`}/>
                                 <Tooltip
-                                  contentStyle={{ background: "hsl(var(--background))", border: "1px solid hsl(var(--border))" }}
+                                  contentStyle={{ background: "hsl(var(--background))", border: "1px solid hsl(var(--border))", borderRadius: "var(--radius)" }}
                                   labelStyle={{ color: "hsl(var(--foreground))" }}
                                   itemStyle={{ color: "hsl(var(--primary))" }}
                                   formatter={(value, name, props) => [`${value} ${props.payload.unit}`, name]}
@@ -173,15 +173,18 @@ export default function CasosPage() {
                             const isPositive = metric.despues > metric.antes;
                             const isReductionGood = (metric.nombre.toLowerCase().includes('tiempo') || metric.nombre.toLowerCase().includes('errores') || metric.nombre.toLowerCase().includes('coste') || metric.nombre.toLowerCase().includes('perdidas'));
                             
+                            let trendIcon;
+                            if (isReductionGood) {
+                                trendIcon = <TrendingDown className={`w-5 h-5 ${improvement < 0 ? 'text-green-500' : 'text-red-500'}`} />
+                            } else {
+                                trendIcon = <TrendingUp className={`w-5 h-5 ${improvement > 0 ? 'text-green-500' : 'text-red-500'}`} />
+                            }
+
                             return (
                                 <div key={metric.nombre}>
                                     <p className="text-sm text-muted-foreground">{metric.nombre}</p>
                                     <p className="text-2xl font-bold flex items-center justify-center gap-1">
-                                        { isReductionGood ? (
-                                           <TrendingDown className={`w-5 h-5 ${improvement < 0 ? 'text-green-400' : 'text-red-400'}`} />
-                                        ) : (
-                                            <TrendingUp className={`w-5 h-5 ${improvement > 0 ? 'text-green-400' : 'text-red-400'}`} />
-                                        )}
+                                        {trendIcon}
                                         {Math.abs(improvement).toFixed(0)}%
                                     </p>
                                 </div>
@@ -191,11 +194,11 @@ export default function CasosPage() {
                     </CardContent>
                   </Card>
                 </div>
-                 <div className="px-6 py-4 bg-secondary/30 border-t flex justify-between items-center">
-                   <p className="text-sm text-muted-foreground max-w-lg">
+                 <div className="px-6 py-4 bg-secondary/30 border-t flex flex-wrap justify-between items-center gap-4">
+                   <p className="text-sm text-muted-foreground flex-1 min-w-[200px]">
                       <span className="font-semibold text-foreground">Resultado:</span> {selectedCase.resultado}
                    </p>
-                   <Button onClick={() => handleOpenContactModal(selectedCase)} className="bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white">
+                   <Button onClick={() => handleOpenContactModal(selectedCase)}>
                       Aplicar a mi caso <ArrowRight className="ml-2 w-4 h-4" />
                    </Button>
                  </div>
@@ -203,9 +206,9 @@ export default function CasosPage() {
           </Dialog>
 
           <Dialog open={isContactModalOpen} onOpenChange={(isOpen) => !isOpen && handleCloseModals()}>
-              <DialogContent className="sm:max-w-[425px] bg-card border-border/20">
+              <DialogContent className="sm:max-w-[425px] bg-card">
                   <DialogHeader>
-                      <DialogTitle>Contacto</DialogTitle>
+                      <DialogTitle>Hablemos de tu caso</DialogTitle>
                       <DialogDescription>
                           Nos alegra que te sientas identificado. Déjanos tus datos y nos pondremos en contacto.
                       </DialogDescription>
@@ -235,8 +238,8 @@ export default function CasosPage() {
                       </div>
                   </div>
                    <div className="flex justify-end gap-2">
-                      <Button type="button" variant="secondary" onClick={handleCloseModals}>Cerrar</Button>
-                      <Button type="submit" className="bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white">Enviar</Button>
+                      <Button type="button" variant="ghost" onClick={handleCloseModals}>Cerrar</Button>
+                      <Button type="submit">Enviar</Button>
                    </div>
               </DialogContent>
           </Dialog>

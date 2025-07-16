@@ -21,7 +21,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="servicios" className="w-full py-16 lg:py-24 bg-secondary">
+    <section id="servicios" className="w-full py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Soluciones para llevar tu negocio al siguiente nivel</h2>
@@ -31,12 +31,12 @@ export function ServicesSection() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="bg-card border border-border/80 hover:border-primary/50 transition-all duration-300">
-              <CardHeader className="flex flex-row items-center gap-4">
-                <div className="bg-primary/10 p-3 rounded-md">
+            <Card key={index} className="bg-card shadow-sm hover:shadow-md transition-shadow duration-300">
+              <CardHeader className="flex flex-row items-center gap-4 pb-4">
+                <div className="bg-primary/10 p-3 rounded-lg">
                   <service.icon className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
+                <CardTitle className="text-xl font-semibold">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">{service.description}</p>

@@ -13,13 +13,13 @@ export function ContactSection() {
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
-          <Card className="bg-card border border-border/80 shadow-lg">
+          <Card className="bg-card shadow-lg">
             <div className="grid md:grid-cols-2">
               <div className="p-8">
                 <h3 className="text-2xl font-bold mb-6">Información de Contacto</h3>
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
-                    <div className="bg-secondary p-3 rounded-md">
+                    <div className="bg-primary/10 p-3 rounded-lg">
                        <Mail className="w-6 h-6 text-primary" />
                     </div>
                     <div>
@@ -28,7 +28,7 @@ export function ContactSection() {
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="bg-secondary p-3 rounded-md">
+                    <div className="bg-primary/10 p-3 rounded-lg">
                       <Phone className="w-6 h-6 text-primary" />
                     </div>
                     <div>
@@ -37,7 +37,7 @@ export function ContactSection() {
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                     <div className="bg-secondary p-3 rounded-md">
+                     <div className="bg-primary/10 p-3 rounded-lg">
                        <Clock className="w-6 h-6 text-primary" />
                     </div>
                     <div>
@@ -47,7 +47,7 @@ export function ContactSection() {
                   </div>
                 </div>
               </div>
-              <div className="bg-secondary p-8 rounded-b-lg md:rounded-r-lg md:rounded-bl-none flex flex-col justify-center items-center text-center">
+              <div className="bg-background/50 p-8 rounded-b-lg md:rounded-r-lg md:rounded-bl-none flex flex-col justify-center items-center text-center">
                   <h3 className="text-2xl font-bold mb-4">Agenda una consultoría gratuita</h3>
                   <p className="text-muted-foreground mb-6">Reserva 15 minutos en nuestro calendario. Escucharemos tus necesidades y te daremos una primera valoración honesta.</p>
                   <Button size="lg" asChild className="font-semibold">

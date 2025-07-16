@@ -7,7 +7,7 @@ const plans = [
   {
     name: 'Optimización Esencial',
     price: '840€',
-    description: 'Ideal para resolver un problema específico y obtener resultados rápidos.',
+    description: 'Para resolver un problema específico y obtener resultados rápidos.',
     features: [
       'Análisis de un proceso clave',
       'Implementación de una herramienta focalizada',
@@ -74,8 +74,8 @@ export function PricingSection() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {plans.map((plan) => (
-            <Card key={plan.name} className={`flex flex-col h-full bg-card border border-border/80 transition-all ${plan.isPopular ? 'border-primary ring-2 ring-primary' : 'hover:border-primary/50'}`}>
-              {plan.isPopular && <Badge className="absolute -top-3 right-4 bg-primary text-primary-foreground">Recomendado</Badge>}
+            <Card key={plan.name} className={`flex flex-col h-full bg-card transition-all ${plan.isPopular ? 'border-primary shadow-lg' : 'shadow-sm hover:shadow-md'}`}>
+              {plan.isPopular && <Badge className="absolute -top-3 right-4">Recomendado</Badge>}
               <CardHeader>
                 <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
                 <CardDescription>{plan.description}</CardDescription>
@@ -103,9 +103,9 @@ export function PricingSection() {
           ))}
         </div>
         <div className="mt-12 text-center">
-            <Card className="max-w-2xl mx-auto bg-card border border-border/80">
+            <Card className="max-w-2xl mx-auto bg-card/70 border-dashed">
                 <CardContent className="p-6">
-                    <p className="font-semibold">Una inversión centrada en resultados tangibles.</p>
+                    <p className="font-semibold text-foreground">Una inversión centrada en resultados tangibles.</p>
                     <p className="text-muted-foreground text-sm">Nuestro objetivo es que recuperes tiempo valioso y optimices tus recursos. El valor real está en la claridad y eficiencia que ganas.</p>
                 </CardContent>
             </Card>
@@ -122,7 +122,7 @@ export function PricingSection() {
                 </p>
                 <div className="grid sm:grid-cols-3 gap-6 mt-10">
                     {supportTiers.map(tier => (
-                         <Card key={tier.name} className="bg-card border-border/80">
+                         <Card key={tier.name} className="bg-card shadow-sm">
                             <CardHeader>
                                 <CardTitle className="text-xl">{tier.name}</CardTitle>
                                 <CardDescription>{tier.description}</CardDescription>
