@@ -25,10 +25,23 @@ const formSchema = z.object({
   }),
 });
 
-async function sendEmail(data: z.infer<typeof formSchema>) {
-    const subject = encodeURIComponent(`Nuevo contacto de ${data.name} desde la web`);
-    const body = encodeURIComponent(`Nombre: ${data.name}\nEmail: ${data.email}\n\nMensaje:\n${data.message}`);
-    window.location.href = `mailto:kaixo@goilab.com?subject=${subject}&body=${body}`;
+async function sendWebhook(data: z.infer<typeof formSchema>) {
+  // IMPORTANTE: Reemplaza esta URL por la URL de tu webhook de n8n
+  const webhookUrl = 'https://n8n.example.com/webhook/your-webhook-id';
+
+  const response = await fetch(webhookUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error('Error al enviar el formulario.');
+  }
+
+  return response.json();
 }
 
 
@@ -48,17 +61,17 @@ export default function AgendarPage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
       try {
-        await sendEmail(values);
+        await sendWebhook(values);
         toast({
-          title: "¡Redirigiendo a tu email!",
-          description: "Se abrirá tu aplicación de correo para que puedas enviar el mensaje.",
+          title: "¡Mensaje enviado!",
+          description: "Hemos recibido tus datos. Nos pondremos en contacto contigo pronto.",
         });
         form.reset();
       } catch (error) {
         toast({
           variant: "destructive",
           title: "Error",
-          description: "No se pudo abrir tu cliente de email. Inténtalo de nuevo.",
+          description: "No se pudo enviar tu mensaje. Por favor, inténtalo de nuevo o contacta a kaixo@goilab.com.",
         });
       }
     });
