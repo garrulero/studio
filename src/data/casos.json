@@ -2,7 +2,7 @@
 [
   {
     "titulo": "Papeles por todas partes",
-    "problema_descripcion": "Documentos llegaban por todos los canales: email, WhatsApp, papel.",
+    "problema_descripcion": "La documentación llegaba por múltiples canales sin un sistema unificado.",
     "consecuencias": "Pérdidas de tiempo, errores y mucho estrés.",
     "solucion": "Unificamos todos los envíos en un sistema simple y ordenado.",
     "etiquetas": ["#archivos-perdidos", "#todo-en-whatsapp", "#desorden"],
@@ -17,7 +17,7 @@
   },
   {
     "titulo": "Pedidos descontrolados",
-    "problema_descripcion": "Hacían pedidos a mano sin registro ni lógica.",
+    "problema_descripcion": "La gestión de pedidos era un proceso manual sin un registro claro.",
     "consecuencias": "Tareas duplicadas, precios incoherentes y llamadas constantes.",
     "solucion": "Digitalizamos el pedido con alertas y control de stock.",
     "etiquetas": ["#tiempo-perdido", "#duplicar-tareas", "#sin-sistema"],
@@ -32,7 +32,7 @@
   },
   {
     "titulo": "Citas que se olvidan",
-    "problema_descripcion": "Las citas se gestionaban manualmente.",
+    "problema_descripcion": "La gestión de citas y recordatorios era un proceso manual.",
     "consecuencias": "No-shows frecuentes y huecos en la agenda.",
     "solucion": "Automatizamos recordatorios y agenda online.",
     "etiquetas": ["#agenda-vacía", "#no-show", "#llamadas-manuales"],
@@ -47,7 +47,7 @@
   },
   {
     "titulo": "Feedback por cinco sitios",
-    "problema_descripcion": "El feedback llegaba por WhatsApp, email, Slack y más.",
+    "problema_descripcion": "El feedback de los proyectos se recibía por múltiples canales a la vez.",
     "consecuencias": "Versiones mezcladas, retrasos y frustración.",
     "solucion": "Canal único con estados y control de versiones.",
     "etiquetas": ["#retrabajo", "#feedback-desordenado", "#versiones-antiguas"],
@@ -62,8 +62,8 @@
   },
   {
     "titulo": "¿En qué gasté el día?",
-    "problema_descripcion": "No llevaba control de sus horas.",
-    "consecuencias": "Horas sin facturar, mala planificación.",
+    "problema_descripcion": "Faltaba un sistema para registrar las horas dedicadas a cada proyecto.",
+    "consecuencias": "Horas sin facturar y una mala planificación de la carga de trabajo.",
     "solucion": "Sistema de time-tracking con informes automáticos.",
     "etiquetas": ["#sin-control", "#horas-no-facturadas", "#desorden"],
     "area": "Gestión del tiempo",
@@ -77,8 +77,8 @@
   },
   {
     "titulo": "Seguimiento a ciegas",
-    "problema_descripcion": "No sabían el estado real de los proyectos.",
-    "consecuencias": "Reuniones constantes y plazos incumplidos.",
+    "problema_descripcion": "Existía una falta de visibilidad sobre el estado real de los proyectos.",
+    "consecuencias": "Reuniones constantes para actualizar estados y plazos incumplidos.",
     "solucion": "Paneles visuales con tareas y responsables claros.",
     "etiquetas": ["#falta-visibilidad", "#reuniones-excesivas", "#plazos-incumplidos"],
     "area": "Seguimiento",
@@ -92,8 +92,8 @@
   },
   {
     "titulo": "Desorganización en obra",
-    "problema_descripcion": "Planos, permisos y mensajes repartidos por todas partes.",
-    "consecuencias": "Obras retrasadas y errores en ejecución.",
+    "problema_descripcion": "La información crítica (planos, permisos) estaba dispersa y desactualizada.",
+    "consecuencias": "Obras retrasadas, sobrecostes y errores costosos en la ejecución.",
     "solucion": "Todo centralizado y accesible desde móvil en obra.",
     "etiquetas": ["#documentos-desactualizados", "#mala-comunicación", "#retrasos"],
     "area": "Organización",
