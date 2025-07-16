@@ -89,19 +89,44 @@ body {
 @layer components {
   .animate-sky-ascent {
     background: 
-      radial-gradient(ellipse 80% 60% at 20% 20%, white 40%, transparent 41%),
-      radial-gradient(ellipse 60% 50% at 70% 30%, white 35%, transparent 36%),
-      radial-gradient(ellipse 90% 70% at 50% 80%, white 50%, transparent 51%),
-      radial-gradient(ellipse 50% 40% at 90% 75%, white 30%, transparent 31%),
+      /* Cloud 1 */
+      radial-gradient(circle at 10% 20%, white 8%, transparent 8.5%),
+      radial-gradient(circle at 15% 15%, white 10%, transparent 10.5%),
+      radial-gradient(circle at 25% 25%, white 8%, transparent 8.5%),
+      
+      /* Cloud 2 */
+      radial-gradient(circle at 60% 40%, white 12%, transparent 12.5%),
+      radial-gradient(circle at 68% 45%, white 10%, transparent 10.5%),
+
+      /* Cloud 3 */
+      radial-gradient(circle at 40% 70%, white 15%, transparent 15.5%),
+      radial-gradient(circle at 50% 80%, white 12%, transparent 12.5%),
+      
+       /* Cloud 4 */
+      radial-gradient(circle at 85% 65%, white 10%, transparent 10.5%),
+      radial-gradient(circle at 90% 75%, white 12%, transparent 12.5%),
+      radial-gradient(circle at 80% 78%, white 8%, transparent 8.5%),
+
+      /* Sky */
       linear-gradient(to bottom, #aaccff, #6699ee);
   }
 }
 
 @keyframes sky-ascent-animation {
   from {
-    background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+    background-position: 
+      0px 0px, 0px 0px, 0px 0px, /* Cloud 1 */
+      0px 0px, 0px 0px, /* Cloud 2 */
+      0px 0px, 0px 0px, /* Cloud 3 */
+      0px 0px, 0px 0px, 0px 0px, /* Cloud 4 */
+      0px 0px; /* Sky */
   }
   to {
-    background-position: 0px 1200px, 0px 1200px, 0px 1200px, 0px 1200px, 0px 0px;
+    background-position: 
+      0px 1200px, 0px 1200px, 0px 1200px, /* Cloud 1 */
+      0px 1800px, 0px 1800px, /* Cloud 2 */
+      0px 1600px, 0px 1600px, /* Cloud 3 */
+      0px 1400px, 0px 1400px, 0px 1400px, /* Cloud 4 */
+      0px 0px; /* Sky */
   }
 }

@@ -104,10 +104,10 @@ export default {
         },
         'sky-ascent-animation': {
           from: {
-            backgroundPosition: '0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px',
+            backgroundPosition: '0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px',
           },
           to: {
-            backgroundPosition: '0px 1200px, 0px 1200px, 0px 1200px, 0px 1200px, 0px 0px',
+            backgroundPosition: '0px 1200px, 0px 1200px, 0px 1200px, 0px 1800px, 0px 1800px, 0px 1600px, 0px 1600px, 0px 1400px, 0px 1400px, 0px 1400px, 0px 0px',
           },
         },
       },
