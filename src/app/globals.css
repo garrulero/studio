@@ -89,13 +89,13 @@ body {
 @layer components {
   .animate-sky-ascent {
     background: 
-      radial-gradient(circle at 15% 15%, white 1%, transparent 20%),
-      radial-gradient(circle at 85% 25%, white 0.5%, transparent 15%),
-      radial-gradient(circle at 45% 75%, white 1.5%, transparent 25%),
-      radial-gradient(circle at 55% 45%, white 0.2%, transparent 10%),
-      radial-gradient(circle at 95% 95%, white 1%, transparent 20%),
-      linear-gradient(to bottom, #d4e8ff, #a3c9ff);
-    animation: sky-ascent-animation 30s linear infinite;
+      radial-gradient(circle at 15% 15%, white 2%, transparent 25%),
+      radial-gradient(circle at 85% 25%, white 1.5%, transparent 20%),
+      radial-gradient(circle at 45% 75%, white 2.5%, transparent 30%),
+      radial-gradient(circle at 55% 45%, white 1%, transparent 15%),
+      radial-gradient(circle at 95% 95%, white 2%, transparent 25%),
+      linear-gradient(to bottom, #aaccff, #77aaff);
+    animation: sky-ascent-animation 15s linear infinite;
   }
 }
 
