@@ -116,7 +116,7 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'gradient-move': 'gradient-move 4s ease infinite',
         'glow': 'glow 2.5s ease-in-out infinite',
-        'sky-ascent': 'sky-ascent-animation 15s linear infinite',
+        'sky-ascent': 'sky-ascent-animation 8s linear infinite',
       },
     },
   },
