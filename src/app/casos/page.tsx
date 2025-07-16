@@ -11,7 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import casesData from '@/data/casos.json';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, BarChart, CheckCircle, TrendingUp, X, XCircle } from 'lucide-react';
+import { ArrowRight, BarChart, CheckCircle, TrendingDown, TrendingUp, X, XCircle } from 'lucide-react';
 import { Bar, BarChart as RechartsBarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 
 const areas = [
@@ -124,10 +124,16 @@ export default function CasosPage() {
       
       {selectedCase && (
         <>
-          <Dialog open={!!selectedCase && !isContactModalOpen} onOpenChange={(isOpen) => !isOpen && handleCloseModals()}>
-            <DialogContent className="sm:max-w-4xl bg-card text-foreground p-0 overflow-hidden">
+          <Dialog open={!!selectedCase && !isContactModalOpen} onOpenChange={(isOpen) => { if (!isOpen) handleCloseModals(); }}>
+            <DialogContent className="sm:max-w-4xl bg-card text-foreground p-0 overflow-hidden border-0">
                 <div className="absolute inset-0 animate-sky-ascent bg-[length:600px_600px] z-0"></div>
-                <div className="relative z-10 bg-card/80 backdrop-blur-sm h-full overflow-y-auto max-h-[90vh]">
+                <div className="relative z-10 bg-card/80 backdrop-blur-sm h-full overflow-y-auto max-h-[90vh] rounded-lg">
+                  <DialogClose asChild>
+                    <button className="absolute top-4 right-4 z-20 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+                      <X className="h-5 w-5" />
+                      <span className="sr-only">Cerrar</span>
+                    </button>
+                  </DialogClose>
                   <DialogHeader className="p-6 pb-0">
                       <DialogTitle className="text-2xl font-bold">{selectedCase.titulo}</DialogTitle>
                       <Badge variant="secondary" className="self-start mt-1">{selectedCase.area}</Badge>
@@ -135,12 +141,12 @@ export default function CasosPage() {
                   <div className="grid md:grid-cols-2 gap-6 p-6">
                     <div className="space-y-6">
                       <div>
-                        <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-red-600"><XCircle className="w-5 h-5" /> El problema</h4>
+                        <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-red-600"><TrendingDown className="w-5 h-5" /> El problema</h4>
                         <p className="text-muted-foreground">{selectedCase.antes}</p>
                       </div>
                       <Separator />
                       <div>
-                        <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-green-600"><CheckCircle className="w-5 h-5 animate-glow" /> La solución</h4>
+                        <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-green-600"><TrendingUp className="w-5 h-5 animate-glow" /> La solución</h4>
                         <p className="text-muted-foreground">{selectedCase.despues}</p>
                       </div>
                     </div>
