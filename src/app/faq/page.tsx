@@ -94,7 +94,7 @@ export default function FaqPage() {
                     <AccordionItem
                       key={index}
                       value={`item-${index}`}
-                      className="bg-secondary/50 rounded-lg px-4"
+                      className="bg-secondary/50 rounded-lg px-4 border-b-0"
                     >
                       <AccordionTrigger className="text-left font-semibold hover:no-underline">
                         {faq.question}
