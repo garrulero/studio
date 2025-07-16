@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -141,7 +142,7 @@ export default function CasosPage() {
                     </div>
                     <Separator />
                     <div>
-                      <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-green-600"><CheckCircle className="w-5 h-5" /> La solución</h4>
+                      <h4 className="font-semibold text-lg mb-2 flex items-center gap-2 text-green-600"><CheckCircle className="w-5 h-5 animate-glow" /> La solución</h4>
                       <p className="text-muted-foreground">{selectedCase.despues}</p>
                     </div>
                   </div>
@@ -165,7 +166,7 @@ export default function CasosPage() {
                                   iconSize={10}
                                 />
                                 <Bar dataKey="Antes de GoiLab" fill="hsl(var(--muted))" radius={[4, 4, 0, 0]} />
-                                <Bar dataKey="Después de GoiLab" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                                <Bar dataKey="Después de GoiLab" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} isAnimationActive={true} animationDuration={800} />
                             </RechartsBarChart>
                         </ResponsiveContainer>
                       </div>
@@ -229,3 +230,5 @@ export default function CasosPage() {
     </>
   );
 }
+
+    
