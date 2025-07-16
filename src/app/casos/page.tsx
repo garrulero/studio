@@ -6,10 +6,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import casesData from '@/data/casos.json';
@@ -18,7 +17,6 @@ import { ArrowRight, BarChart, ClipboardCheck, Clock, FileText, FolderArchive, L
 import { Bar, BarChart as RechartsBarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
-import { cn } from '@/lib/utils';
 
 const areas = [
   { name: 'Todos', icon: LayoutGrid },
@@ -165,12 +163,25 @@ export default function CasosPage() {
           <div id="galeria-casos" className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredCases.map((story) => (
               <Card key={story.titulo} className="bg-card shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col border border-border/50">
-                <CardContent className="p-6 flex flex-col flex-grow">
-                   <h3 className="text-xl font-bold mb-2">{story.titulo}</h3>
-                  <p className="text-muted-foreground mb-1"><span className="font-semibold text-card-foreground">El problema:</span> {story.problema_descripcion}</p>
-                  <p className="text-muted-foreground mb-4"><span className="font-semibold text-card-foreground">El caos:</span> {story.consecuencias}</p>
-                  <p className="text-muted-foreground mb-4 flex-grow"><span className="font-semibold text-card-foreground">La solución:</span> {story.solucion}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                <CardHeader>
+                   <h3 className="text-xl font-bold">{story.titulo}</h3>
+                </CardHeader>
+                <CardContent className="p-6 pt-0 flex flex-col flex-grow">
+                  <div className="space-y-4 flex-grow">
+                    <div>
+                      <h4 className="font-semibold text-sm mb-2 flex items-center gap-2 text-destructive">
+                        <TrendingDown className="w-4 h-4" /> El Problema
+                      </h4>
+                      <p className="text-muted-foreground text-sm">{story.problema_descripcion} {story.consecuencias}</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-sm mb-2 flex items-center gap-2 text-primary">
+                        <TrendingUp className="w-4 h-4" /> La Solución
+                      </h4>
+                      <p className="text-muted-foreground text-sm">{story.solucion}</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2 my-6">
                     {story.etiquetas.map(tag => (
                       <Badge key={tag} variant="outline" className="text-xs font-normal bg-background text-muted-foreground">{tag}</Badge>
                     ))}
@@ -327,5 +338,3 @@ export default function CasosPage() {
     </>
   );
 }
-
-    
