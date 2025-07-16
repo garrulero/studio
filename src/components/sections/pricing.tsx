@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check, Loader2, ShieldCheck, X } from 'lucide-react';
+import { Check, Loader2, ShieldCheck, Sparkles, X } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -42,15 +42,15 @@ const plans = [
     isPopular: true,
   },
   {
-    name: 'Solución a Medida',
-    price: '3.600€',
-    description: 'Para proyectos complejos que requieren integraciones o soluciones a medida.',
+    name: 'Solución Avanzada con IA',
+    price: 'Desde 3.600€',
+    description: 'Para automatizar tareas complejas usando modelos de IA a medida.',
     features: [
-      'Análisis integral y estratégico',
-      'Desarrollo de soluciones personalizadas',
+      'Todo lo del plan Transformación Digital',
+      'Desarrollo de agentes de IA personalizados',
       'Integración con sistemas existentes (ERP, CRM)',
-      'Formación continua y soporte dedicado',
-      'Soluciones avanzadas y automatizaciones',
+      'Automatizaciones inteligentes de alto impacto',
+      'Análisis predictivo y generación de informes',
     ],
     isPopular: false,
   },
@@ -157,18 +157,20 @@ export function PricingSection() {
               <Card key={plan.name} className={`flex flex-col h-full bg-card transition-all ${plan.isPopular ? 'border-primary shadow-lg' : 'shadow-sm hover:shadow-md'}`}>
                 {plan.isPopular && <Badge className="absolute -top-3 right-4">Recomendado</Badge>}
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
+                  <CardTitle className="text-2xl font-bold flex items-center gap-2">
+                    {plan.name === 'Solución Avanzada con IA' && <Sparkles className="w-6 h-6 text-primary" />}
+                    {plan.name}
+                  </CardTitle>
                   <CardDescription>{plan.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <div className="mb-6">
-                    <span className="text-sm text-muted-foreground">Desde</span>
-                    <span className="text-4xl font-extrabold ml-2">{plan.price}</span>
+                    <span className="text-4xl font-extrabold">{plan.price}</span>
                   </div>
                   <ul className="space-y-4">
                     {plan.features.map((feature, index) => (
-                      <li key={index} className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-primary" />
+                      <li key={index} className="flex items-start gap-3">
+                        <Check className="w-5 h-5 mt-1 text-primary shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -294,5 +296,3 @@ export function PricingSection() {
     </>
   );
 }
-
-    
