@@ -1,14 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 import Link from 'next/link';
-import { LogoCompleto } from '../logo-completo';
 
 export function HeroSection() {
   return (
     <section className="relative w-full pt-16 pb-20 lg:pt-24 lg:pb-32 bg-secondary">
       <div className="container mx-auto px-4 text-center">
         <div className="mb-8 flex justify-center">
-          <LogoCompleto className="h-auto w-full max-w-md text-foreground" />
+          <img src="/logos/logo-completo.svg" alt="GoiLab Logo Completo" className="h-auto w-full max-w-md text-foreground" />
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground">
           Recupera el control y enfócate en crecer.
