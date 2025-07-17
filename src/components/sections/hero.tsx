@@ -14,14 +14,14 @@ export function HeroSection() {
         </p>
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
            <Button size="lg" asChild>
-            <Link href="/#tarifas">
+            <Link href="/servicios#tarifas">
               Ver planes <ArrowRight className="inline-block ml-2 w-5 h-5" />
             </Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
             <Link href="/casos">
               <PlayCircle className="mr-2 w-5 h-5"/>
-              Ver casos de ejemplo
+              Ver casos
             </Link>
           </Button>
         </div>

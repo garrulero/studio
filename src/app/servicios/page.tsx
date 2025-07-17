@@ -162,7 +162,7 @@ export default function ServiciosPage() {
           <Button size="lg" variant="outline" asChild>
             <Link href="/casos">
               <PlayCircle className="mr-2 w-5 h-5"/>
-              Ver casos de ejemplo
+              Ver casos
             </Link>
           </Button>
         </div>

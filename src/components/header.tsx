@@ -6,6 +6,8 @@ import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -17,6 +19,24 @@ const navItems = [
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const NavLink = ({ href, label, isMobile = false }: { href: string; label: string, isMobile?: boolean }) => {
+    const isActive = pathname === href;
+    return (
+      <Link
+        href={href}
+        className={cn(
+          "transition-colors hover:text-foreground flex items-center gap-2",
+          isActive ? "text-foreground" : "text-muted-foreground",
+        )}
+        onClick={() => isMobile && setIsMobileMenuOpen(false)}
+      >
+        {isActive && <span className="h-2 w-2 rounded-full bg-primary"></span>}
+        {label}
+      </Link>
+    );
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -24,15 +44,9 @@ export function Header() {
         <Link href="/" className="font-bold text-xl text-foreground">
           GoiLab
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </Link>
+            <NavLink key={item.label} href={item.href} label={item.label} />
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-2">
@@ -63,14 +77,7 @@ export function Header() {
                 </div>
                 <nav className="flex flex-col gap-4 p-4 text-base">
                   {navItems.map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className="transition-colors hover:text-foreground text-muted-foreground"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
+                    <NavLink key={item.label} href={item.href} label={item.label} isMobile={true} />
                   ))}
                 </nav>
                 <div className="mt-auto p-4 border-t">
