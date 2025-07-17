@@ -60,7 +60,7 @@ const formSchema = z.object({
 });
 
 async function sendWebhook(data: z.infer<typeof formSchema>) {
-  const webhookUrl = 'https://n8n.garrulero.xyz/webhook-test/contacto-goilab';
+  const webhookUrl = 'https://n8n.garrulero.xyz/webhook/contacto-goilab';
   const response = await fetch(webhookUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
