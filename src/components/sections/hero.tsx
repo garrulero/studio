@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export function HeroSection() {
   return (
-    <section className="relative w-full pt-16 pb-20 lg:pt-24 lg:pb-32 bg-secondary">
+    <section className="relative w-full pb-20 lg:pb-32 bg-secondary">
       <div className="container mx-auto px-4 text-center">
         <div className="mb-4 flex justify-center">
           <img src="/logos/logo completo.svg" alt="GoiLab Logo Completo" className="h-auto w-full max-w-sm text-foreground" />
@@ -23,7 +23,7 @@ export function HeroSection() {
           </Button>
           <Button size="lg" variant="outline" asChild>
             <Link href="/casos">
-              <PlayCircle className="mr-2 w-5 h-5"/>
+              <PlayCircle className="mr-2 h-5 h-5"/>
               Ver casos
             </Link>
           </Button>
