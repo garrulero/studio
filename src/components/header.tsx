@@ -8,7 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
+import { Logo } from './logo';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -25,7 +25,6 @@ export function Header() {
   const NavLink = ({ href, label, isMobile = false }: { href: string; label: string, isMobile?: boolean }) => {
     const isActive = pathname === href;
     
-    // For mobile, keep the previous style
     if (isMobile) {
       return (
         <Link
@@ -42,7 +41,6 @@ export function Header() {
       );
     }
     
-    // For desktop, new style with dot below
     return (
       <Link
         href={href}
@@ -65,8 +63,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-        <Link href="/" className="font-bold text-xl text-foreground">
-          <Image src="/logo/logo.svg" alt="GoiLab Logo" width={100} height={40} />
+        <Link href="/" className="flex items-center">
+          <Logo className="h-8 w-auto" />
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navItems.map((item) => (
@@ -91,8 +89,8 @@ export function Header() {
             <SheetContent side="right" className="w-[240px] bg-background">
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
-                   <Link href="/" className="font-bold text-lg text-foreground" onClick={() => setIsMobileMenuOpen(false)}>
-                      <Image src="/logo/logo.svg" alt="GoiLab Logo" width={90} height={36} />
+                   <Link href="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Logo className="h-7 w-auto" />
                    </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                     <X className="h-6 w-6" />
