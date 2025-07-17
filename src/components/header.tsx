@@ -8,6 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -65,7 +66,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         <Link href="/" className="font-bold text-xl text-foreground">
-          GoiLab
+          <Image src="/logo/logo.svg" alt="GoiLab Logo" width={100} height={40} />
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navItems.map((item) => (
@@ -91,8 +92,8 @@ export function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
                    <Link href="/" className="font-bold text-lg text-foreground" onClick={() => setIsMobileMenuOpen(false)}>
-                    GoiLab
-                  </Link>
+                      <Image src="/logo/logo.svg" alt="GoiLab Logo" width={90} height={36} />
+                   </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                     <X className="h-6 w-6" />
                     <span className="sr-only">Cerrar menú</span>
