@@ -23,17 +23,40 @@ export function Header() {
 
   const NavLink = ({ href, label, isMobile = false }: { href: string; label: string, isMobile?: boolean }) => {
     const isActive = pathname === href;
+    
+    // For mobile, keep the previous style
+    if (isMobile) {
+      return (
+        <Link
+          href={href}
+          className={cn(
+            "transition-colors hover:text-foreground flex items-center gap-2",
+            isActive ? "text-foreground" : "text-muted-foreground",
+          )}
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          {isActive && <span className="h-2 w-2 rounded-full bg-primary"></span>}
+          {label}
+        </Link>
+      );
+    }
+    
+    // For desktop, new style with dot below
     return (
       <Link
         href={href}
         className={cn(
-          "transition-colors hover:text-foreground flex items-center gap-2",
+          "transition-colors hover:text-foreground relative flex flex-col items-center gap-1 py-2",
           isActive ? "text-foreground" : "text-muted-foreground",
         )}
-        onClick={() => isMobile && setIsMobileMenuOpen(false)}
       >
-        {isActive && <span className="h-2 w-2 rounded-full bg-primary"></span>}
-        {label}
+        <span>{label}</span>
+        <span
+          className={cn(
+            "h-1 w-1 rounded-full bg-primary transition-opacity",
+            isActive ? "opacity-100" : "opacity-0"
+          )}
+        ></span>
       </Link>
     );
   };
