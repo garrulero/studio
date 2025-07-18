@@ -1,7 +1,6 @@
 
 import { CheckCircle2, Handshake, Users, XCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import Image from 'next/image';
 
 const whatWeDo = [
   'Nos sumergimos en tu negocio para entender tus verdaderos retos.',
@@ -24,25 +23,14 @@ export default function SobreNosotrosPage() {
     <section id="sobre-nosotros" className="w-full py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-            <div className="text-center lg:text-left">
-                <h1 className="text-3xl md:text-5xl font-bold tracking-tight">¿Quién está detrás de GoiLab?</h1>
-                <p className="text-lg text-muted-foreground mt-6">
-                    Soy Raúl, y fundé GoiLab con una misión clara: ayudar a las pymes de aquí, a las que levantan la persiana cada día, a trabajar de forma más inteligente.
-                </p>
-                <p className="mt-4 text-muted-foreground">
-                    Conozco de primera mano el caos de los papeles, los emails interminables y la sensación de no tener control. Por eso, mi enfoque es darte soluciones prácticas y reales, sin humo ni tecnicismos innecesarios. Quiero que sientas que GoiLab es un compañero más en tu equipo, alguien que entiende tus problemas y te da las herramientas para resolverlos.
-                </p>
-            </div>
-            <div>
-                <Card className="bg-card shadow-lg overflow-hidden">
-                    <Image src="https://placehold.co/600x400.png" alt="Raúl, fundador de GoiLab" width={600} height={400} className="w-full h-auto object-cover" data-ai-hint="portrait man" />
-                    <CardContent className="p-4 bg-secondary/50 text-center">
-                        <p className="font-semibold text-foreground">Raúl Rojo</p>
-                        <p className="text-sm text-muted-foreground">Fundador de GoiLab</p>
-                    </CardContent>
-                </Card>
-            </div>
+        <div className="max-w-4xl mx-auto text-center mb-20">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight">¿Quién está detrás de GoiLab?</h1>
+            <p className="text-lg text-muted-foreground mt-6">
+                Soy Raúl, y fundé GoiLab con una misión clara: ayudar a las pymes de aquí, a las que levantan la persiana cada día, a trabajar de forma más inteligente.
+            </p>
+            <p className="mt-4 text-muted-foreground">
+                Conozco de primera mano el caos de los papeles, los emails interminables y la sensación de no tener control. Por eso, mi enfoque es darte soluciones prácticas y reales, sin humo ni tecnicismos innecesarios. Quiero que sientas que GoiLab es un compañero más en tu equipo, alguien que entiende tus problemas y te da las herramientas para resolverlos.
+            </p>
         </div>
 
         <div className="text-center mb-12">
