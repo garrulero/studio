@@ -25,14 +25,15 @@ export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 
       userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'N/A',
     };
     
-    // Usamos fetch porque sendBeacon puede ser bloqueado por algunos ad-blockers y es menos flexible.
+    // Para asegurar la máxima compatibilidad con n8n, enviamos los datos como un formulario.
+    // Esto hace que los datos aparezcan directamente en `body` dentro del flujo de n8n.
     await fetch(WEBHOOK_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(fullErrorData),
-      keepalive: true, // Importante para que la petición no se cancele si la página se cierra.
+      keepalive: true,
     });
   } catch (e) {
     console.error('Failed to log error to webhook:', e);
@@ -41,15 +42,9 @@ export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 
 
 // Función específica para probar el sistema de logging de errores.
 export function triggerTestError() {
-  try {
-    // @ts-ignore
-    nonExistentFunction();
-  } catch (error: any) {
-    // Capturamos el error para obtener un stack trace real
     logError({
-        message: `Test Error: ${error.message}`,
-        stack: error.stack,
+        message: 'This is a test error from the GoiLab website.',
+        stack: new Error('Test Error Stack').stack,
         componentStack: 'Triggered from test button in Footer.'
     });
-  }
 }
