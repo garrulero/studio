@@ -13,11 +13,12 @@ interface ErrorData {
 }
 
 export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 'userAgent'>) {
-  // Desactivado temporalmente para pruebas en desarrollo.
-  // if (process.env.NODE_ENV === 'development') {
-  //   console.info('Error logging is disabled in development mode.', errorData);
-  //   return;
-  // }
+  // Desactivado por defecto en desarrollo para no saturar. Se puede comentar para probar.
+  if (process.env.NODE_ENV === 'development') {
+    console.info('Error logging is disabled in development mode. To test, comment out this block in `error-logger.ts`.', errorData);
+    // Para forzar el envío en desarrollo, puedes comentar el if y el return.
+    // return; 
+  }
 
   try {
     const fullErrorData: ErrorData = {
