@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import { Inter } from 'next/font/google';
 import { useEffect } from 'react';
 import { logError } from '@/lib/error-logger';
+import Script from 'next/script';
 
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -112,9 +113,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // <-- REEMPLAZA ESTO CON TU ID
+
   return (
     <html lang="es" className="scroll-smooth">
-      <head />
+      <head>
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        />
+        <Script
+          id="google-analytics"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}');
+            `,
+          }}
+        />
+      </head>
       <body className={cn("font-sans antialiased bg-background text-foreground", inter.variable)}>
         <PageMetadata />
         <ErrorBoundary />
