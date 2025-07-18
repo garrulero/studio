@@ -15,6 +15,7 @@ const navItems = [
   { href: '/casos', label: 'Casos' },
   { href: '/faq', label: 'FAQ' },
   { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
+  { href: '/agendar', label: 'Agendar Cita' },
 ];
 
 export function Header() {
@@ -46,7 +47,8 @@ export function Header() {
             href={href}
             className={cn(
               "transition-colors hover:text-foreground flex items-center gap-2",
-              isActive ? "text-foreground" : "text-muted-foreground",
+              isActive ? "text-foreground font-semibold" : "text-muted-foreground",
+               href === '/agendar' && 'text-primary font-bold'
             )}
           >
             {linkContent}
@@ -61,6 +63,7 @@ export function Header() {
         className={cn(
           "transition-colors hover:text-foreground relative flex flex-col items-center gap-1 py-2",
           isActive ? "text-foreground" : "text-muted-foreground",
+          href === '/agendar' && 'text-primary font-semibold'
         )}
       >
         {linkContent}
@@ -79,13 +82,6 @@ export function Header() {
             <NavLink key={item.label} href={item.href} label={item.label} />
           ))}
         </nav>
-        <div className="hidden md:flex items-center gap-2">
-          <Button asChild>
-            <Link href="/agendar">
-              Agendar Cita
-            </Link>
-          </Button>
-        </div>
         <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
@@ -97,7 +93,7 @@ export function Header() {
             <SheetContent side="right" className="w-[240px] bg-background p-0">
                 <SheetHeader className="p-4 border-b">
                    <SheetTitle className="sr-only">Menú de Navegación</SheetTitle>
-                   <Link href="/" className="flex items-center">
+                   <Link href="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
                        <img src="/logos/solo logo sin fondo.svg" alt="GoiLab Logo" className="h-7 w-auto" />
                    </Link>
                 </SheetHeader>
@@ -107,13 +103,6 @@ export function Header() {
                     <NavLink key={item.label} href={item.href} label={item.label} isMobile={true} />
                   ))}
                 </nav>
-                <div className="mt-auto p-4 border-t">
-                  <SheetClose asChild>
-                    <Button asChild className="w-full">
-                      <Link href="/agendar">Agendar Cita</Link>
-                    </Button>
-                  </SheetClose>
-                </div>
               </div>
             </SheetContent>
           </Sheet>
