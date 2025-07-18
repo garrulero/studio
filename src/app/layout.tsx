@@ -113,7 +113,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // <-- REEMPLAZA ESTO CON TU ID
+  const GA_MEASUREMENT_ID = "G-W4H8VR2PEE"; // <-- REEMPLAZA ESTO CON TU ID
 
   return (
     <html lang="es" className="scroll-smooth">
