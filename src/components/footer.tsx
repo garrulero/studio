@@ -7,11 +7,8 @@ import { Button } from "./ui/button";
 export function Footer() {
 
   const handleTestError = () => {
-    // Usamos setTimeout para asegurar que el error se propague al manejador global
-    // en lugar de ser capturado por el ciclo de eventos de React de inmediato.
-    setTimeout(() => {
-      triggerTestError();
-    }, 0);
+    console.log("Triggering test error...");
+    triggerTestError();
   };
 
   return (
