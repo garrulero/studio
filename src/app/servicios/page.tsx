@@ -20,36 +20,42 @@ import { logError } from '@/lib/error-logger';
 const plans = [
   {
     name: 'Optimización Esencial',
-    price: 'Desde 840€',
+    price: 'Desde 1.200€',
     description: 'Para resolver un problema específico y obtener resultados rápidos.',
     features: [
-      'Análisis de un proceso clave',
-      'Implementación de una herramienta focalizada',
-      'Formación inicial para el equipo',
-      'Soporte por email',
+      'Análisis de 1 proceso clave',
+      'Implementación de herramienta focalizada',
+      'Hasta 2 integraciones simples (Excel, email, WhatsApp)',
+      'Formación inicial para el equipo (2 horas)',
+      'Soporte por email (respuesta 24h)',
+      '1 mes de garantía con ajustes incluidos',
     ],
     isPopular: false,
   },
   {
     name: 'Transformación Digital',
-    price: 'Desde 1.700€',
+    price: 'Desde 2.500€',
     description: 'Para digitalizar y conectar varios procesos manuales de tu operativa.',
     features: [
-      'Análisis de múltiples flujos de trabajo',
+      'Análisis de múltiples flujos de trabajo (2-4 procesos)',
       'Suite de herramientas conectadas',
-      'Workshop avanzado para el equipo',
-      'Soporte prioritario',
-      'Dashboard de seguimiento',
+      'IA básica incluida (chatbot, automatizaciones inteligentes)',
+      '3-6 integraciones (APIs, sistemas externos)',
+      'Workshop avanzado para el equipo (4 horas)',
+      'Soporte prioritario (respuesta 4h)',
+      'Dashboard de seguimiento con métricas clave',
+      '1 mes de garantía + 3 meses de seguimiento',
     ],
     isPopular: true,
   },
   {
     name: 'Solución Avanzada con IA',
-    price: 'Desde 3.600€',
+    price: 'Desde 5.500€',
     description: 'Para automatizar tareas complejas usando modelos de IA a medida.',
     features: [
       'Todo lo del plan Transformación Digital',
       'Desarrollo de agentes de IA personalizados',
+      'Machine learning y análisis predictivo',
       'Integración con sistemas existentes (ERP, CRM)',
       'Automatizaciones inteligentes de alto impacto',
       'Análisis predictivo y generación de informes',
@@ -61,17 +67,17 @@ const plans = [
 const supportTiers = [
     {
         name: "Básico",
-        price: "90€",
+        price: "115€",
         description: "Proyectos de optimización esencial.",
     },
     {
         name: "Pro",
-        price: "120€",
+        price: "150€",
         description: "Proyectos de transformación digital.",
     },
     {
         name: "Avanzado",
-        price: "180€",
+        price: "225€",
         description: "Proyectos con integraciones complejas.",
     }
 ];
