@@ -54,7 +54,7 @@ const faqSections = {
       question:
         '¿Esto no será muy caro para una pyme pequeña como la mía?',
       answer:
-        'Lo vemos mucho como una inversión: muchas veces, pequeñas mejoras suponen grandes ahorros de tiempo y dinero. Podemos empezar por algo sencillo y avanzar paso a paso.',
+        'Lo planteamos como una inversión: muchas veces, pequeñas mejoras suponen grandes ahorros de tiempo y dinero. Podemos empezar por algo sencillo y avanzar paso a paso.',
     },
     {
       question: '¿Trabajáis con negocios de mi sector?',
