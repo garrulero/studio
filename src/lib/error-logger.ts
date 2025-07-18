@@ -7,6 +7,7 @@ interface ErrorData {
   message: string;
   stack?: string;
   componentStack?: string;
+  trigger?: string;
   timestamp: string;
   url: string;
   userAgent: string;
@@ -14,12 +15,9 @@ interface ErrorData {
 }
 
 export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 'userAgent' | 'environment'>) {
-  if (process.env.NODE_ENV === 'development') {
-    console.info('Error logging is active, but not sending to webhook in dev mode. Error data:', errorData);
-    // Para no saturar el webhook en desarrollo, no enviamos el error.
-    // Si necesitas probar el webhook, puedes comentar la siguiente línea.
-    return;
-  }
+   if (process.env.NODE_ENV === 'development') {
+    console.info('Error logging is active. Data:', errorData);
+   }
 
   try {
     const fullErrorData: ErrorData = {
@@ -27,7 +25,7 @@ export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 
       timestamp: new Date().toISOString(),
       url: typeof window !== 'undefined' ? window.location.href : 'N/A',
       userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'N/A',
-      environment: process.env.NODE_ENV,
+      environment: process.env.NODE_ENV || 'development',
     };
     
     await fetch(WEBHOOK_URL, {

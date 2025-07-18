@@ -18,6 +18,7 @@ import { Bar, BarChart as RechartsBarChart, ResponsiveContainer, XAxis, YAxis, T
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import Link from 'next/link';
+import { logError } from '@/lib/error-logger';
 
 const areas = [
   { name: 'Todos', icon: LayoutGrid },
@@ -130,6 +131,12 @@ export default function CasosPage() {
           variant: "destructive",
           title: "Error",
           description: "No se pudo enviar tu mensaje. Por favor, inténtalo de nuevo o contacta a kaixo@goilab.com.",
+        });
+        const err = error instanceof Error ? error : new Error(String(error));
+        logError({
+          message: err.message,
+          stack: err.stack,
+          trigger: `Submit en formulario de contacto del caso: '${selectedCase?.titulo}'`,
         });
       }
     });

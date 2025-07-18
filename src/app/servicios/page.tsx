@@ -15,6 +15,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import Link from 'next/link';
+import { logError } from '@/lib/error-logger';
 
 const plans = [
   {
@@ -138,6 +139,12 @@ export default function ServiciosPage() {
           variant: "destructive",
           title: "Error",
           description: "No se pudo enviar tu solicitud. Por favor, inténtalo de nuevo o contacta a kaixo@goilab.com.",
+        });
+        const err = error instanceof Error ? error : new Error(String(error));
+        logError({
+          message: err.message,
+          stack: err.stack,
+          trigger: `Submit en formulario de solicitud de presupuesto para el plan: '${selectedPlan}'`,
         });
       }
     });

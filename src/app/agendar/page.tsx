@@ -12,6 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { useState, useTransition } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { logError } from '@/lib/error-logger';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -72,6 +73,12 @@ export default function AgendarPage() {
           variant: "destructive",
           title: "Error",
           description: "No se pudo enviar tu mensaje. Por favor, inténtalo de nuevo o contacta a kaixo@goilab.com.",
+        });
+        const err = error instanceof Error ? error : new Error(String(error));
+        logError({
+          message: err.message,
+          stack: err.stack,
+          trigger: 'Submit en formulario de Agendar Cita',
         });
       }
     });
