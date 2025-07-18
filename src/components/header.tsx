@@ -2,9 +2,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Button } from './ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from './ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetHeader, SheetTitle } from './ui/sheet';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -95,14 +95,15 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[240px] bg-background p-0">
-              <div className="flex flex-col h-full">
-                <div className="flex items-center p-4 border-b">
+                <SheetHeader className="p-4 border-b">
+                   <SheetTitle className="sr-only">Menú de Navegación</SheetTitle>
                    <SheetClose asChild>
                     <Link href="/" className="flex items-center">
                         <img src="/logos/solo logo sin fondo.svg" alt="GoiLab Logo" className="h-7 w-auto" />
                     </Link>
                    </SheetClose>
-                </div>
+                </SheetHeader>
+              <div className="flex flex-col h-full">
                 <nav className="flex flex-col gap-4 p-4 text-base">
                   {navItems.map((item) => (
                     <NavLink key={item.label} href={item.href} label={item.label} isMobile={true} />
