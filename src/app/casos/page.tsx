@@ -230,6 +230,7 @@ export default function CasosPage() {
                     </DialogClose>
                     <DialogHeader className="p-6 pb-0">
                         <DialogTitle className="text-2xl font-bold">{selectedCase.titulo}</DialogTitle>
+                        <DialogDescription>Detalles del caso de éxito, incluyendo el problema, la solución y las métricas de impacto.</DialogDescription>
                         <Badge variant="secondary" className="self-start mt-1">{selectedCase.area}</Badge>
                     </DialogHeader>
                     <div className="grid md:grid-cols-2 gap-6 p-6">
