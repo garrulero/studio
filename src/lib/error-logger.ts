@@ -1,7 +1,7 @@
 
 'use client';
 
-const WEBHOOK_URL = 'https://n8n.garrulero.xyz/webhook-test/recepcion-errores';
+const WEBHOOK_URL = 'https://n8n.garrulero.xyz/webhook/recibir-error';
 
 interface ErrorData {
   message: string;
@@ -14,7 +14,7 @@ interface ErrorData {
 
 export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 'userAgent'>) {
   if (process.env.NODE_ENV === 'development') {
-    console.info('Error logging is active. Sending test error to webhook:', errorData);
+    console.info('Error logging is active. Sending error to webhook:', errorData);
   }
 
   try {
