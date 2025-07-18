@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 import Link from 'next/link';
@@ -7,7 +8,7 @@ export function HeroSection() {
     <section className="relative w-full pb-20 lg:pb-32 bg-secondary">
       <div className="container mx-auto px-4 text-center">
         <div className="mb-4 flex justify-center">
-          <img src="/logos/logo completo.svg" alt="GoiLab Logo Completo" className="h-auto w-full max-w-sm text-foreground" />
+          <img src="/logos/logo completo sin fondo.svg" alt="GoiLab Logo Completo" className="h-auto w-full max-w-sm text-foreground" />
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground">
           Recupera el control y enfócate en crecer.

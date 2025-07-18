@@ -8,7 +8,6 @@ import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -64,7 +63,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         <Link href="/" className="flex items-center">
-          <img src="/logos/solo logo cuadrado.svg" alt="GoiLab Logo" className="h-8 w-auto" />
+          <img src="/logos/solo logo sin fondo.svg" alt="GoiLab Logo" className="h-8 w-auto" />
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navItems.map((item) => (
@@ -90,7 +89,7 @@ export function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
                    <Link href="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
-                      <img src="/logos/solo logo cuadrado.svg" alt="GoiLab Logo" className="h-7 w-auto" />
+                      <img src="/logos/solo logo sin fondo.svg" alt="GoiLab Logo" className="h-7 w-auto" />
                    </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                     <X className="h-6 w-6" />
