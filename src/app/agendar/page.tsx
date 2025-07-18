@@ -82,7 +82,7 @@ export default function AgendarPage() {
       <div className="container mx-auto px-4 flex justify-center">
         <Card className="max-w-xl w-full bg-card shadow-lg">
           <CardHeader className="text-center">
-            <img src="/logos/logo completo sin fondo.svg" alt="GoiLab Logo Completo" className="w-60 mx-auto mb-4" />
+            <img src="/logos/logo completo sin fondo.svg" alt="GoiLab Logo Completo" className="w-96 mx-auto mb-4" />
             <CardTitle className="text-3xl font-bold">Agenda tu cita</CardTitle>
             <CardDescription className="text-muted-foreground pt-2">
               Rellena el formulario y nos pondremos en contacto contigo para encontrar el mejor momento.
