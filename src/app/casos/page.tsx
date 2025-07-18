@@ -74,6 +74,7 @@ async function sendWebhook(data: z.infer<typeof formSchema>) {
 export default function CasosPage() {
   const [filter, setFilter] = useState('Todos');
   const [selectedCase, setSelectedCase] = useState<Case | null>(null);
+  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
@@ -90,9 +91,15 @@ export default function CasosPage() {
   const filteredCases = casesData.filter(
     (story) => filter === 'Todos' || story.area === filter
   );
-
+  
+  const handleOpenDetailsModal = (caseItem: Case) => {
+    setSelectedCase(caseItem);
+    setIsDetailsModalOpen(true);
+  };
+  
   const handleOpenContactModal = (caseItem: Case) => {
     setSelectedCase(caseItem);
+    setIsDetailsModalOpen(false); // Close details if open
     setIsContactModalOpen(true);
     form.reset({
         name: '',
@@ -100,14 +107,12 @@ export default function CasosPage() {
         message: `Hola, he visto el caso '${caseItem.titulo}' y me he sentido muy identificado. ¿Podemos hablar para ver si tenéis una solución parecida para mí?`
     });
   };
-  
-  const handleOpenDetailsModal = (caseItem: Case) => {
-    setSelectedCase(caseItem);
-  };
 
   const handleCloseModals = () => {
+    setIsDetailsModalOpen(false);
     setIsContactModalOpen(false);
-    setSelectedCase(null);
+    // It's better to delay setting selectedCase to null to avoid flicker during closing animation
+    setTimeout(() => setSelectedCase(null), 300);
   };
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -218,21 +223,21 @@ export default function CasosPage() {
       
       {selectedCase && (
         <>
-          <Dialog open={!!selectedCase && !isContactModalOpen} onOpenChange={(isOpen) => { if (!isOpen) handleCloseModals(); }}>
+          <Dialog open={isDetailsModalOpen} onOpenChange={(isOpen) => !isOpen && handleCloseModals()}>
             <DialogContent className="sm:max-w-4xl bg-card text-foreground p-0 overflow-hidden border-0">
                 <div className="absolute inset-0 animate-sky-ascent bg-[length:600px_600px] z-0"></div>
                  <div className="relative z-10 bg-card/80 backdrop-blur-sm h-full overflow-y-auto max-h-[90vh] rounded-lg">
+                    <DialogHeader className="p-6 pb-0">
+                        <DialogTitle className="text-2xl font-bold">{selectedCase.titulo}</DialogTitle>
+                        <DialogDescription>Detalles del caso de éxito, incluyendo el problema, la solución y las métricas de impacto.</DialogDescription>
+                        <Badge variant="secondary" className="self-start mt-1">{selectedCase.area}</Badge>
+                    </DialogHeader>
                     <DialogClose asChild>
                       <button className="absolute top-4 right-4 z-20 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
                         <X className="h-5 w-5" />
                         <span className="sr-only">Cerrar</span>
                       </button>
                     </DialogClose>
-                    <DialogHeader className="p-6 pb-0">
-                        <DialogTitle className="text-2xl font-bold">{selectedCase.titulo}</DialogTitle>
-                        <DialogDescription>Detalles del caso de éxito, incluyendo el problema, la solución y las métricas de impacto.</DialogDescription>
-                        <Badge variant="secondary" className="self-start mt-1">{selectedCase.area}</Badge>
-                    </DialogHeader>
                     <div className="grid md:grid-cols-2 gap-6 p-6">
                       <div className="space-y-6">
                         <div>
@@ -287,7 +292,7 @@ export default function CasosPage() {
             </DialogContent>
           </Dialog>
 
-          <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
+          <Dialog open={isContactModalOpen} onOpenChange={(isOpen) => !isOpen && handleCloseModals()}>
               <DialogContent className="sm:max-w-md bg-card">
                   <DialogHeader>
                       <DialogTitle>Hablemos de tu caso</DialogTitle>
