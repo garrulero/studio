@@ -1,5 +1,5 @@
 
-import { CheckCircle2, Handshake, Users, XCircle } from 'lucide-react';
+import { CheckCircle2, Handshake, Users, XCircle, Puzzle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const whatWeDo = [
@@ -11,9 +11,9 @@ const whatWeDo = [
 ];
 
 const whatWeDontDo = [
+  'Prometerte soluciones mágicas que lo arreglan todo sin esfuerzo.',
   'Utilizar jerga técnica para parecer más inteligentes.',
-  'Proponer sistemas innecesariamente complejos.',
-  'Atarte con contratos de permanencia o costes ocultos.',
+  'Proponer sistemas innecesariamente complejos o que no necesitas.',
   'Desaparecer después de la implementación.',
   'Ofrecer la misma solución a problemas diferentes.',
 ];
@@ -40,7 +40,7 @@ export default function SobreNosotrosPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16 text-center">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 text-center">
             <div className="flex flex-col items-center">
                 <div className="bg-primary/10 p-4 rounded-full mb-4">
                     <Handshake className="w-8 h-8 text-primary"/>
@@ -52,8 +52,15 @@ export default function SobreNosotrosPage() {
                 <div className="bg-primary/10 p-4 rounded-full mb-4">
                      <CheckCircle2 className="w-8 h-8 text-primary"/>
                 </div>
-                <h3 className="text-xl font-semibold">Soluciones Simples y Medibles</h3>
-                <p className="text-muted-foreground mt-2">Implementamos solo lo que necesitas, con un impacto que puedas ver y medir.</p>
+                <h3 className="text-xl font-semibold">Enfoque Práctico</h3>
+                <p className="text-muted-foreground mt-2">No es magia. Implementamos soluciones simples y medibles, pero requieren un proceso y adaptación.</p>
+            </div>
+             <div className="flex flex-col items-center">
+                <div className="bg-primary/10 p-4 rounded-full mb-4">
+                     <Puzzle className="w-8 h-8 text-primary"/>
+                </div>
+                <h3 className="text-xl font-semibold">Compromiso Mutuo</h3>
+                <p className="text-muted-foreground mt-2">Para lograr el objetivo, necesitaremos tu implicación y tiempo. Los mejores resultados se consiguen juntos.</p>
             </div>
             <div className="flex flex-col items-center">
                 <div className="bg-primary/10 p-4 rounded-full mb-4">
