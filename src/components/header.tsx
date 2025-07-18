@@ -97,11 +97,9 @@ export function Header() {
             <SheetContent side="right" className="w-[240px] bg-background p-0">
                 <SheetHeader className="p-4 border-b">
                    <SheetTitle className="sr-only">Menú de Navegación</SheetTitle>
-                   <SheetClose asChild>
-                    <Link href="/" className="flex items-center">
-                        <img src="/logos/solo logo sin fondo.svg" alt="GoiLab Logo" className="h-7 w-auto" />
-                    </Link>
-                   </SheetClose>
+                   <Link href="/" className="flex items-center">
+                       <img src="/logos/solo logo sin fondo.svg" alt="GoiLab Logo" className="h-7 w-auto" />
+                   </Link>
                 </SheetHeader>
               <div className="flex flex-col h-full">
                 <nav className="flex flex-col gap-4 p-4 text-base">
