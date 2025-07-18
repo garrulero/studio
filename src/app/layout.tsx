@@ -49,29 +49,46 @@ function ErrorBoundary() {
       originalConsoleError.apply(console, args);
 
       // Extrae la información relevante del error
-      const message = args.map(arg => {
-        if (arg instanceof Error) {
-          return arg.message;
-        }
-        try {
-          return JSON.stringify(arg);
-        } catch {
-          return String(arg);
-        }
-      }).join(' ');
+      let message = '';
+      let stack: string | undefined = undefined;
+      let componentStack: string | undefined = undefined;
 
-      const stack = args.find(arg => arg instanceof Error)?.stack;
+      const errorArg = args.find(arg => arg instanceof Error);
+      if (errorArg) {
+          message = errorArg.message;
+          stack = errorArg.stack;
+      } else {
+          message = args.map(arg => {
+              try {
+                return typeof arg === 'object' ? JSON.stringify(arg) : String(arg);
+              } catch {
+                return String(arg);
+              }
+            }).join(' ');
+      }
+
+      // Busca el componentStack, común en errores de React
+      const componentStackArg = args.find(arg => typeof arg === 'string' && arg.includes('The above error occurred in the <'));
+      if (componentStackArg) {
+          componentStack = componentStackArg;
+      }
 
       // Envía el error al servicio de logging
-      logError({ message, stack });
+      logError({ message, stack, componentStack });
     };
 
     const handleGlobalError = (event: ErrorEvent) => {
-      logError({ message: event.message, stack: event.error?.stack });
+      logError({ 
+        message: event.message, 
+        stack: event.error?.stack,
+      });
     };
     
     const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
-       logError({ message: 'Unhandled promise rejection', stack: event.reason?.stack ?? JSON.stringify(event.reason) });
+       logError({ 
+         message: 'Unhandled promise rejection: ' + (event.reason?.message || 'No message'), 
+         stack: event.reason?.stack ?? JSON.stringify(event.reason) 
+       });
     };
 
     window.addEventListener('error', handleGlobalError);
