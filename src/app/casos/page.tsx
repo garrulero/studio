@@ -232,12 +232,7 @@ export default function CasosPage() {
                         <DialogDescription>Detalles del caso de éxito, incluyendo el problema, la solución y las métricas de impacto.</DialogDescription>
                         <Badge variant="secondary" className="self-start mt-1">{selectedCase.area}</Badge>
                     </DialogHeader>
-                    <DialogClose asChild>
-                      <button className="absolute top-4 right-4 z-20 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-                        <X className="h-5 w-5" />
-                        <span className="sr-only">Cerrar</span>
-                      </button>
-                    </DialogClose>
+                    
                     <div className="grid md:grid-cols-2 gap-6 p-6">
                       <div className="space-y-6">
                         <div>
