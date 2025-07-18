@@ -28,8 +28,8 @@ export function AboutUsSection() {
                 <div className="bg-primary/10 p-4 rounded-full mb-4">
                      <CheckCircle2 className="w-8 h-8 text-primary"/>
                 </div>
-                <h3 className="text-xl font-semibold">Soluciones Simples</h3>
-                <p className="text-muted-foreground mt-2">Implementamos solo lo que necesitas, con un impacto que puedas ver y medir desde el primer día.</p>
+                <h3 className="text-xl font-semibold">Soluciones Prácticas</h3>
+                <p className="text-muted-foreground mt-2">No es magia, es método. Para lograr el objetivo, necesitaremos tu implicación y tiempo. Los mejores resultados se consiguen juntos.</p>
             </div>
             <div className="flex flex-col items-center">
                 <div className="bg-primary/10 p-4 rounded-full mb-4">
@@ -43,7 +43,7 @@ export function AboutUsSection() {
         <div className="text-center">
           <Button asChild size="lg">
             <Link href="/sobre-nosotros">
-              Conoce nuestra historia <ArrowRight className="ml-2 w-5 h-5" />
+              Conoce nuestra filosofía <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </Button>
         </div>
