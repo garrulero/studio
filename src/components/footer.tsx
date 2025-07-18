@@ -1,19 +1,17 @@
 
 'use client';
 
+import { triggerTestError } from "@/lib/error-logger";
 import { Button } from "./ui/button";
 
 export function Footer() {
 
   const handleTestError = () => {
-    try {
-      // Forzamos un error de referencia
-      // @ts-ignore
-      nonExistentFunction();
-    } catch (error: any) {
-      // El manejador global en layout.tsx se encargará de capturar este console.error
-      console.error('Error de prueba intencionado:', error);
-    }
+    // Usamos setTimeout para asegurar que el error se propague al manejador global
+    // en lugar de ser capturado por el ciclo de eventos de React de inmediato.
+    setTimeout(() => {
+      triggerTestError();
+    }, 0);
   };
 
   return (
