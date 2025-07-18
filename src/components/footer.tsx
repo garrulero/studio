@@ -2,8 +2,20 @@
 'use client';
 
 import { Button } from "./ui/button";
+import { logError } from "@/lib/error-logger";
 
 export function Footer() {
+
+  const handleTestError = () => {
+    try {
+      // Forzamos un error de referencia
+      // @ts-ignore
+      nonExistentFunction();
+    } catch (error: any) {
+      // El manejador global en layout.tsx se encargará de capturar este console.error
+      console.error('Error de prueba intencionado:', error);
+    }
+  };
 
   return (
     <footer className="w-full bg-secondary border-t">
@@ -12,6 +24,11 @@ export function Footer() {
         <p className="text-sm text-muted-foreground text-center">
           &copy; {new Date().getFullYear()} GoiLab. Todos los derechos reservados.
         </p>
+        {process.env.NODE_ENV === 'development' && (
+            <Button variant="destructive" size="sm" onClick={handleTestError} className="mt-4">
+                Probar envío de error
+            </Button>
+        )}
       </div>
     </footer>
   );
