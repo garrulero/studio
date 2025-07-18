@@ -10,9 +10,10 @@ interface ErrorData {
   timestamp: string;
   url: string;
   userAgent: string;
+  environment: 'production' | 'development';
 }
 
-export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 'userAgent'>) {
+export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 'userAgent' | 'environment'>) {
   if (process.env.NODE_ENV === 'development') {
     console.info('Error logging is active. Sending error to webhook:', errorData);
   }
@@ -23,17 +24,16 @@ export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 
       timestamp: new Date().toISOString(),
       url: typeof window !== 'undefined' ? window.location.href : 'N/A',
       userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'N/A',
+      environment: process.env.NODE_ENV,
     };
     
-    // Para asegurar la máxima compatibilidad con n8n, enviamos los datos como un formulario.
-    // Esto hace que los datos aparezcan directamente en `body` dentro del flujo de n8n.
     await fetch(WEBHOOK_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(fullErrorData),
-      keepalive: true,
+      keepalive: true, // keepalive ayuda a asegurar que la petición se envíe incluso si la página se está cerrando
     });
   } catch (e) {
     console.error('Failed to log error to webhook:', e);
