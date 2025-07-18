@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from './ui/sheet';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -24,19 +24,34 @@ export function Header() {
   const NavLink = ({ href, label, isMobile = false }: { href: string; label: string, isMobile?: boolean }) => {
     const isActive = pathname === href;
     
+    const linkContent = (
+      <>
+        {isActive && isMobile && <span className="h-2 w-2 rounded-full bg-primary"></span>}
+        <span>{label}</span>
+        {!isMobile && (
+          <span
+            className={cn(
+              "h-1 w-1 rounded-full bg-primary transition-opacity",
+              isActive ? "opacity-100" : "opacity-0"
+            )}
+          ></span>
+        )}
+      </>
+    );
+
     if (isMobile) {
       return (
-        <Link
-          href={href}
-          className={cn(
-            "transition-colors hover:text-foreground flex items-center gap-2",
-            isActive ? "text-foreground" : "text-muted-foreground",
-          )}
-          onClick={() => setIsMobileMenuOpen(false)}
-        >
-          {isActive && <span className="h-2 w-2 rounded-full bg-primary"></span>}
-          {label}
-        </Link>
+        <SheetClose asChild>
+          <Link
+            href={href}
+            className={cn(
+              "transition-colors hover:text-foreground flex items-center gap-2",
+              isActive ? "text-foreground" : "text-muted-foreground",
+            )}
+          >
+            {linkContent}
+          </Link>
+        </SheetClose>
       );
     }
     
@@ -48,13 +63,7 @@ export function Header() {
           isActive ? "text-foreground" : "text-muted-foreground",
         )}
       >
-        <span>{label}</span>
-        <span
-          className={cn(
-            "h-1 w-1 rounded-full bg-primary transition-opacity",
-            isActive ? "opacity-100" : "opacity-0"
-          )}
-        ></span>
+        {linkContent}
       </Link>
     );
   };
@@ -85,16 +94,14 @@ export function Header() {
                 <span className="sr-only">Abrir menú</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[240px] bg-background">
+            <SheetContent side="right" className="w-[240px] bg-background p-0">
               <div className="flex flex-col h-full">
-                <div className="flex justify-between items-center p-4 border-b">
-                   <Link href="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
-                      <img src="/logos/solo logo sin fondo.svg" alt="GoiLab Logo" className="h-7 w-auto" />
-                   </Link>
-                  <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
-                    <X className="h-6 w-6" />
-                    <span className="sr-only">Cerrar menú</span>
-                  </Button>
+                <div className="flex items-center p-4 border-b">
+                   <SheetClose asChild>
+                    <Link href="/" className="flex items-center">
+                        <img src="/logos/solo logo sin fondo.svg" alt="GoiLab Logo" className="h-7 w-auto" />
+                    </Link>
+                   </SheetClose>
                 </div>
                 <nav className="flex flex-col gap-4 p-4 text-base">
                   {navItems.map((item) => (
@@ -102,9 +109,11 @@ export function Header() {
                   ))}
                 </nav>
                 <div className="mt-auto p-4 border-t">
-                  <Button asChild className="w-full">
-                    <Link href="/agendar" onClick={() => setIsMobileMenuOpen(false)}>Agendar Cita</Link>
-                  </Button>
+                  <SheetClose asChild>
+                    <Button asChild className="w-full">
+                      <Link href="/agendar">Agendar Cita</Link>
+                    </Button>
+                  </SheetClose>
                 </div>
               </div>
             </SheetContent>
