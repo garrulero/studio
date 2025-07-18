@@ -2,7 +2,6 @@
 'use client';
 
 import { Button } from "./ui/button";
-import { logError } from "@/lib/error-logger";
 
 export function Footer() {
 
