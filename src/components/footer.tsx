@@ -1,15 +1,7 @@
 
 'use client';
 
-import { triggerTestError } from "@/lib/error-logger";
-import { Button } from "./ui/button";
-
 export function Footer() {
-
-  const handleTestError = () => {
-    console.log("Triggering test error...");
-    triggerTestError();
-  };
 
   return (
     <footer className="w-full bg-secondary border-t">
@@ -18,11 +10,6 @@ export function Footer() {
         <p className="text-sm text-muted-foreground text-center">
           &copy; {new Date().getFullYear()} GoiLab. Todos los derechos reservados.
         </p>
-        {process.env.NODE_ENV === 'development' && (
-            <Button variant="destructive" size="sm" onClick={handleTestError} className="mt-4">
-                Probar envío de error
-            </Button>
-        )}
       </div>
     </footer>
   );

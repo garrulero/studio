@@ -15,7 +15,10 @@ interface ErrorData {
 
 export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 'userAgent' | 'environment'>) {
   if (process.env.NODE_ENV === 'development') {
-    console.info('Error logging is active. Sending error to webhook:', errorData);
+    console.info('Error logging is active, but not sending to webhook in dev mode. Error data:', errorData);
+    // Para no saturar el webhook en desarrollo, no enviamos el error.
+    // Si necesitas probar el webhook, puedes comentar la siguiente línea.
+    return;
   }
 
   try {
@@ -33,18 +36,9 @@ export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(fullErrorData),
-      keepalive: true, // keepalive ayuda a asegurar que la petición se envíe incluso si la página se está cerrando
+      keepalive: true,
     });
   } catch (e) {
     console.error('Failed to log error to webhook:', e);
   }
-}
-
-// Función específica para probar el sistema de logging de errores.
-export function triggerTestError() {
-    logError({
-        message: 'This is a test error from the GoiLab website.',
-        stack: new Error('Test Error Stack').stack,
-        componentStack: 'Triggered from test button in Footer.'
-    });
 }
