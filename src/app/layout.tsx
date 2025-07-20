@@ -118,6 +118,7 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
+        <link rel="icon" href="/logos/solo logo sin fondo.svg" type="image/svg+xml" />
         <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
