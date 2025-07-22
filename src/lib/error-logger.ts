@@ -1,7 +1,7 @@
 
 'use client';
 
-const WEBHOOK_URL = 'http://n8n.garrulero.xyz/webhook/recibir-error-web';
+const WEBHOOK_URL = 'https://n8n.garrulero.xyz/webhook/recibir-error-web';
 
 interface ErrorData {
   message: string;
