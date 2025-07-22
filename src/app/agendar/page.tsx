@@ -84,27 +84,6 @@ export default function AgendarPage() {
     });
   }
 
-  const handleTestError = async () => {
-    try {
-      await logError({
-        message: 'Este es un error de prueba.',
-        stack: 'Stack trace de prueba\nat functionX (file.js:10:5)\nat functionY (file.js:20:10)',
-        trigger: 'Botón de prueba de error',
-        componentStack: 'in MyComponent (created by App)\nin App (at index.js:8)'
-      });
-      toast({
-        title: "¡Error de prueba enviado!",
-        description: "Revisa tu webhook para confirmar la recepción.",
-      });
-    } catch (error) {
-        toast({
-          variant: "destructive",
-          title: "Error",
-          description: "No se pudo enviar el error de prueba.",
-        });
-    }
-  }
-
   return (
     <section className="w-full py-16 lg:py-24 bg-secondary/50">
       <div className="container mx-auto px-4 flex justify-center">
@@ -158,11 +137,7 @@ export default function AgendarPage() {
                     </FormItem>
                   )}
                 />
-                <div className="flex justify-between items-center">
-                    <Button type="button" variant="outline" size="sm" onClick={handleTestError}>
-                        <Bug className="mr-2 h-4 w-4" />
-                        Probar Webhook
-                    </Button>
+                <div className="flex justify-end items-center">
                     <Button type="submit" size="lg" disabled={isPending}>
                         {isPending ? (
                             <>
