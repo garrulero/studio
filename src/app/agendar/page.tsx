@@ -84,6 +84,24 @@ export default function AgendarPage() {
     });
   }
 
+  const handleTestError = () => {
+    try {
+      // Simulamos un error
+      throw new Error('Este es un error de prueba para verificar el webhook.');
+    } catch (error) {
+      toast({
+        title: "Enviando error de prueba...",
+        description: "Se ha enviado un error de prueba al webhook.",
+      });
+      const err = error instanceof Error ? error : new Error(String(error));
+      logError({
+        message: err.message,
+        stack: err.stack,
+        trigger: 'Botón de prueba de errores',
+      });
+    }
+  };
+
   return (
     <section className="w-full py-16 lg:py-24 bg-secondary/50">
       <div className="container mx-auto px-4 flex justify-center">
@@ -137,7 +155,11 @@ export default function AgendarPage() {
                     </FormItem>
                   )}
                 />
-                <div className="flex justify-end items-center">
+                <div className="flex justify-between items-center">
+                    <Button type="button" variant="outline" size="sm" onClick={handleTestError}>
+                      <Bug className="mr-2 h-4 w-4" />
+                      Probar Webhook
+                    </Button>
                     <Button type="submit" size="lg" disabled={isPending}>
                         {isPending ? (
                             <>
