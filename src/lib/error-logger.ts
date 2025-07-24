@@ -12,11 +12,12 @@ interface ErrorData {
   url: string;
   userAgent: string;
   environment: 'production' | 'development';
+  source: string; // Nuevo campo para identificar el origen
 }
 
-export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 'userAgent' | 'environment'>) {
+export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 'userAgent' | 'environment' | 'source'>) {
    if (process.env.NODE_ENV === 'development') {
-    console.info('Error logging is active. Data:', errorData);
+    console.info('Error logging is active. Data:', { ...errorData, source: 'GoiLab Web' });
    }
 
   try {
@@ -26,6 +27,7 @@ export async function logError(errorData: Omit<ErrorData, 'timestamp' | 'url' | 
       url: typeof window !== 'undefined' ? window.location.href : 'N/A',
       userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'N/A',
       environment: process.env.NODE_ENV || 'development',
+      source: 'GoiLab Web', // Valor fijo para esta aplicación
     };
     
     await fetch(WEBHOOK_URL, {
