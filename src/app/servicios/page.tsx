@@ -265,7 +265,9 @@ export default function ServiciosPage() {
       <section id="tarifas" className="w-full py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Planes orientativos</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+              Planes orientativos, precios bajo presupuesto
+            </h2>
             <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
              A continuación te mostramos algunos ejemplos de punto de partida, pero recuerda: cada camino es único y ajustado a tu caso.
             </p>
