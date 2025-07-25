@@ -198,7 +198,7 @@ export default function ServiciosPage() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-1">1. Diagnóstico sin compromiso</h3>
-                <p className="text-sm text-muted-foreground">Analizamos tu situación actual con una encuesta guiada. Detectamos cuellos de botella, oportunidades y prioridades.</p>
+                <p className="text-sm text-muted-foreground">Analizamos tu situación actual. Detectamos cuellos de botella, oportunidades y prioridades.</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
