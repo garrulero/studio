@@ -216,11 +216,11 @@ export default function CasosPage() {
                 <Lightbulb className="w-12 h-12 text-primary mx-auto mb-4"/>
                 <h2 className="text-3xl font-bold mb-4">¿Te suena alguno de estos problemas?</h2>
                 <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                    La mayoría de los negocios sufren los mismos cuellos de botella. Rellena nuestro diagnóstico y te contaremos sin compromiso cómo lo resolveríamos en tu caso particular.
+                    La mayoría de los negocios sufren los mismos cuellos de botella. Agenda una cita y te contaremos sin compromiso cómo lo resolveríamos en tu caso particular.
                 </p>
                 <Button size="lg" asChild>
                     <Link href="/agendar">
-                        Hacer diagnóstico gratuito <ArrowRight className="ml-2 w-5 h-5"/>
+                        Agendar cita gratuita <ArrowRight className="ml-2 w-5 h-5"/>
                     </Link>
                 </Button>
             </Card>
