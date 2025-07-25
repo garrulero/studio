@@ -154,10 +154,9 @@ export default function CasosPage() {
       <section id="casos-de-exito" className="w-full py-16 lg:py-24 bg-secondary/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Casos reales, soluciones aplicables</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Ejemplos de soluciones aplicables</h1>
             <p className="text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
-              No son grandes empresas. Son negocios que, como el tuyo, tenían un problema.
-              Esto es lo que haríamos si fueras tú.
+              Estos no son casos de clientes reales, sino ejemplos inspirados en problemas comunes de pymes como la tuya. Así es como abordaríamos estos retos.
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-2 mb-10">
