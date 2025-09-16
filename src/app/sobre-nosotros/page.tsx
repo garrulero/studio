@@ -1,6 +1,7 @@
 
-import { CheckCircle2, Handshake, Users, XCircle, Puzzle } from 'lucide-react';
+import { CheckCircle2, Handshake, Users, XCircle, Puzzle, Linkedin } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Link from 'next/link';
 
 const whatWeDo = [
   'Nos sumergimos en tu negocio para entender tus verdaderos retos.',
@@ -31,6 +32,12 @@ export default function SobreNosotrosPage() {
             <p className="mt-4 text-muted-foreground">
                 Conozco de primera mano el caos de los papeles, los emails interminables y la sensación de no tener control. Por eso, mi enfoque es darte soluciones prácticas y reales, sin humo ni tecnicismos innecesarios. Quiero que sientas que GoiLab es un compañero más en tu equipo, alguien que entiende tus problemas y te da las herramientas para resolverlos.
             </p>
+            <div className="mt-6 flex justify-center">
+              <Link href="https://www.linkedin.com/company/goilab/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                <Linkedin className="h-6 w-6" />
+                <span className="sr-only">LinkedIn</span>
+              </Link>
+            </div>
         </div>
 
         <div className="text-center mb-12">

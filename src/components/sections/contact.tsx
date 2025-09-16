@@ -1,7 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Mail, ArrowRight } from 'lucide-react';
+import { Mail, ArrowRight, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 
 export function ContactSection() {
@@ -27,6 +27,15 @@ export function ContactSection() {
                     <div>
                       <h4 className="font-semibold">Email</h4>
                       <a href="mailto:kaixo@goilab.com" className="text-muted-foreground hover:text-primary">kaixo@goilab.com</a>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                       <Linkedin className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">LinkedIn</h4>
+                      <a href="https://www.linkedin.com/company/goilab/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">Sigue nuestra actividad</a>
                     </div>
                   </div>
                 </div>
