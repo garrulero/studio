@@ -13,6 +13,7 @@ const navItems = [
   { href: '/', label: 'Inicio' },
   { href: '/servicios', label: 'Servicios' },
   { href: '/casos', label: 'Casos' },
+  { href: '/demos', label: 'Demos' },
   { href: '/faq', label: 'FAQ' },
   { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
   { href: '/agendar', label: 'Agendar Cita' },
