@@ -1,0 +1,17 @@
+
+[
+  {
+    "titulo": "Gespe-IA: Asistente de Gestión de Pedidos",
+    "descripcion": "Una demo interactiva que muestra cómo un asistente de IA puede optimizar el proceso de pedidos, desde la recepción hasta el seguimiento, reduciendo errores y ahorrando tiempo.",
+    "etiquetas": ["IA", "Automatización", "Gestión de Pedidos", "Eficiencia"],
+    "url": "https://gespeia.vercel.app",
+    "icono": "Bot"
+  },
+  {
+    "titulo": "Próximamente: Optimizador de Rutas",
+    "descripcion": "Estamos desarrollando una herramienta para calcular las rutas más eficientes para equipos de reparto o servicios técnicos, ahorrando combustible y tiempo.",
+    "etiquetas": ["Logística", "Optimización", "Transporte", "IA"],
+    "url": "#",
+    "icono": "Truck"
+  }
+]
